@@ -8,7 +8,7 @@ The Address Verification Report allows Loqate users to generate a visual report 
 
 | Files                             | Definitions                                                  |
 | :-------------------------------- | :----------------------------------------------------------- |
-| Sample_VA_Reports_For_Loqate.json | This is the VA export from Viya 4.  The Report has the following tabs:<br>Home<br>Overview<br>Quality<br>Verification<br>Geocoding<>Dev/test |
+| Sample_VA_Reports_For_Loqate.json | This is the VA export from Viya 4.  The Report has the following tabs:<br>Home<br>Overview<br>Quality<br>Verification<br>Geocoding<br>Dev/test |
 | US_Loqate_for_VA_Report.ddf       | This is a DM Studio 2.10 job that can be used to create the input data for the US version of the Loqate VA Report |
 | INTL_Loqate_for_VA_Report.ddf     | This is a DM Studio 2.10 job that can be used to create the input data for the International version of the Loqate Report |
 | US_Loqate_for_VA_Report.flw       | This is a SAS Studio flow that can be used to create the input data for the US version of the Loqate VA Report |
