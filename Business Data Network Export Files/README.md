@@ -20,15 +20,9 @@ Out of the box the BDN does not have any data in the repository.  The following 
 
 2. This screenshot is drilling into the ABCP tag and showing the description, requirements, along with Detail information and tags.
 
-    ![](images\BDN2.jpg)
+    ![](images\bdn2.jpg)
     
-3. After a successful import of the JSON file, users should be able to open SAS VA and from SAS Content see the Sample_VA_Reports_For_Loqate report.
 
-    ![](C:\Users\mischa\OneDrive - SAS\Desktop\GitHub - Loqate Report\Step3.png)
-    
-4. Once the report has successfully loaded the Overview of the tab will look like this.
-
-    ![](C:\Users\mischa\OneDrive - SAS\Desktop\GitHub - Loqate Report\Step4 - Sample Report.png)
 
 
 
