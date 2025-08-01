@@ -16,11 +16,11 @@ Out of the box the BDN does not have any data in the repository.  The following 
 ## BDN Screenshots
 
 1. Here is a screenshot at the tag level showing a listing of terms associated with Basel3.
-    ![](images\BDN1.jpg)
+    ![](images/BDN1.jpg)
 
 2. This screenshot is drilling into the ABCP tag and showing the description, requirements, along with Detail information and tags.
 
-    ![](images\bdn2.jpg)
+    ![](images/bdn2.jpg)
     
 
 
