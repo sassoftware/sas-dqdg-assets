@@ -21,21 +21,21 @@ The Address Verification Report allows Loqate users to generate a visual report 
 ## Installation Instructions
 
 1. From SAS Environment Manager, the data files need to be loaded into CAS In-Memory first.  Load them into a CASLIB that VA Report Designers/viewer can access.  NOTE:  if you want to show both the US and INTL Loqate reports, you will need to load all 4 data files.
-    ![](images/Step2.png)
+    ![](Images/Step2.png)
 
 2. From SAS Environment Manager, the Sample_VA_Reports_For_Loqate.json should be imported to SAS Content > Public > Sample_VA_Reports_For_Loqate.  NOTE the person importing the JSON file will need to have create/write/update to the SAS Content > Public folder.
 
-    ![](images/Step1.png)
+    ![](Images/Step1.png)
     
 
 3. After a successful import of the JSON file, users should be able to open SAS VA and from SAS Content see the Sample_VA_Reports_For_Loqate report.
 
-    ![](images/Step3.png)
+    ![](Images/Step3.png)
     
 
 4. Once the report has successfully loaded the Overview of the tab will look like this.
 
-    ![](images/Step4.png)
+    ![](Images/Step4.png)
 
 
 
