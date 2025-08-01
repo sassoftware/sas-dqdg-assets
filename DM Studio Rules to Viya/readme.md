@@ -5,7 +5,7 @@ This demo shows how Data Quality Business Rules can be exported from DM Studio a
 In DM Studio, import the job Extract Rules from Task to Proc EEL.dpf.
 The job will need to be saved to a folder which is linked to the repository containing your rules.
 
-![Extract Rules from Task to Proc EEL](https://gitlab.sas.com/dmpm/sas-dqdg-assets/-/raw/main/DM%20Studio%20Rules%20to%20Viya/images/EXtract_Rules_from_DM_Repo.png)
+![Extract Rules from Task to Proc EEL](images/EXtract_Rules_from_DM_Repo.png)
 
 The Filter tasks by Description node will need to be changed to select the rules you need... I have a simple "starts with" rule. 
 
