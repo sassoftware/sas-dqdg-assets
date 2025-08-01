@@ -1,0 +1,1152 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<datafluxdocument class="architectjob" version="1.2">
+
+  <jobid id="66DA0375F45A6E39"/>
+
+  <propset>
+    <prop name="_DESCRIPTION">
+      <value dtype="String"></value>
+    </prop>
+    <prop name="_NOTES">
+      <value dtype="String"></value>
+    </prop>
+    <prop name="AutoLayoutRequired"/>
+    <prop name="DefaultLayout">
+      <value dtype="String">LeftToRight</value>
+    </prop>
+    <prop name="GroupNodes"/>
+    <prop name="name">
+      <value dtype="String">International Loqate for VA Report v2</value>
+    </prop>
+    <prop name="ShowGridLines">
+      <value dtype="String">True</value>
+    </prop>
+    <prop name="SnapToGrid">
+      <value dtype="String">False</value>
+    </prop>
+    <prop name="STICKYNOTES"/>
+    <prop name="ZoomLevel">
+      <value dtype="String">26</value>
+    </prop>
+  </propset>
+
+  <paramset>
+    <param name="WFINPUTS" type="matrix"/>
+    <param name="WFOUTPUTS" type="matrix"/>
+  </paramset>
+
+  <page>
+    <propset>
+      <prop name="serial_targets"/>
+    </propset>
+    <step id="EXPRESSION" iid="7">
+      <propset>
+        <prop name="color"/>
+        <prop name="default_target"/>
+        <prop name="description">
+          <value dtype="String">AccuracyCode Breakdown</value>
+        </prop>
+        <prop name="descriptive_text">
+          <value dtype="String">Creates expressions using the Expression Engine Language (EEL) scripting language</value>
+        </prop>
+        <prop name="node_position">
+          <value dtype="String">316</value>
+          <value dtype="String">14</value>
+        </prop>
+        <prop name="notes"/>
+        <prop name="owning_group_id"/>
+        <prop name="serial_target_position"/>
+      </propset>
+      <paramset>
+        <param dtype="Unknown" isnull="true" name="INIT_EXPRESSION" type="single"></param>
+        <param dtype="String" name="EXEC_EXPRESSION" type="single">string AVC_Verification_Status&#xD;
+// Loqate Verification Status&#xD;
+// Options are:&#xD;
+// V - Verified NOTE:  A complete match was made between the input and a reference data&#xD;
+// P - Partially Verified NOTE:  A partial match was mad between the input and reference data&#xD;
+// U - Unverified NOTE:  Unable to verify.  Output and input will match&#xD;
+// A - Ambiguous NOTE:  More than one close referenc data match&#xD;
+// C - Conflict NOTE:  More than one close match with conflicting values&#xD;
+// R - Reverted NOTE: Could not be verified.  Output and input will match&#xD;
+&#xD;
+string AVC_Post_Verify_Match_Level&#xD;
+// Loqate Post-processed verification match level&#xD;
+// 5 - Delivery Point&#xD;
+// 4 - Premise &#xD;
+// 3 - Thoroughfare&#xD;
+// 2 - Locality&#xD;
+// 1 - Administrative Area&#xD;
+// 0 - None&#xD;
+&#xD;
+string AVC_Verification_Status_Complete&#xD;
+// combination of the AVC_Verification_Status and AVC_Post_Verify_Match_Level  &#xD;
+&#xD;
+&#xD;
+string AVC_Pre_Verify_Match_Level&#xD;
+// Loqate Pre-processed verification match level&#xD;
+// 5 - Delivery Point&#xD;
+// 4 - Premise &#xD;
+// 3 - Thoroughfare&#xD;
+// 2 - Locality&#xD;
+// 1 - Administrative Area&#xD;
+// 0 - None&#xD;
+&#xD;
+string AVC_Parsing_Status&#xD;
+// Loqate parsing status&#xD;
+// I - Identified and Parsed&#xD;
+// U - Unable to Parse&#xD;
+&#xD;
+string AVC_Lexicon_Match_Level&#xD;
+// Loqate lexicon identification match level&#xD;
+// 5 - Delivery Point&#xD;
+// 4 - Premise &#xD;
+// 3 - Thoroughfare&#xD;
+// 2 - Locality&#xD;
+// 1 - Administrative Area&#xD;
+// 0 - None&#xD;
+&#xD;
+string AVC_Context_Match_Level&#xD;
+// Loqate context identification match level&#xD;
+// 5 - Delivery Point&#xD;
+// 4 - Premise &#xD;
+// 3 - Thoroughfare&#xD;
+// 2 - Locality&#xD;
+// 1 - Administrative Area&#xD;
+// 0 - None&#xD;
+&#xD;
+string AVC_Postcode_Status&#xD;
+// Loqate postcode status&#xD;
+// P8 - PostalCodePrimary and PostalCodeSecondary verified&#xD;
+// P7 - PostalCodePrimary verified, PostalCodeSecondary added or changed&#xD;
+// P6 - PostalCodePrimary verified&#xD;
+// P5 - PostalCodePrimary verified with small change&#xD;
+// P4 - PostalCodePrimary verified with large change&#xD;
+// P3 - PostalCodePrimary added&#xD;
+// P2 - PostalCodePrimary identified by lexicon&#xD;
+// P1 - PostalCodePrimary identified by context&#xD;
+// P0 - PostalCodePrimary empty&#xD;
+&#xD;
+string AVC_Matchscore&#xD;
+// Loqate matchscore&#xD;
+&#xD;
+AVC_Verification_Status = mid(`AVC`,1,1)&#xD;
+AVC_Post_Verify_Match_Level = mid(`AVC`,2,1)&#xD;
+AVC_Verification_Status_Complete = mid(`AVC`,1,2)&#xD;
+AVC_Pre_Verify_Match_Level = mid(`AVC`,3,1)&#xD;
+AVC_Parsing_Status = mid(`AVC`,5,1)&#xD;
+AVC_Lexicon_Match_Level = mid(`AVC`,6,1)&#xD;
+AVC_Context_Match_Level = mid(`AVC`,7,1)&#xD;
+AVC_Postcode_Status = mid(`AVC`,9,2)&#xD;
+AVC_Matchscore = mid(`AVC`,12,3)</param>
+        <param dtype="Unknown" isnull="true" name="TERM_EXPRESSION" type="single"></param>
+        <param dtype="Unknown" isnull="true" name="GENERATE_ROWS" type="single"></param>
+        <param dtype="Unknown" isnull="true" name="RETVAL_FIELDNAME" type="single"></param>
+        <param dtype="Unknown" isnull="true" name="PUSHROW_FIELDNAME" type="single"></param>
+        <param name="GROUP_FIELDS" type="matrix"/>
+        <param dtype="Unknown" isnull="true" name="GROUP_INIT_EXPRESSION" type="single"></param>
+        <param dtype="Unknown" isnull="true" name="GROUP_TERM_EXPRESSION" type="single"></param>
+        <param dtype="Boolean" name="ADD_LAST_VAL_FIELDS" type="single">false</param>
+      </paramset>
+    </step>
+    <step id="EXPRESSION" iid="8">
+      <propset>
+        <prop name="color"/>
+        <prop name="default_target"/>
+        <prop name="description">
+          <value dtype="String">Expression 1</value>
+        </prop>
+        <prop name="descriptive_text">
+          <value dtype="String">Creates expressions using the Expression Engine Language (EEL) scripting language</value>
+        </prop>
+        <prop name="node_position">
+          <value dtype="String">454</value>
+          <value dtype="String">14</value>
+        </prop>
+        <prop name="notes"/>
+        <prop name="owning_group_id"/>
+        <prop name="serial_target_position"/>
+      </propset>
+      <paramset>
+        <param dtype="Unknown" isnull="true" name="INIT_EXPRESSION" type="single"></param>
+        <param dtype="String" name="EXEC_EXPRESSION" type="single">		string SRC_SYS_ID&#xD;
+        integer SRC_SYS_REC_ID&#xD;
+		date EXEC_DATE&#xD;
+		string JOB_RUN_DATE&#xD;
+        &#xD;
+		real Latitude1&#xD;
+		real Longitude1&#xD;
+		integer MatchScore1&#xD;
+		real Cumulative_Uplift&#xD;
+		&#xD;
+		string GEOCODING_STATUS&#xD;
+		// Loqate Geocoding Status&#xD;
+		// Options are:&#xD;
+		// P - Point A single geocode was found matching the input address&#xD;
+		// I - Interpolated A geocode was able to be interpolated from the input addresses location in a range&#xD;
+		// A - Average Multiple candidate geocodes were found to match the input address, and an average of these was returned&#xD;
+		// U - Unable to geocode A geocode was not able to be generated for the input address&#xD;
+        &#xD;
+		string GEOCODING_LEVEL&#xD;
+		// Loqate Verification Status&#xD;
+		// Options are:&#xD;
+		// 4 - Premise (Premise or Building)&#xD;
+		// 3 - Thoroughfare&#xD;
+		// 2 - Locality&#xD;
+		// 1 - AdministrativeArea&#xD;
+		// 0 - None&#xD;
+&#xD;
+&#xD;
+  		Latitude1 = toreal (`Latitude`)&#xD;
+		Longitude1 = toreal (`Longitude`)&#xD;
+		MatchScore1 = tointeger(`AVC_MatchScore`)&#xD;
+		SRC_SYS_ID = 'SAMPLE_CLEA_5PAYS'&#xD;
+        SRC_SYS_REC_ID = tointeger(`CUST_LE_KEY`)&#xD;
+		EXEC_DATE = today()&#xD;
+		JOB_RUN_DATE = formatdate(EXEC_DATE, "DD/MM/YYYY")&#xD;
+        GEOCODING_STATUS = mid(`GeoAccuracy`,1,1)&#xD;
+        GEOCODING_LEVEL = mid(`GeoAccuracy`,2,1)&#xD;
+		Cumulative_Uplift = AVC_Post_Verify_Match_Level - AVC_Pre_Verify_Match_Level</param>
+        <param dtype="Unknown" isnull="true" name="TERM_EXPRESSION" type="single"></param>
+        <param dtype="Unknown" isnull="true" name="GENERATE_ROWS" type="single"></param>
+        <param dtype="Unknown" isnull="true" name="RETVAL_FIELDNAME" type="single"></param>
+        <param dtype="Unknown" isnull="true" name="PUSHROW_FIELDNAME" type="single"></param>
+        <param name="GROUP_FIELDS" type="matrix"/>
+        <param dtype="Unknown" isnull="true" name="GROUP_INIT_EXPRESSION" type="single"></param>
+        <param dtype="Unknown" isnull="true" name="GROUP_TERM_EXPRESSION" type="single"></param>
+        <param dtype="Boolean" name="ADD_LAST_VAL_FIELDS" type="single">false</param>
+      </paramset>
+    </step>
+    <step id="DEST_ODBC" iid="9">
+      <propset>
+        <prop name="color"/>
+        <prop name="default_target"/>
+        <prop name="description">
+          <value dtype="String">Data Target (Insert) 1</value>
+        </prop>
+        <prop name="descriptive_text">
+          <value dtype="String">Outputs data in a variety of data formats to a new data source (leaving your existing data as-is) or overwriting your existing data</value>
+        </prop>
+        <prop name="node_position">
+          <value dtype="String">720</value>
+          <value dtype="String">18</value>
+        </prop>
+        <prop name="notes">
+          <value dtype="String"></value>
+        </prop>
+        <prop name="owning_group_id"/>
+        <prop name="serial_target_position"/>
+      </propset>
+      <paramset>
+        <param dtype="String" name="DSN" type="single">DSN=SAS data;DFXTYPE=TKTS</param>
+        <param dtype="String" name="SCHEMA_NAME" type="single">SAS</param>
+        <param dtype="String" name="TABLE_NAME" type="single">INTL_LOQATE_SAMPLE_DATA</param>
+        <param dtype="String" name="CATALOG_NAME" type="single">BASE</param>
+        <param name="FIELDS" type="matrix">
+          <row>
+            <col dtype="String" name="NAME">CUST_LE_KEY</col>
+            <col dtype="String" name="OUTPUT_NAME">CUST_LE_KEY</col>
+            <col dtype="String" name="DEF_OVERRIDE"></col>
+            <col dtype="Unknown" isnull="true" name="SQL_OVERRIDE"></col>
+          </row>
+          <row>
+            <col dtype="String" name="NAME">Locality</col>
+            <col dtype="String" name="OUTPUT_NAME">Locality</col>
+            <col dtype="String" name="DEF_OVERRIDE"></col>
+            <col dtype="Unknown" isnull="true" name="SQL_OVERRIDE"></col>
+          </row>
+          <row>
+            <col dtype="String" name="NAME">DeliveryAddress</col>
+            <col dtype="String" name="OUTPUT_NAME">DeliveryAddress</col>
+            <col dtype="String" name="DEF_OVERRIDE"></col>
+            <col dtype="Unknown" isnull="true" name="SQL_OVERRIDE"></col>
+          </row>
+          <row>
+            <col dtype="String" name="NAME">DeliveryAddress1</col>
+            <col dtype="String" name="OUTPUT_NAME">DeliveryAddress1</col>
+            <col dtype="String" name="DEF_OVERRIDE"></col>
+            <col dtype="Unknown" isnull="true" name="SQL_OVERRIDE"></col>
+          </row>
+          <row>
+            <col dtype="String" name="NAME">DeliveryAddress2</col>
+            <col dtype="String" name="OUTPUT_NAME">DeliveryAddress2</col>
+            <col dtype="String" name="DEF_OVERRIDE"></col>
+            <col dtype="Unknown" isnull="true" name="SQL_OVERRIDE"></col>
+          </row>
+          <row>
+            <col dtype="String" name="NAME">DeliveryAddress3</col>
+            <col dtype="String" name="OUTPUT_NAME">DeliveryAddress3</col>
+            <col dtype="String" name="DEF_OVERRIDE"></col>
+            <col dtype="Unknown" isnull="true" name="SQL_OVERRIDE"></col>
+          </row>
+          <row>
+            <col dtype="String" name="NAME">CountryName</col>
+            <col dtype="String" name="OUTPUT_NAME">CountryName</col>
+            <col dtype="String" name="DEF_OVERRIDE"></col>
+            <col dtype="Unknown" isnull="true" name="SQL_OVERRIDE"></col>
+          </row>
+          <row>
+            <col dtype="String" name="NAME">ISO3166-2</col>
+            <col dtype="String" name="OUTPUT_NAME">ISO3166-2</col>
+            <col dtype="String" name="DEF_OVERRIDE"></col>
+            <col dtype="Unknown" isnull="true" name="SQL_OVERRIDE"></col>
+          </row>
+          <row>
+            <col dtype="String" name="NAME">PostalCode</col>
+            <col dtype="String" name="OUTPUT_NAME">PostalCode</col>
+            <col dtype="String" name="DEF_OVERRIDE"></col>
+            <col dtype="Unknown" isnull="true" name="SQL_OVERRIDE"></col>
+          </row>
+          <row>
+            <col dtype="String" name="NAME">AdministrativeArea</col>
+            <col dtype="String" name="OUTPUT_NAME">AdministrativeArea</col>
+            <col dtype="String" name="DEF_OVERRIDE"></col>
+            <col dtype="Unknown" isnull="true" name="SQL_OVERRIDE"></col>
+          </row>
+          <row>
+            <col dtype="String" name="NAME">GeoAccuracy</col>
+            <col dtype="String" name="OUTPUT_NAME">GeoAccuracy</col>
+            <col dtype="String" name="DEF_OVERRIDE"></col>
+            <col dtype="Unknown" isnull="true" name="SQL_OVERRIDE"></col>
+          </row>
+          <row>
+            <col dtype="String" name="NAME">AVC</col>
+            <col dtype="String" name="OUTPUT_NAME">AVC</col>
+            <col dtype="String" name="DEF_OVERRIDE"></col>
+            <col dtype="Unknown" isnull="true" name="SQL_OVERRIDE"></col>
+          </row>
+          <row>
+            <col dtype="String" name="NAME">AVC_Verification_Status</col>
+            <col dtype="String" name="OUTPUT_NAME">AVC_Verification_Status</col>
+            <col dtype="String" name="DEF_OVERRIDE"></col>
+            <col dtype="Unknown" isnull="true" name="SQL_OVERRIDE"></col>
+          </row>
+          <row>
+            <col dtype="String" name="NAME">AVC_Post_Verify_Match_Level</col>
+            <col dtype="String" name="OUTPUT_NAME">AVC_Post_Verify_Match_Level</col>
+            <col dtype="String" name="DEF_OVERRIDE"></col>
+            <col dtype="Unknown" isnull="true" name="SQL_OVERRIDE"></col>
+          </row>
+          <row>
+            <col dtype="String" name="NAME">AVC_Verification_Status_Complete</col>
+            <col dtype="String" name="OUTPUT_NAME">AVC_Verification_Status_Complete</col>
+            <col dtype="String" name="DEF_OVERRIDE"></col>
+            <col dtype="Unknown" isnull="true" name="SQL_OVERRIDE"></col>
+          </row>
+          <row>
+            <col dtype="String" name="NAME">AVC_Pre_Verify_Match_Level</col>
+            <col dtype="String" name="OUTPUT_NAME">AVC_Pre_Verify_Match_Level</col>
+            <col dtype="String" name="DEF_OVERRIDE"></col>
+            <col dtype="Unknown" isnull="true" name="SQL_OVERRIDE"></col>
+          </row>
+          <row>
+            <col dtype="String" name="NAME">AVC_Parsing_Status</col>
+            <col dtype="String" name="OUTPUT_NAME">AVC_Parsing_Status</col>
+            <col dtype="String" name="DEF_OVERRIDE"></col>
+            <col dtype="Unknown" isnull="true" name="SQL_OVERRIDE"></col>
+          </row>
+          <row>
+            <col dtype="String" name="NAME">AVC_Lexicon_Match_Level</col>
+            <col dtype="String" name="OUTPUT_NAME">AVC_Lexicon_Match_Level</col>
+            <col dtype="String" name="DEF_OVERRIDE"></col>
+            <col dtype="Unknown" isnull="true" name="SQL_OVERRIDE"></col>
+          </row>
+          <row>
+            <col dtype="String" name="NAME">AVC_Context_Match_Level</col>
+            <col dtype="String" name="OUTPUT_NAME">AVC_Context_Match_Level</col>
+            <col dtype="String" name="DEF_OVERRIDE"></col>
+            <col dtype="Unknown" isnull="true" name="SQL_OVERRIDE"></col>
+          </row>
+          <row>
+            <col dtype="String" name="NAME">AVC_Postcode_Status</col>
+            <col dtype="String" name="OUTPUT_NAME">AVC_Postcode_Status</col>
+            <col dtype="String" name="DEF_OVERRIDE"></col>
+            <col dtype="Unknown" isnull="true" name="SQL_OVERRIDE"></col>
+          </row>
+          <row>
+            <col dtype="String" name="NAME">SRC_SYS_ID</col>
+            <col dtype="String" name="OUTPUT_NAME">SRC_SYS_ID</col>
+            <col dtype="String" name="DEF_OVERRIDE"></col>
+            <col dtype="Unknown" isnull="true" name="SQL_OVERRIDE"></col>
+          </row>
+          <row>
+            <col dtype="String" name="NAME">SRC_SYS_REC_ID</col>
+            <col dtype="String" name="OUTPUT_NAME">SRC_SYS_REC_ID</col>
+            <col dtype="String" name="DEF_OVERRIDE"></col>
+            <col dtype="Unknown" isnull="true" name="SQL_OVERRIDE"></col>
+          </row>
+          <row>
+            <col dtype="String" name="NAME">EXEC_DATE</col>
+            <col dtype="String" name="OUTPUT_NAME">EXEC_DATE</col>
+            <col dtype="String" name="DEF_OVERRIDE"></col>
+            <col dtype="Unknown" isnull="true" name="SQL_OVERRIDE"></col>
+          </row>
+          <row>
+            <col dtype="String" name="NAME">JOB_RUN_DATE</col>
+            <col dtype="String" name="OUTPUT_NAME">JOB_RUN_DATE</col>
+            <col dtype="String" name="DEF_OVERRIDE"></col>
+            <col dtype="Unknown" isnull="true" name="SQL_OVERRIDE"></col>
+          </row>
+          <row>
+            <col dtype="String" name="NAME">Latitude1</col>
+            <col dtype="String" name="OUTPUT_NAME">Latitude</col>
+            <col dtype="String" name="DEF_OVERRIDE"></col>
+            <col dtype="Unknown" isnull="true" name="SQL_OVERRIDE"></col>
+          </row>
+          <row>
+            <col dtype="String" name="NAME">Longitude1</col>
+            <col dtype="String" name="OUTPUT_NAME">Longitude</col>
+            <col dtype="String" name="DEF_OVERRIDE"></col>
+            <col dtype="Unknown" isnull="true" name="SQL_OVERRIDE"></col>
+          </row>
+          <row>
+            <col dtype="String" name="NAME">MatchScore1</col>
+            <col dtype="String" name="OUTPUT_NAME">AVC_MatchScore</col>
+            <col dtype="String" name="DEF_OVERRIDE"></col>
+            <col dtype="Unknown" isnull="true" name="SQL_OVERRIDE"></col>
+          </row>
+          <row>
+            <col dtype="String" name="NAME">GEOCODING_STATUS</col>
+            <col dtype="String" name="OUTPUT_NAME">GEOCODING_STATUS</col>
+            <col dtype="String" name="DEF_OVERRIDE"></col>
+            <col dtype="Unknown" isnull="true" name="SQL_OVERRIDE"></col>
+          </row>
+          <row>
+            <col dtype="String" name="NAME">GEOCODING_LEVEL</col>
+            <col dtype="String" name="OUTPUT_NAME">GEOCODING_LEVEL</col>
+            <col dtype="String" name="DEF_OVERRIDE"></col>
+            <col dtype="Unknown" isnull="true" name="SQL_OVERRIDE"></col>
+          </row>
+          <row>
+            <col dtype="String" name="NAME">Cumulative_Uplift</col>
+            <col dtype="String" name="OUTPUT_NAME">Cumulative_Uplift</col>
+            <col dtype="String" name="DEF_OVERRIDE"></col>
+            <col dtype="Unknown" isnull="true" name="SQL_OVERRIDE"></col>
+          </row>
+        </param>
+        <param dtype="Integer" name="COMMIT_EVERY" type="single">0</param>
+        <param dtype="Boolean" name="DELETE_ROWS" type="single">true</param>
+        <param dtype="Integer" name="MAX_ERROR_COUNT" type="single">500</param>
+        <param dtype="Integer" name="BULK_ROW_COUNT" type="single">1</param>
+        <param dtype="Unknown" isnull="true" name="POOL_NAME" type="single"></param>
+        <param dtype="Unknown" isnull="true" name="STATUS_FIELD" type="single"></param>
+        <param dtype="String" name="ENABLE_DDL" type="single">true</param>
+      </paramset>
+    </step>
+    <step id="FREQDIST" iid="10" ver="1">
+      <propset>
+        <prop name="color"/>
+        <prop name="default_target"/>
+        <prop name="description">
+          <value dtype="String">Frequency Distribution 1</value>
+        </prop>
+        <prop name="descriptive_text">
+          <value dtype="String">Adds frequency distribution profiling to the flow</value>
+        </prop>
+        <prop name="node_position">
+          <value dtype="String">578.879170779862</value>
+          <value dtype="String">168.881875</value>
+        </prop>
+        <prop name="notes">
+          <value dtype="String"></value>
+        </prop>
+        <prop name="owning_group_id"/>
+        <prop name="serial_target_position"/>
+      </propset>
+      <paramset>
+        <param dtype="Integer" name="TOT_DISPLAY_VALUES" type="single">1000</param>
+        <param name="FIELDS" type="matrix">
+          <row>
+            <col dtype="String" name="INPUTNAME">AVC_Lexicon_Match_Level</col>
+          </row>
+          <row>
+            <col dtype="String" name="INPUTNAME">AVC_Context_Match_Level</col>
+          </row>
+        </param>
+        <param dtype="Integer" name="MAX_RAM" type="single">134217728</param>
+        <param dtype="Unknown" isnull="true" name="HASH_BUCKETS" type="single"></param>
+        <param dtype="Unknown" isnull="true" name="SORT_CHUNKSIZE" type="single"></param>
+        <param dtype="Unknown" isnull="true" name="BASE/SORTBYTES" type="single"></param>
+        <param dtype="Unknown" isnull="true" name="BASE/SORTTHREADS" type="single"></param>
+        <param dtype="Unknown" isnull="true" name="BASE/SORTTEMP" type="single"></param>
+      </paramset>
+    </step>
+    <step id="LANDER" iid="11">
+      <propset>
+        <prop name="color"/>
+        <prop name="default_target"/>
+        <prop name="description">
+          <value dtype="String">Branch 1</value>
+        </prop>
+        <prop name="descriptive_text">
+          <value dtype="String">Enables up to 32 Expression nodes to simultaneously access data from a single source. Depending on configuration, data is passed from the Branch node directly to each of the Expression nodes or the data is temporarily stored in memory or disk caches, before passing it along</value>
+        </prop>
+        <prop name="node_position">
+          <value dtype="String">581.879170779862</value>
+          <value dtype="String">17.16</value>
+        </prop>
+        <prop name="notes"/>
+        <prop name="owning_group_id"/>
+        <prop name="serial_target_position"/>
+      </propset>
+      <paramset>
+        <param dtype="Integer" name="CHUNKSIZE" type="single">16777216</param>
+        <param dtype="Boolean" name="LOADALL" type="single">false</param>
+        <param dtype="Boolean" name="DELAYMEMALLOC" type="single">false</param>
+      </paramset>
+    </step>
+    <step id="DEST_DELIMTEXT" iid="15">
+      <propset>
+        <prop name="color"/>
+        <prop name="default_target"/>
+        <prop name="description">
+          <value dtype="String">Text File Output 1</value>
+        </prop>
+        <prop name="descriptive_text">
+          <value dtype="String">Creates a plain-text file with the results of your data job whenever rows of data are received. The node is closed as soon as there are no more rows. This procedure makes the files available to other nodes on the same flow</value>
+        </prop>
+        <prop name="display_file">
+          <value dtype="String">true</value>
+        </prop>
+        <prop name="node_position">
+          <value dtype="String">1378.31707798618</value>
+          <value dtype="String">295.532507617212</value>
+        </prop>
+        <prop name="notes">
+          <value dtype="String"></value>
+        </prop>
+        <prop name="owning_group_id"/>
+        <prop name="serial_target_position"/>
+      </propset>
+      <paramset>
+        <param dtype="String" name="FILENAME" type="single">C:\Users\mischa\OneDrive - SAS\Desktop\INTL_DATA_FOR_COMPLETENESS.txt</param>
+        <param name="FIELDS" type="matrix">
+          <row>
+            <col dtype="String" name="FIELDNAME">Group Match Level</col>
+            <col dtype="String" name="OUTPUTNAME">Group Match Level</col>
+          </row>
+          <row>
+            <col dtype="String" name="FIELDNAME">Identification Match Level</col>
+            <col dtype="String" name="OUTPUTNAME">Identification Match Level</col>
+          </row>
+          <row>
+            <col dtype="String" name="FIELDNAME">Freq4DoubleBars</col>
+            <col dtype="String" name="OUTPUTNAME">Freq4DoubleBars</col>
+          </row>
+          <row>
+            <col dtype="String" name="FIELDNAME">FreqPct4DoubleBars</col>
+            <col dtype="String" name="OUTPUTNAME">FreqPct4DoubleBars</col>
+          </row>
+        </param>
+        <param dtype="String" name="DELIMITER" type="single">	</param>
+        <param dtype="String" name="QUALIFIER" type="single"></param>
+        <param dtype="Boolean" name="INCLUDE_HEADER" type="single">true</param>
+        <param dtype="Boolean" name="PRESERVE_WHITESPACE" type="single">false</param>
+        <param dtype="Unknown" isnull="true" name="MAX_OUTPUT_ROWS" type="single"></param>
+        <param dtype="Boolean" name="UNESCAPE_BACKSLASH" type="single">false</param>
+        <param dtype="Boolean" name="BYTE_ORDER_MARK" type="single">true</param>
+        <param dtype="Integer" name="ENCODING" type="single">-1</param>
+        <param dtype="Boolean" name="APPEND" type="single">false</param>
+        <param dtype="Integer" name="END_OF_LINE" type="single">0</param>
+      </paramset>
+    </step>
+    <step id="EXPRESSION" iid="17">
+      <propset>
+        <prop name="color"/>
+        <prop name="default_target"/>
+        <prop name="description">
+          <value dtype="String">Expression 2</value>
+        </prop>
+        <prop name="descriptive_text">
+          <value dtype="String">Creates expressions using the Expression Engine Language (EEL) scripting language</value>
+        </prop>
+        <prop name="node_position">
+          <value dtype="String">714.219545903258</value>
+          <value dtype="String">168.12</value>
+        </prop>
+        <prop name="notes"/>
+        <prop name="owning_group_id"/>
+        <prop name="serial_target_position"/>
+      </propset>
+      <paramset>
+        <param dtype="Unknown" isnull="true" name="INIT_EXPRESSION" type="single"></param>
+        <param dtype="String" name="EXEC_EXPRESSION" type="single">string AVC_Lexicon_Level_Name&#xD;
+string AVC_Context_Level_Name&#xD;
+&#xD;
+// string AVC_Lexicon_Match_Level&#xD;
+// Loqate lexicon identification match level&#xD;
+// 5 - Delivery Point&#xD;
+// 4 - Premise &#xD;
+// 3 - Thoroughfare&#xD;
+// 2 - Locality&#xD;
+// 1 - Administrative Area&#xD;
+// 0 - None&#xD;
+&#xD;
+// string AVC_Context_Match_Level&#xD;
+// Loqate context identification match level&#xD;
+// 5 - Delivery Point&#xD;
+// 4 - Premise &#xD;
+// 3 - Thoroughfare&#xD;
+// 2 - Locality&#xD;
+// 1 - Administrative Area&#xD;
+// 0 - None&#xD;
+&#xD;
+if (`AVC_Lexicon_Match_Level` == '0') then `AVC_Lexicon_Level_Name` = "None"&#xD;
+if (`AVC_Lexicon_Match_Level` == '1') then `AVC_Lexicon_Level_Name` = "Administrative Area"&#xD;
+if (`AVC_Lexicon_Match_Level` == '2') then `AVC_Lexicon_Level_Name` = "Locality"&#xD;
+if (`AVC_Lexicon_Match_Level` == '3') then `AVC_Lexicon_Level_Name` = "Thoroughfare"&#xD;
+if (`AVC_Lexicon_Match_Level` == '4') then `AVC_Lexicon_Level_Name` = "Premise"&#xD;
+if (`AVC_Lexicon_Match_Level` == '5') then `AVC_Lexicon_Level_Name` = "Delivery Point"	&#xD;
+	&#xD;
+if (`AVC_Context_Match_Level` == '0') then `AVC_Context_Level_Name` = "None"&#xD;
+if (`AVC_Context_Match_Level` == '1') then `AVC_Context_Level_Name` = "Administrative Area"&#xD;
+if (`AVC_Context_Match_Level` == '2') then `AVC_Context_Level_Name` = "Locality"&#xD;
+if (`AVC_Context_Match_Level` == '3') then `AVC_Context_Level_Name` = "Thoroughfare"&#xD;
+if (`AVC_Context_Match_Level` == '4') then `AVC_Context_Level_Name` = "Premise"&#xD;
+if (`AVC_Context_Match_Level` == '5') then `AVC_Context_Level_Name` = "Delivery Point"		&#xD;
+</param>
+        <param dtype="Unknown" isnull="true" name="TERM_EXPRESSION" type="single"></param>
+        <param dtype="Unknown" isnull="true" name="GENERATE_ROWS" type="single"></param>
+        <param dtype="Unknown" isnull="true" name="RETVAL_FIELDNAME" type="single"></param>
+        <param dtype="Unknown" isnull="true" name="PUSHROW_FIELDNAME" type="single"></param>
+        <param name="GROUP_FIELDS" type="matrix"/>
+        <param dtype="Unknown" isnull="true" name="GROUP_INIT_EXPRESSION" type="single"></param>
+        <param dtype="Unknown" isnull="true" name="GROUP_TERM_EXPRESSION" type="single"></param>
+        <param dtype="Boolean" name="ADD_LAST_VAL_FIELDS" type="single">false</param>
+      </paramset>
+    </step>
+    <step id="LANDER" iid="19">
+      <propset>
+        <prop name="color"/>
+        <prop name="default_target"/>
+        <prop name="description">
+          <value dtype="String">Branch 2</value>
+        </prop>
+        <prop name="descriptive_text">
+          <value dtype="String">Enables up to 32 Expression nodes to simultaneously access data from a single source. Depending on configuration, data is passed from the Branch node directly to each of the Expression nodes or the data is temporarily stored in memory or disk caches, before passing it along</value>
+        </prop>
+        <prop name="node_position">
+          <value dtype="String">715.258440276407</value>
+          <value dtype="String">304.16</value>
+        </prop>
+        <prop name="notes"/>
+        <prop name="owning_group_id"/>
+        <prop name="serial_target_position"/>
+      </propset>
+      <paramset>
+        <param dtype="Integer" name="CHUNKSIZE" type="single">16777216</param>
+        <param dtype="Boolean" name="LOADALL" type="single">false</param>
+        <param dtype="Boolean" name="DELAYMEMALLOC" type="single">false</param>
+      </paramset>
+    </step>
+    <step id="UNION" iid="22">
+      <propset>
+        <prop name="color"/>
+        <prop name="default_target"/>
+        <prop name="description">
+          <value dtype="String">Data Union 1</value>
+        </prop>
+        <prop name="descriptive_text">
+          <value dtype="String">Combines all of the data from two data sets. Like an SQL union join, this node simply adds the two data sets together; the resulting data set contains one record for each record in each of the original data sets</value>
+        </prop>
+        <prop name="node_position">
+          <value dtype="String">1244.29536031589</value>
+          <value dtype="String">297.16</value>
+        </prop>
+        <prop name="notes">
+          <value dtype="String"></value>
+        </prop>
+        <prop name="owning_group_id"/>
+        <prop name="serial_target_position"/>
+      </propset>
+      <paramset>
+        <param name="FIELDS" type="matrix">
+          <row>
+            <col dtype="String" name="LEFT">Group Match Level</col>
+            <col dtype="String" name="RIGHT">Group Match Level</col>
+            <col dtype="String" name="OUTPUT">Group Match Level</col>
+          </row>
+          <row>
+            <col dtype="String" name="LEFT">Identification Match Level</col>
+            <col dtype="String" name="RIGHT">Identification Match Level</col>
+            <col dtype="String" name="OUTPUT">Identification Match Level</col>
+          </row>
+          <row>
+            <col dtype="String" name="LEFT">Freq4DoubleBars</col>
+            <col dtype="String" name="RIGHT">Freq4DoubleBars</col>
+            <col dtype="String" name="OUTPUT">Freq4DoubleBars</col>
+          </row>
+          <row>
+            <col dtype="String" name="LEFT">FreqPct4DoubleBars</col>
+            <col dtype="String" name="RIGHT">FreqPct4DoubleBars</col>
+            <col dtype="String" name="OUTPUT">FreqPct4DoubleBars</col>
+          </row>
+        </param>
+        <param dtype="Boolean" name="ALTERNATE" type="single">false</param>
+      </paramset>
+    </step>
+    <step id="PASSTHRU" iid="24">
+      <propset>
+        <prop name="color"/>
+        <prop name="default_target"/>
+        <prop name="description">
+          <value dtype="String">Lexicon</value>
+        </prop>
+        <prop name="descriptive_text">
+          <value dtype="String">Renames and reorders field names as they pass out of this node</value>
+        </prop>
+        <prop name="node_position">
+          <value dtype="String">842.31707798618</value>
+          <value dtype="String">247.16</value>
+        </prop>
+        <prop name="notes">
+          <value dtype="String"></value>
+        </prop>
+        <prop name="owning_group_id"/>
+        <prop name="serial_target_position"/>
+      </propset>
+      <paramset>
+        <param name="FIELD_MAP" type="matrix">
+          <row>
+            <col dtype="String" name="INPUTNAME">AVC_Lexicon_Match_Level</col>
+            <col dtype="String" name="OUTPUTNAME">AVC_Lexicon_Match_Level</col>
+            <col dtype="Unknown" isnull="true" name="TYPE_OVERRIDE"></col>
+            <col dtype="Unknown" isnull="true" name="LENGTH_OVERRIDE"></col>
+          </row>
+          <row>
+            <col dtype="String" name="INPUTNAME">AVC_Lexicon_Match_Level_count</col>
+            <col dtype="String" name="OUTPUTNAME">AVC_Lexicon_Match_Level_count</col>
+            <col dtype="Unknown" isnull="true" name="TYPE_OVERRIDE"></col>
+            <col dtype="Unknown" isnull="true" name="LENGTH_OVERRIDE"></col>
+          </row>
+          <row>
+            <col dtype="String" name="INPUTNAME">AVC_Lexicon_Match_Level_pct</col>
+            <col dtype="String" name="OUTPUTNAME">AVC_Lexicon_Match_Level_pct</col>
+            <col dtype="Unknown" isnull="true" name="TYPE_OVERRIDE"></col>
+            <col dtype="Unknown" isnull="true" name="LENGTH_OVERRIDE"></col>
+          </row>
+          <row>
+            <col dtype="String" name="INPUTNAME">AVC_Lexicon_Level_Name</col>
+            <col dtype="String" name="OUTPUTNAME">AVC_Lexicon_Level_Name</col>
+            <col dtype="Unknown" isnull="true" name="TYPE_OVERRIDE"></col>
+            <col dtype="Unknown" isnull="true" name="LENGTH_OVERRIDE"></col>
+          </row>
+        </param>
+      </paramset>
+    </step>
+    <step id="PASSTHRU" iid="25">
+      <propset>
+        <prop name="color"/>
+        <prop name="default_target"/>
+        <prop name="description">
+          <value dtype="String">Context</value>
+        </prop>
+        <prop name="descriptive_text">
+          <value dtype="String">Renames and reorders field names as they pass out of this node</value>
+        </prop>
+        <prop name="node_position">
+          <value dtype="String">844.31707798618</value>
+          <value dtype="String">358.096056390153</value>
+        </prop>
+        <prop name="notes">
+          <value dtype="String"></value>
+        </prop>
+        <prop name="owning_group_id"/>
+        <prop name="serial_target_position"/>
+      </propset>
+      <paramset>
+        <param name="FIELD_MAP" type="matrix">
+          <row>
+            <col dtype="String" name="INPUTNAME">AVC_Context_Match_Level</col>
+            <col dtype="String" name="OUTPUTNAME">AVC_Context_Match_Level</col>
+            <col dtype="Unknown" isnull="true" name="TYPE_OVERRIDE"></col>
+            <col dtype="Unknown" isnull="true" name="LENGTH_OVERRIDE"></col>
+          </row>
+          <row>
+            <col dtype="String" name="INPUTNAME">AVC_Context_Match_Level_count</col>
+            <col dtype="String" name="OUTPUTNAME">AVC_Context_Match_Level_count</col>
+            <col dtype="Unknown" isnull="true" name="TYPE_OVERRIDE"></col>
+            <col dtype="Unknown" isnull="true" name="LENGTH_OVERRIDE"></col>
+          </row>
+          <row>
+            <col dtype="String" name="INPUTNAME">AVC_Context_Match_Level_pct</col>
+            <col dtype="String" name="OUTPUTNAME">AVC_Context_Match_Level_pct</col>
+            <col dtype="Unknown" isnull="true" name="TYPE_OVERRIDE"></col>
+            <col dtype="Unknown" isnull="true" name="LENGTH_OVERRIDE"></col>
+          </row>
+          <row>
+            <col dtype="String" name="INPUTNAME">AVC_Context_Level_Name</col>
+            <col dtype="String" name="OUTPUTNAME">AVC_Context_Level_Name</col>
+            <col dtype="Unknown" isnull="true" name="TYPE_OVERRIDE"></col>
+            <col dtype="Unknown" isnull="true" name="LENGTH_OVERRIDE"></col>
+          </row>
+        </param>
+      </paramset>
+    </step>
+    <step id="EXPRESSION" iid="26">
+      <propset>
+        <prop name="color"/>
+        <prop name="default_target"/>
+        <prop name="description">
+          <value dtype="String">Expression 3</value>
+        </prop>
+        <prop name="descriptive_text">
+          <value dtype="String">Creates expressions using the Expression Engine Language (EEL) scripting language</value>
+        </prop>
+        <prop name="node_position">
+          <value dtype="String">961.31707798618</value>
+          <value dtype="String">247.16</value>
+        </prop>
+        <prop name="notes"/>
+        <prop name="owning_group_id"/>
+        <prop name="serial_target_position"/>
+      </propset>
+      <paramset>
+        <param dtype="Unknown" isnull="true" name="INIT_EXPRESSION" type="single"></param>
+        <param dtype="String" name="EXEC_EXPRESSION" type="single">string Group_Match_Level&#xD;
+&#xD;
+Group_Match_Level = "Lexicon"</param>
+        <param dtype="Unknown" isnull="true" name="TERM_EXPRESSION" type="single"></param>
+        <param dtype="Unknown" isnull="true" name="GENERATE_ROWS" type="single"></param>
+        <param dtype="Unknown" isnull="true" name="RETVAL_FIELDNAME" type="single"></param>
+        <param dtype="Unknown" isnull="true" name="PUSHROW_FIELDNAME" type="single"></param>
+        <param name="GROUP_FIELDS" type="matrix"/>
+        <param dtype="Unknown" isnull="true" name="GROUP_INIT_EXPRESSION" type="single"></param>
+        <param dtype="Unknown" isnull="true" name="GROUP_TERM_EXPRESSION" type="single"></param>
+        <param dtype="Boolean" name="ADD_LAST_VAL_FIELDS" type="single">false</param>
+      </paramset>
+    </step>
+    <step id="PASSTHRU" iid="27">
+      <propset>
+        <prop name="color"/>
+        <prop name="default_target"/>
+        <prop name="description">
+          <value dtype="String">Field Layout 2</value>
+        </prop>
+        <prop name="descriptive_text">
+          <value dtype="String">Renames and reorders field names as they pass out of this node</value>
+        </prop>
+        <prop name="node_position">
+          <value dtype="String">1073.31707798618</value>
+          <value dtype="String">251.16</value>
+        </prop>
+        <prop name="notes">
+          <value dtype="String"></value>
+        </prop>
+        <prop name="owning_group_id"/>
+        <prop name="serial_target_position"/>
+      </propset>
+      <paramset>
+        <param name="FIELD_MAP" type="matrix">
+          <row>
+            <col dtype="String" name="INPUTNAME">Group_Match_Level</col>
+            <col dtype="String" name="OUTPUTNAME">Group Match Level</col>
+            <col dtype="Unknown" isnull="true" name="TYPE_OVERRIDE"></col>
+            <col dtype="Unknown" isnull="true" name="LENGTH_OVERRIDE"></col>
+          </row>
+          <row>
+            <col dtype="String" name="INPUTNAME">AVC_Lexicon_Level_Name</col>
+            <col dtype="String" name="OUTPUTNAME">Identification Match Level</col>
+            <col dtype="Unknown" isnull="true" name="TYPE_OVERRIDE"></col>
+            <col dtype="Unknown" isnull="true" name="LENGTH_OVERRIDE"></col>
+          </row>
+          <row>
+            <col dtype="String" name="INPUTNAME">AVC_Lexicon_Match_Level_count</col>
+            <col dtype="String" name="OUTPUTNAME">Freq4DoubleBars</col>
+            <col dtype="Unknown" isnull="true" name="TYPE_OVERRIDE"></col>
+            <col dtype="Unknown" isnull="true" name="LENGTH_OVERRIDE"></col>
+          </row>
+          <row>
+            <col dtype="String" name="INPUTNAME">AVC_Lexicon_Match_Level_pct</col>
+            <col dtype="String" name="OUTPUTNAME">FreqPct4DoubleBars</col>
+            <col dtype="Unknown" isnull="true" name="TYPE_OVERRIDE"></col>
+            <col dtype="Unknown" isnull="true" name="LENGTH_OVERRIDE"></col>
+          </row>
+        </param>
+      </paramset>
+    </step>
+    <step id="EXPRESSION" iid="28">
+      <propset>
+        <prop name="color"/>
+        <prop name="default_target"/>
+        <prop name="description">
+          <value dtype="String">Copy of Expression 3</value>
+        </prop>
+        <prop name="descriptive_text">
+          <value dtype="String">Creates expressions using the Expression Engine Language (EEL) scripting language</value>
+        </prop>
+        <prop name="node_position">
+          <value dtype="String">957.31707798618</value>
+          <value dtype="String">361.16</value>
+        </prop>
+        <prop name="notes"/>
+        <prop name="owning_group_id"/>
+        <prop name="serial_target_position"/>
+      </propset>
+      <paramset>
+        <param dtype="Unknown" isnull="true" name="INIT_EXPRESSION" type="single"></param>
+        <param dtype="String" name="EXEC_EXPRESSION" type="single">string Group_Match_Level&#xD;
+&#xD;
+Group_Match_Level = "Context"</param>
+        <param dtype="Unknown" isnull="true" name="TERM_EXPRESSION" type="single"></param>
+        <param dtype="Unknown" isnull="true" name="GENERATE_ROWS" type="single"></param>
+        <param dtype="Unknown" isnull="true" name="RETVAL_FIELDNAME" type="single"></param>
+        <param dtype="Unknown" isnull="true" name="PUSHROW_FIELDNAME" type="single"></param>
+        <param name="GROUP_FIELDS" type="matrix"/>
+        <param dtype="Unknown" isnull="true" name="GROUP_INIT_EXPRESSION" type="single"></param>
+        <param dtype="Unknown" isnull="true" name="GROUP_TERM_EXPRESSION" type="single"></param>
+        <param dtype="Boolean" name="ADD_LAST_VAL_FIELDS" type="single">false</param>
+      </paramset>
+    </step>
+    <step id="PASSTHRU" iid="29">
+      <propset>
+        <prop name="color"/>
+        <prop name="default_target"/>
+        <prop name="description">
+          <value dtype="String">Field Layout 3</value>
+        </prop>
+        <prop name="descriptive_text">
+          <value dtype="String">Renames and reorders field names as they pass out of this node</value>
+        </prop>
+        <prop name="node_position">
+          <value dtype="String">1074.31707798618</value>
+          <value dtype="String">364.16</value>
+        </prop>
+        <prop name="notes">
+          <value dtype="String"></value>
+        </prop>
+        <prop name="owning_group_id"/>
+        <prop name="serial_target_position"/>
+      </propset>
+      <paramset>
+        <param name="FIELD_MAP" type="matrix">
+          <row>
+            <col dtype="String" name="INPUTNAME">Group_Match_Level</col>
+            <col dtype="String" name="OUTPUTNAME">Group Match Level</col>
+            <col dtype="Unknown" isnull="true" name="TYPE_OVERRIDE"></col>
+            <col dtype="Unknown" isnull="true" name="LENGTH_OVERRIDE"></col>
+          </row>
+          <row>
+            <col dtype="String" name="INPUTNAME">AVC_Context_Level_Name</col>
+            <col dtype="String" name="OUTPUTNAME">Identification Match Level</col>
+            <col dtype="Unknown" isnull="true" name="TYPE_OVERRIDE"></col>
+            <col dtype="Unknown" isnull="true" name="LENGTH_OVERRIDE"></col>
+          </row>
+          <row>
+            <col dtype="String" name="INPUTNAME">AVC_Context_Match_Level_count</col>
+            <col dtype="String" name="OUTPUTNAME">Freq4DoubleBars</col>
+            <col dtype="Unknown" isnull="true" name="TYPE_OVERRIDE"></col>
+            <col dtype="Unknown" isnull="true" name="LENGTH_OVERRIDE"></col>
+          </row>
+          <row>
+            <col dtype="String" name="INPUTNAME">AVC_Context_Match_Level_pct</col>
+            <col dtype="String" name="OUTPUTNAME">FreqPct4DoubleBars</col>
+            <col dtype="Unknown" isnull="true" name="TYPE_OVERRIDE"></col>
+            <col dtype="Unknown" isnull="true" name="LENGTH_OVERRIDE"></col>
+          </row>
+        </param>
+      </paramset>
+    </step>
+    <step id="SOURCE_ODBC" iid="30" ver="1">
+      <propset>
+        <prop name="color"/>
+        <prop name="default_target"/>
+        <prop name="description">
+          <value dtype="String">Data Source 1</value>
+        </prop>
+        <prop name="descriptive_text">
+          <value dtype="String">Specifies a table as an input in a data job</value>
+        </prop>
+        <prop name="node_position">
+          <value dtype="String">28.4</value>
+          <value dtype="String">14.12</value>
+        </prop>
+        <prop name="notes">
+          <value dtype="String"></value>
+        </prop>
+        <prop name="serial_target_position"/>
+      </propset>
+      <paramset>
+        <param dtype="String" name="DSN" type="single">DSN=SAS data;DFXTYPE=TKTS</param>
+        <param dtype="Unknown" isnull="true" name="MAX_OUTPUT_ROWS" type="single"></param>
+        <param dtype="String" name="SCHEMA_NAME" type="single">SAS</param>
+        <param dtype="String" name="TABLE_NAME" type="single">INTL_SAMPLE_ADDRESS</param>
+        <param name="FIELDS" type="matrix">
+          <row>
+            <col dtype="String" name="NAME">CUST_LE_KEY</col>
+            <col dtype="String" name="OUTPUT_NAME">CUST_LE_KEY</col>
+            <col dtype="String" name="MAX_LENGTH">0</col>
+            <col dtype="Unknown" isnull="true" name="SQL_OVERRIDE"></col>
+          </row>
+          <row>
+            <col dtype="String" name="NAME">ADDR_LINE_1</col>
+            <col dtype="String" name="OUTPUT_NAME">ADDR_LINE_1</col>
+            <col dtype="String" name="MAX_LENGTH">0</col>
+            <col dtype="Unknown" isnull="true" name="SQL_OVERRIDE"></col>
+          </row>
+          <row>
+            <col dtype="String" name="NAME">ADDR_LINE_2</col>
+            <col dtype="String" name="OUTPUT_NAME">ADDR_LINE_2</col>
+            <col dtype="String" name="MAX_LENGTH">0</col>
+            <col dtype="Unknown" isnull="true" name="SQL_OVERRIDE"></col>
+          </row>
+          <row>
+            <col dtype="String" name="NAME">CITY</col>
+            <col dtype="String" name="OUTPUT_NAME">CITY</col>
+            <col dtype="String" name="MAX_LENGTH">0</col>
+            <col dtype="Unknown" isnull="true" name="SQL_OVERRIDE"></col>
+          </row>
+          <row>
+            <col dtype="String" name="NAME">POSTAL_CODE</col>
+            <col dtype="String" name="OUTPUT_NAME">POSTAL_CODE</col>
+            <col dtype="String" name="MAX_LENGTH">0</col>
+            <col dtype="Unknown" isnull="true" name="SQL_OVERRIDE"></col>
+          </row>
+          <row>
+            <col dtype="String" name="NAME">COUNTRY_NAME</col>
+            <col dtype="String" name="OUTPUT_NAME">COUNTRY_NAME</col>
+            <col dtype="String" name="MAX_LENGTH">0</col>
+            <col dtype="Unknown" isnull="true" name="SQL_OVERRIDE"></col>
+          </row>
+        </param>
+        <param name="SORT_FIELDS" type="matrix"/>
+        <param dtype="String" name="CATALOG_NAME" type="single">BASE</param>
+        <param dtype="Unknown" isnull="true" name="POOL_NAME" type="single"></param>
+      </paramset>
+    </step>
+    <step id="DTVERLQT" iid="31">
+      <propset>
+        <prop name="color"/>
+        <prop name="default_target"/>
+        <prop name="description">
+          <value dtype="String">Loqate 1</value>
+        </prop>
+        <prop name="descriptive_text">
+          <value dtype="String">Creates nodes using the Loqate Engine</value>
+        </prop>
+        <prop name="node_position">
+          <value dtype="String">171.4</value>
+          <value dtype="String">15.9740859349498</value>
+        </prop>
+        <prop name="notes"/>
+        <prop name="owning_group_id"/>
+        <prop name="serial_target_position"/>
+      </propset>
+      <paramset>
+        <param name="INPUT_FIELDS" type="matrix">
+          <row>
+            <col dtype="String" name="INPUTNAME">ADDR_LINE_1</col>
+            <col dtype="String" name="FIELD_TYPE">Address1</col>
+          </row>
+          <row>
+            <col dtype="String" name="INPUTNAME">ADDR_LINE_2</col>
+            <col dtype="String" name="FIELD_TYPE">Address2</col>
+          </row>
+          <row>
+            <col dtype="String" name="INPUTNAME">CITY</col>
+            <col dtype="String" name="FIELD_TYPE">Locality</col>
+          </row>
+          <row>
+            <col dtype="String" name="INPUTNAME">POSTAL_CODE</col>
+            <col dtype="String" name="FIELD_TYPE">PostalCode</col>
+          </row>
+          <row>
+            <col dtype="String" name="INPUTNAME">COUNTRY_NAME</col>
+            <col dtype="String" name="FIELD_TYPE">Country</col>
+          </row>
+        </param>
+        <param name="OUTPUTS" type="matrix">
+          <row>
+            <col dtype="String" name="OUTPUTNAME">Locality</col>
+            <col dtype="String" name="FIELD_TYPE">Locality</col>
+          </row>
+          <row>
+            <col dtype="String" name="OUTPUTNAME">DeliveryAddress</col>
+            <col dtype="String" name="FIELD_TYPE">DeliveryAddress</col>
+          </row>
+          <row>
+            <col dtype="String" name="OUTPUTNAME">DeliveryAddress1</col>
+            <col dtype="String" name="FIELD_TYPE">DeliveryAddress1</col>
+          </row>
+          <row>
+            <col dtype="String" name="OUTPUTNAME">DeliveryAddress2</col>
+            <col dtype="String" name="FIELD_TYPE">DeliveryAddress2</col>
+          </row>
+          <row>
+            <col dtype="String" name="OUTPUTNAME">DeliveryAddress3</col>
+            <col dtype="String" name="FIELD_TYPE">DeliveryAddress3</col>
+          </row>
+          <row>
+            <col dtype="String" name="OUTPUTNAME">CountryName</col>
+            <col dtype="String" name="FIELD_TYPE">CountryName</col>
+          </row>
+          <row>
+            <col dtype="String" name="OUTPUTNAME">ISO3166-2</col>
+            <col dtype="String" name="FIELD_TYPE">ISO3166-2</col>
+          </row>
+          <row>
+            <col dtype="String" name="OUTPUTNAME">PostalCode</col>
+            <col dtype="String" name="FIELD_TYPE">PostalCode</col>
+          </row>
+          <row>
+            <col dtype="String" name="OUTPUTNAME">AdministrativeArea</col>
+            <col dtype="String" name="FIELD_TYPE">AdministrativeArea</col>
+          </row>
+          <row>
+            <col dtype="String" name="OUTPUTNAME">Latitude</col>
+            <col dtype="String" name="FIELD_TYPE">Latitude</col>
+          </row>
+          <row>
+            <col dtype="String" name="OUTPUTNAME">Longitude</col>
+            <col dtype="String" name="FIELD_TYPE">Longitude</col>
+          </row>
+          <row>
+            <col dtype="String" name="OUTPUTNAME">GeoAccuracy</col>
+            <col dtype="String" name="FIELD_TYPE">GeoAccuracy</col>
+          </row>
+          <row>
+            <col dtype="String" name="OUTPUTNAME">AVC</col>
+            <col dtype="String" name="FIELD_TYPE">AccuracyCode</col>
+          </row>
+        </param>
+        <param dtype="String" name="DEFAULT_COUNTRY" type="single">GBR</param>
+        <param dtype="Unknown" isnull="true" name="FORCE_COUNTRY" type="single"></param>
+        <param dtype="String" name="ADDRESS_LINE_SEP" type="single">&lt;BR&gt;</param>
+        <param dtype="String" name="OUTPUT_CASING" type="single">Upper</param>
+        <param dtype="String" name="OUTPUT_SCRIPT" type="single">Native</param>
+        <param dtype="Unknown" isnull="true" name="SUPPRESS_ADDR_FIELDS" type="single"></param>
+        <param dtype="Boolean" name="ENHANCED" type="single">false</param>
+        <param dtype="String" name="GEOCODING" type="single">True</param>
+        <param dtype="Boolean" name="VERIFY" type="single">true</param>
+        <param dtype="String" name="THREADCOUNT" type="single">1</param>
+        <param dtype="String" name="COMBINED_VERIFY_METHODS" type="single">OFF</param>
+        <param dtype="Boolean" name="ENHANCED_COUNTRY_TOOL" type="single">false</param>
+        <param name="FIELD_MAP" type="matrix">
+          <row>
+            <col dtype="String" name="INPUTNAME">CUST_LE_KEY</col>
+            <col dtype="String" name="OUTPUTNAME">CUST_LE_KEY</col>
+          </row>
+        </param>
+      </paramset>
+    </step>
+    <linkage>
+      <link child="1" cslot="0" parent="0" pslot="0"/>
+      <link child="4" cslot="0" parent="1" pslot="0"/>
+      <link child="6" cslot="0" parent="3" pslot="0"/>
+      <link child="2" cslot="0" parent="4" pslot="0"/>
+      <link child="3" cslot="0" parent="4" pslot="1"/>
+      <link child="7" cslot="0" parent="6" pslot="0"/>
+      <link child="10" cslot="0" parent="7" pslot="0"/>
+      <link child="9" cslot="0" parent="7" pslot="2"/>
+      <link child="5" cslot="0" parent="8" pslot="0"/>
+      <link child="11" cslot="0" parent="9" pslot="0"/>
+      <link child="13" cslot="0" parent="10" pslot="0"/>
+      <link child="12" cslot="0" parent="11" pslot="0"/>
+      <link child="8" cslot="0" parent="12" pslot="0"/>
+      <link child="14" cslot="0" parent="13" pslot="0"/>
+      <link child="8" cslot="1" parent="14" pslot="0"/>
+      <link child="16" cslot="0" parent="15" pslot="0"/>
+      <link child="0" cslot="0" parent="16" pslot="0"/>
+    </linkage>
+  </page>
+
+</datafluxdocument>
