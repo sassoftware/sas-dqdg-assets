@@ -31,7 +31,7 @@ The table below show what the contents of the Sample QKB for Healthcare contains
 | Text                                    | Language Guess  | Text         |
 | Upper                                   | Case            | Text         |
 
-![](C:\Users\mischa\Downloads\QKB for Healthcare\images\HL_QKB.jpg)
+![](images\HL_QKB.jpg)
 
 
 
