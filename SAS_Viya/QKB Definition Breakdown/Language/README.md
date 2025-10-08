@@ -4,6 +4,8 @@ The following QKB definitions are all exported from the CI33 QKB.  We have extra
 
 File names for these QARC files are structured with QKBVersion_Language_Date, so the CI33_English_250730.qarc.
 
+All of the Language based QARC files described below can be found here: https://support.sas.com/downloads/package.htm?pid=2790
+
 | Language   | Country(s)                                                   | Local ISO Code(s)                                            | File Name                   |
 | :--------- | :----------------------------------------------------------- | ------------------------------------------------------------ | --------------------------- |
 | Afrikaans  | South Africa                                                 | AFZAF                                                        | CI33_Afrikaans_250730.qarc  |
