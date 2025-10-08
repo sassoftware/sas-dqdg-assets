@@ -4,6 +4,8 @@ The following QKB definitions are all exported from the CI33 QKB.  We have extra
 
 File names for these QARC files are structured with QKBVersion_Region_Date, so the CI33_Asia_250730.qarc.
 
+All of the Region based QARC files described below can be found here:  https://support.sas.com/downloads/package.htm?pid=2789
+
 | Region               | Country(s)                                                   | Locale ISO Code(s)                                           | File Name                          |
 | :------------------- | :----------------------------------------------------------- | ------------------------------------------------------------ | ---------------------------------- |
 | Asia                 | China, Hong Kong, India, Indonesia, Japan, Kazakhstan, Malaysia, Philippines, Singapore, South Korea, Thailand, Vietnam | ZHCHN, ENHKG, HIIND, ENIND, IDIDN, JAJPN, KKKAZ, MSMYS, ENPHL, ENSGP, KOKOR, THTHA, VIVNM | CI33_Asia_250730.qarc              |
