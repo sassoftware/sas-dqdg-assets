@@ -4,7 +4,7 @@ The following QKB definitions are all exported from the CI33 QKB.  We have extra
 
 File names for these QARC files are structured with QKBVersion_Country_Date, so the CI33_Argentina_250730.qarc.
 
-
+All of the Country based QARC files described below can be found here: https://support.sas.com/downloads/package.htm?pid=2791
 
 | Country        | Language(s) in the QARC | Locale ISO Code(s) | File Name                       |
 | :------------- | :---------------------- | ------------------ | ------------------------------- |
