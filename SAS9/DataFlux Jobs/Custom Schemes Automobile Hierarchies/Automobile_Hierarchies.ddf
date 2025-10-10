@@ -1,0 +1,412 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<datafluxdocument class="architectjob" version="1.2">
+
+  <jobid id="5B0083C833B6042E"/>
+
+  <propset>
+    <prop name="_DESCRIPTION">
+      <value dtype="String"></value>
+    </prop>
+    <prop name="_NOTES">
+      <value dtype="String"></value>
+    </prop>
+    <prop name="AutoLayoutRequired"/>
+    <prop name="DefaultLayout">
+      <value dtype="String">LeftToRight</value>
+    </prop>
+    <prop name="GroupNodes"/>
+    <prop name="name">
+      <value dtype="String">Automobile_Hierarchies</value>
+    </prop>
+    <prop name="ShowGridLines">
+      <value dtype="String">True</value>
+    </prop>
+    <prop name="SnapToGrid">
+      <value dtype="String">False</value>
+    </prop>
+    <prop name="STICKYNOTES"/>
+    <prop name="ZoomLevel">
+      <value dtype="String">26</value>
+    </prop>
+  </propset>
+
+  <paramset>
+    <param name="WFINPUTS" type="matrix"/>
+    <param name="WFOUTPUTS" type="matrix"/>
+  </paramset>
+
+  <page>
+    <propset>
+      <prop name="serial_targets"/>
+    </propset>
+    <step id="SOURCE_ODBC" iid="2" ver="1">
+      <propset>
+        <prop name="color"/>
+        <prop name="default_target"/>
+        <prop name="description">
+          <value dtype="String">CARS</value>
+        </prop>
+        <prop name="descriptive_text">
+          <value dtype="String">Specifies a table as an input in a data job</value>
+        </prop>
+        <prop name="node_position">
+          <value dtype="String">63.3333333333331</value>
+          <value dtype="String">46.16</value>
+        </prop>
+        <prop name="notes">
+          <value dtype="String"></value>
+        </prop>
+        <prop name="owning_group_id"/>
+        <prop name="serial_target_position"/>
+      </propset>
+      <paramset>
+        <param dtype="String" name="DSN" type="single">DSN=SAS Data;DFXTYPE=TKTS</param>
+        <param dtype="Unknown" isnull="true" name="MAX_OUTPUT_ROWS" type="single"></param>
+        <param dtype="String" name="SCHEMA_NAME" type="single">SAS</param>
+        <param dtype="String" name="TABLE_NAME" type="single">CARS</param>
+        <param name="FIELDS" type="matrix">
+          <row>
+            <col dtype="String" name="NAME">Make</col>
+            <col dtype="String" name="OUTPUT_NAME">Make</col>
+            <col dtype="String" name="MAX_LENGTH">0</col>
+            <col dtype="Unknown" isnull="true" name="SQL_OVERRIDE"></col>
+          </row>
+          <row>
+            <col dtype="String" name="NAME">Model</col>
+            <col dtype="String" name="OUTPUT_NAME">Model</col>
+            <col dtype="String" name="MAX_LENGTH">0</col>
+            <col dtype="Unknown" isnull="true" name="SQL_OVERRIDE"></col>
+          </row>
+          <row>
+            <col dtype="String" name="NAME">Type</col>
+            <col dtype="String" name="OUTPUT_NAME">Type</col>
+            <col dtype="String" name="MAX_LENGTH">0</col>
+            <col dtype="Unknown" isnull="true" name="SQL_OVERRIDE"></col>
+          </row>
+          <row>
+            <col dtype="String" name="NAME">Origin</col>
+            <col dtype="String" name="OUTPUT_NAME">Origin</col>
+            <col dtype="String" name="MAX_LENGTH">0</col>
+            <col dtype="Unknown" isnull="true" name="SQL_OVERRIDE"></col>
+          </row>
+          <row>
+            <col dtype="String" name="NAME">DriveTrain</col>
+            <col dtype="String" name="OUTPUT_NAME">DriveTrain</col>
+            <col dtype="String" name="MAX_LENGTH">0</col>
+            <col dtype="Unknown" isnull="true" name="SQL_OVERRIDE"></col>
+          </row>
+          <row>
+            <col dtype="String" name="NAME">MSRP</col>
+            <col dtype="String" name="OUTPUT_NAME">MSRP</col>
+            <col dtype="String" name="MAX_LENGTH">0</col>
+            <col dtype="Unknown" isnull="true" name="SQL_OVERRIDE"></col>
+          </row>
+          <row>
+            <col dtype="String" name="NAME">Invoice</col>
+            <col dtype="String" name="OUTPUT_NAME">Invoice</col>
+            <col dtype="String" name="MAX_LENGTH">0</col>
+            <col dtype="Unknown" isnull="true" name="SQL_OVERRIDE"></col>
+          </row>
+          <row>
+            <col dtype="String" name="NAME">EngineSize</col>
+            <col dtype="String" name="OUTPUT_NAME">EngineSize</col>
+            <col dtype="String" name="MAX_LENGTH">0</col>
+            <col dtype="Unknown" isnull="true" name="SQL_OVERRIDE"></col>
+          </row>
+          <row>
+            <col dtype="String" name="NAME">Cylinders</col>
+            <col dtype="String" name="OUTPUT_NAME">Cylinders</col>
+            <col dtype="String" name="MAX_LENGTH">0</col>
+            <col dtype="Unknown" isnull="true" name="SQL_OVERRIDE"></col>
+          </row>
+          <row>
+            <col dtype="String" name="NAME">Horsepower</col>
+            <col dtype="String" name="OUTPUT_NAME">Horsepower</col>
+            <col dtype="String" name="MAX_LENGTH">0</col>
+            <col dtype="Unknown" isnull="true" name="SQL_OVERRIDE"></col>
+          </row>
+          <row>
+            <col dtype="String" name="NAME">MPG_City</col>
+            <col dtype="String" name="OUTPUT_NAME">MPG_City</col>
+            <col dtype="String" name="MAX_LENGTH">0</col>
+            <col dtype="Unknown" isnull="true" name="SQL_OVERRIDE"></col>
+          </row>
+          <row>
+            <col dtype="String" name="NAME">MPG_Highway</col>
+            <col dtype="String" name="OUTPUT_NAME">MPG_Highway</col>
+            <col dtype="String" name="MAX_LENGTH">0</col>
+            <col dtype="Unknown" isnull="true" name="SQL_OVERRIDE"></col>
+          </row>
+          <row>
+            <col dtype="String" name="NAME">Weight</col>
+            <col dtype="String" name="OUTPUT_NAME">Weight</col>
+            <col dtype="String" name="MAX_LENGTH">0</col>
+            <col dtype="Unknown" isnull="true" name="SQL_OVERRIDE"></col>
+          </row>
+          <row>
+            <col dtype="String" name="NAME">Wheelbase</col>
+            <col dtype="String" name="OUTPUT_NAME">Wheelbase</col>
+            <col dtype="String" name="MAX_LENGTH">0</col>
+            <col dtype="Unknown" isnull="true" name="SQL_OVERRIDE"></col>
+          </row>
+          <row>
+            <col dtype="String" name="NAME">Length</col>
+            <col dtype="String" name="OUTPUT_NAME">Length</col>
+            <col dtype="String" name="MAX_LENGTH">0</col>
+            <col dtype="Unknown" isnull="true" name="SQL_OVERRIDE"></col>
+          </row>
+        </param>
+        <param name="SORT_FIELDS" type="matrix"/>
+        <param dtype="String" name="CATALOG_NAME" type="single">BASE</param>
+        <param dtype="Unknown" isnull="true" name="POOL_NAME" type="single"></param>
+      </paramset>
+    </step>
+    <step id="STANDARDIZE" iid="3" ver="1">
+      <propset>
+        <prop name="color"/>
+        <prop name="default_target"/>
+        <prop name="description">
+          <value dtype="String">Standardization 1</value>
+        </prop>
+        <prop name="descriptive_text">
+          <value dtype="String">Makes similar items the same. Examples of standardization are correcting misspellings (Mary instead of Mmary), using full company names instead of initials (International Business Machines instead of IBM), and using consistent naming conventions for states (North Dakota instead of ND)</value>
+        </prop>
+        <prop name="node_position">
+          <value dtype="String">204.333333333333</value>
+          <value dtype="String">47.16</value>
+        </prop>
+        <prop name="notes">
+          <value dtype="String"></value>
+        </prop>
+        <prop name="owning_group_id"/>
+        <prop name="serial_target_position"/>
+      </propset>
+      <paramset>
+        <param name="STANDARDIZE_SOURCE" type="matrix">
+          <row>
+            <col dtype="String" name="INPUTNAME">Make</col>
+            <col dtype="String" name="OUTPUTNAME">Parent Company</col>
+            <col dtype="String" name="STANDARDIZE_DEFINITION"></col>
+            <col dtype="String" name="STANDARDIZE_SCHEME">Auto_Parent_Company.sch</col>
+            <col dtype="Integer" name="STANDARDIZE_SCHEMEOPTS">-2147483648</col>
+            <col dtype="String" name="STANDARDIZE_MATCHDEFN"></col>
+            <col dtype="Integer" name="STANDARDIZE_MATCHSENS">1863659952</col>
+          </row>
+          <row>
+            <col dtype="String" name="INPUTNAME">Make</col>
+            <col dtype="String" name="OUTPUTNAME">Make_Stnd</col>
+            <col dtype="String" name="STANDARDIZE_DEFINITION"></col>
+            <col dtype="String" name="STANDARDIZE_SCHEME">EN Auto Make.sch</col>
+            <col dtype="Integer" name="STANDARDIZE_SCHEMEOPTS">-2147483648</col>
+            <col dtype="String" name="STANDARDIZE_MATCHDEFN"></col>
+            <col dtype="Integer" name="STANDARDIZE_MATCHSENS">1993098816</col>
+          </row>
+        </param>
+        <param name="FIELD_MAP" type="matrix">
+          <row>
+            <col dtype="String" name="INPUTNAME">Make</col>
+            <col dtype="String" name="OUTPUTNAME">Make</col>
+          </row>
+          <row>
+            <col dtype="String" name="INPUTNAME">Model</col>
+            <col dtype="String" name="OUTPUTNAME">Model</col>
+          </row>
+          <row>
+            <col dtype="String" name="INPUTNAME">Type</col>
+            <col dtype="String" name="OUTPUTNAME">Type</col>
+          </row>
+          <row>
+            <col dtype="String" name="INPUTNAME">Origin</col>
+            <col dtype="String" name="OUTPUTNAME">Origin</col>
+          </row>
+          <row>
+            <col dtype="String" name="INPUTNAME">DriveTrain</col>
+            <col dtype="String" name="OUTPUTNAME">DriveTrain</col>
+          </row>
+          <row>
+            <col dtype="String" name="INPUTNAME">MSRP</col>
+            <col dtype="String" name="OUTPUTNAME">MSRP</col>
+          </row>
+          <row>
+            <col dtype="String" name="INPUTNAME">Invoice</col>
+            <col dtype="String" name="OUTPUTNAME">Invoice</col>
+          </row>
+          <row>
+            <col dtype="String" name="INPUTNAME">EngineSize</col>
+            <col dtype="String" name="OUTPUTNAME">EngineSize</col>
+          </row>
+          <row>
+            <col dtype="String" name="INPUTNAME">Cylinders</col>
+            <col dtype="String" name="OUTPUTNAME">Cylinders</col>
+          </row>
+          <row>
+            <col dtype="String" name="INPUTNAME">Horsepower</col>
+            <col dtype="String" name="OUTPUTNAME">Horsepower</col>
+          </row>
+          <row>
+            <col dtype="String" name="INPUTNAME">MPG_City</col>
+            <col dtype="String" name="OUTPUTNAME">MPG_City</col>
+          </row>
+          <row>
+            <col dtype="String" name="INPUTNAME">MPG_Highway</col>
+            <col dtype="String" name="OUTPUTNAME">MPG_Highway</col>
+          </row>
+          <row>
+            <col dtype="String" name="INPUTNAME">Weight</col>
+            <col dtype="String" name="OUTPUTNAME">Weight</col>
+          </row>
+          <row>
+            <col dtype="String" name="INPUTNAME">Wheelbase</col>
+            <col dtype="String" name="OUTPUTNAME">Wheelbase</col>
+          </row>
+          <row>
+            <col dtype="String" name="INPUTNAME">Length</col>
+            <col dtype="String" name="OUTPUTNAME">Length</col>
+          </row>
+        </param>
+        <param dtype="Unknown" isnull="true" name="BF_PATH" type="single"></param>
+        <param dtype="String" name="BF_LOCALE" type="single">ENUSA</param>
+        <param dtype="Boolean" name="PRESERVENULL" type="single">false</param>
+        <param dtype="Unknown" isnull="true" name="LOCALE_FIELD" type="single"></param>
+        <param name="LOCALE_LIST" type="matrix"/>
+        <param dtype="Unknown" isnull="true" name="EXCEPTION_ACTION" type="single"></param>
+        <param dtype="Unknown" isnull="true" name="EXCEPTION_INFO" type="single"></param>
+        <param dtype="Unknown" isnull="true" name="SCORE_DEPTH" type="single"></param>
+        <param dtype="Unknown" isnull="true" name="RESOURCE_LEVEL" type="single"></param>
+        <param dtype="Unknown" isnull="true" name="STDZ_FLAG" type="single"></param>
+      </paramset>
+    </step>
+    <step id="PASSTHRU" iid="4">
+      <propset>
+        <prop name="color"/>
+        <prop name="default_target"/>
+        <prop name="description">
+          <value dtype="String">Field Layout 1</value>
+        </prop>
+        <prop name="descriptive_text">
+          <value dtype="String">Renames and reorders field names as they pass out of this node</value>
+        </prop>
+        <prop name="node_position">
+          <value dtype="String">342.333333333333</value>
+          <value dtype="String">47.16</value>
+        </prop>
+        <prop name="notes">
+          <value dtype="String"></value>
+        </prop>
+        <prop name="owning_group_id"/>
+        <prop name="serial_target_position"/>
+      </propset>
+      <paramset>
+        <param name="FIELD_MAP" type="matrix">
+          <row>
+            <col dtype="String" name="INPUTNAME">Make</col>
+            <col dtype="String" name="OUTPUTNAME">Make</col>
+            <col dtype="Unknown" isnull="true" name="TYPE_OVERRIDE"></col>
+            <col dtype="Unknown" isnull="true" name="LENGTH_OVERRIDE"></col>
+          </row>
+          <row>
+            <col dtype="String" name="INPUTNAME">Model</col>
+            <col dtype="String" name="OUTPUTNAME">Model</col>
+            <col dtype="Unknown" isnull="true" name="TYPE_OVERRIDE"></col>
+            <col dtype="Unknown" isnull="true" name="LENGTH_OVERRIDE"></col>
+          </row>
+          <row>
+            <col dtype="String" name="INPUTNAME">Type</col>
+            <col dtype="String" name="OUTPUTNAME">Type</col>
+            <col dtype="Unknown" isnull="true" name="TYPE_OVERRIDE"></col>
+            <col dtype="Unknown" isnull="true" name="LENGTH_OVERRIDE"></col>
+          </row>
+          <row>
+            <col dtype="String" name="INPUTNAME">Origin</col>
+            <col dtype="String" name="OUTPUTNAME">Origin</col>
+            <col dtype="Unknown" isnull="true" name="TYPE_OVERRIDE"></col>
+            <col dtype="Unknown" isnull="true" name="LENGTH_OVERRIDE"></col>
+          </row>
+          <row>
+            <col dtype="String" name="INPUTNAME">DriveTrain</col>
+            <col dtype="String" name="OUTPUTNAME">DriveTrain</col>
+            <col dtype="Unknown" isnull="true" name="TYPE_OVERRIDE"></col>
+            <col dtype="Unknown" isnull="true" name="LENGTH_OVERRIDE"></col>
+          </row>
+          <row>
+            <col dtype="String" name="INPUTNAME">MSRP</col>
+            <col dtype="String" name="OUTPUTNAME">MSRP</col>
+            <col dtype="Unknown" isnull="true" name="TYPE_OVERRIDE"></col>
+            <col dtype="Unknown" isnull="true" name="LENGTH_OVERRIDE"></col>
+          </row>
+          <row>
+            <col dtype="String" name="INPUTNAME">Invoice</col>
+            <col dtype="String" name="OUTPUTNAME">Invoice</col>
+            <col dtype="Unknown" isnull="true" name="TYPE_OVERRIDE"></col>
+            <col dtype="Unknown" isnull="true" name="LENGTH_OVERRIDE"></col>
+          </row>
+          <row>
+            <col dtype="String" name="INPUTNAME">EngineSize</col>
+            <col dtype="String" name="OUTPUTNAME">EngineSize</col>
+            <col dtype="Unknown" isnull="true" name="TYPE_OVERRIDE"></col>
+            <col dtype="Unknown" isnull="true" name="LENGTH_OVERRIDE"></col>
+          </row>
+          <row>
+            <col dtype="String" name="INPUTNAME">Cylinders</col>
+            <col dtype="String" name="OUTPUTNAME">Cylinders</col>
+            <col dtype="Unknown" isnull="true" name="TYPE_OVERRIDE"></col>
+            <col dtype="Unknown" isnull="true" name="LENGTH_OVERRIDE"></col>
+          </row>
+          <row>
+            <col dtype="String" name="INPUTNAME">Horsepower</col>
+            <col dtype="String" name="OUTPUTNAME">Horsepower</col>
+            <col dtype="Unknown" isnull="true" name="TYPE_OVERRIDE"></col>
+            <col dtype="Unknown" isnull="true" name="LENGTH_OVERRIDE"></col>
+          </row>
+          <row>
+            <col dtype="String" name="INPUTNAME">MPG_City</col>
+            <col dtype="String" name="OUTPUTNAME">MPG_City</col>
+            <col dtype="Unknown" isnull="true" name="TYPE_OVERRIDE"></col>
+            <col dtype="Unknown" isnull="true" name="LENGTH_OVERRIDE"></col>
+          </row>
+          <row>
+            <col dtype="String" name="INPUTNAME">MPG_Highway</col>
+            <col dtype="String" name="OUTPUTNAME">MPG_Highway</col>
+            <col dtype="Unknown" isnull="true" name="TYPE_OVERRIDE"></col>
+            <col dtype="Unknown" isnull="true" name="LENGTH_OVERRIDE"></col>
+          </row>
+          <row>
+            <col dtype="String" name="INPUTNAME">Weight</col>
+            <col dtype="String" name="OUTPUTNAME">Weight</col>
+            <col dtype="Unknown" isnull="true" name="TYPE_OVERRIDE"></col>
+            <col dtype="Unknown" isnull="true" name="LENGTH_OVERRIDE"></col>
+          </row>
+          <row>
+            <col dtype="String" name="INPUTNAME">Wheelbase</col>
+            <col dtype="String" name="OUTPUTNAME">Wheelbase</col>
+            <col dtype="Unknown" isnull="true" name="TYPE_OVERRIDE"></col>
+            <col dtype="Unknown" isnull="true" name="LENGTH_OVERRIDE"></col>
+          </row>
+          <row>
+            <col dtype="String" name="INPUTNAME">Length</col>
+            <col dtype="String" name="OUTPUTNAME">Length</col>
+            <col dtype="Unknown" isnull="true" name="TYPE_OVERRIDE"></col>
+            <col dtype="Unknown" isnull="true" name="LENGTH_OVERRIDE"></col>
+          </row>
+          <row>
+            <col dtype="String" name="INPUTNAME">Make_Stnd</col>
+            <col dtype="String" name="OUTPUTNAME">Make_Stnd</col>
+            <col dtype="Unknown" isnull="true" name="TYPE_OVERRIDE"></col>
+            <col dtype="Unknown" isnull="true" name="LENGTH_OVERRIDE"></col>
+          </row>
+          <row>
+            <col dtype="String" name="INPUTNAME">Parent Company</col>
+            <col dtype="String" name="OUTPUTNAME">Parent Company</col>
+            <col dtype="Unknown" isnull="true" name="TYPE_OVERRIDE"></col>
+            <col dtype="Unknown" isnull="true" name="LENGTH_OVERRIDE"></col>
+          </row>
+        </param>
+      </paramset>
+    </step>
+    <linkage>
+      <link child="1" cslot="0" parent="0" pslot="0"/>
+      <link child="2" cslot="0" parent="1" pslot="0"/>
+    </linkage>
+  </page>
+
+</datafluxdocument>

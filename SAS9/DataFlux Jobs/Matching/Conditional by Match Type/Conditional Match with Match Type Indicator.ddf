@@ -1,0 +1,459 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<datafluxdocument class="architectjob" version="1.2">
+
+  <jobid id="5BB10CA6BFF393B1"/>
+
+  <propset>
+    <prop name="_DESCRIPTION">
+      <value dtype="String">Conditional Match with Match Type Indicator</value>
+    </prop>
+    <prop name="_NOTES"/>
+    <prop name="AutoLayoutRequired"/>
+    <prop name="DefaultLayout">
+      <value dtype="String">LeftToRight</value>
+    </prop>
+    <prop name="ExternalDataProviderInputFilename"/>
+    <prop name="ExternalDataProviderUsePatternData"/>
+    <prop name="GroupNodes"/>
+    <prop name="name">
+      <value dtype="String">Conditional Match with Match Type Indicator</value>
+    </prop>
+    <prop name="ShowGridLines">
+      <value dtype="String">True</value>
+    </prop>
+    <prop name="SnapToGrid">
+      <value dtype="String">False</value>
+    </prop>
+    <prop name="STICKYNOTES">
+      <value dtype="String">&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;StickyNote Text="Condition 1:  Full Name, Address, City&amp;#xA;Condition 2:  Family Name, Address&amp;#xA;Condition 3:  Family Name, City" ExpandedWidth="233" ExpandedHeight="69" IsExpanded="True" ID="note_5" UUID="" BackGroundColor="Yellow" XPosition="10" YPosition="148" OwningGroupId="" OwningContainerId="" Model="" PropertyContainer="DataFlux.Unity.WorkFlowModel.Objects.SerializablePropertyContainer" Note="" Name="Note 1" Description="" SERIALIZED_OBJECT_INSTANCE_ID="ID:635380" classtype="DataFlux.Unity.WorkFlowModel.Objects.StickyNote, Unity.WorkFlowModel, Version=9.5.0.0, Culture=neutral, PublicKeyToken=null" /&gt;</value>
+    </prop>
+    <prop name="ZoomLevel">
+      <value dtype="String">26</value>
+    </prop>
+  </propset>
+
+  <paramset>
+    <param name="WFINPUTS" type="matrix"/>
+    <param name="WFOUTPUTS" type="matrix"/>
+  </paramset>
+
+  <page>
+    <propset>
+      <prop name="description">
+        <value dtype="String">Page 1</value>
+      </prop>
+      <prop name="serial_targets"/>
+    </propset>
+    <step id="SOURCE_ODBC" iid="1">
+      <propset>
+        <prop name="color">
+          <value dtype="String">LightBlue</value>
+        </prop>
+        <prop name="default_target"/>
+        <prop name="description">
+          <value dtype="String">Data Source 1</value>
+        </prop>
+        <prop name="descriptive_text">
+          <value dtype="String">Data Source</value>
+        </prop>
+        <prop name="node_position">
+          <value dtype="String">10</value>
+          <value dtype="String">10</value>
+        </prop>
+        <prop name="notes">
+          <value dtype="String"></value>
+        </prop>
+        <prop name="owning_group_id"/>
+        <prop name="serial_target_position"/>
+      </propset>
+      <paramset>
+        <param dtype="String" name="DSN" type="single">DSN=DataFlux Sample</param>
+        <param dtype="Unknown" isnull="true" name="MAX_OUTPUT_ROWS" type="single"></param>
+        <param dtype="Unknown" isnull="true" name="SCHEMA_NAME" type="single"></param>
+        <param dtype="String" name="TABLE_NAME" type="single">Contacts</param>
+        <param name="FIELDS" type="matrix">
+          <row>
+            <col dtype="String" name="NAME">ID</col>
+            <col dtype="String" name="OUTPUT_NAME">ID</col>
+            <col dtype="String" name="MAX_LENGTH">0</col>
+            <col dtype="Unknown" isnull="true" name="SQL_OVERRIDE"></col>
+          </row>
+          <row>
+            <col dtype="String" name="NAME">COMPANY</col>
+            <col dtype="String" name="OUTPUT_NAME">COMPANY</col>
+            <col dtype="String" name="MAX_LENGTH">0</col>
+            <col dtype="Unknown" isnull="true" name="SQL_OVERRIDE"></col>
+          </row>
+          <row>
+            <col dtype="String" name="NAME">CONTACT</col>
+            <col dtype="String" name="OUTPUT_NAME">CONTACT</col>
+            <col dtype="String" name="MAX_LENGTH">0</col>
+            <col dtype="Unknown" isnull="true" name="SQL_OVERRIDE"></col>
+          </row>
+          <row>
+            <col dtype="String" name="NAME">ADDRESS</col>
+            <col dtype="String" name="OUTPUT_NAME">ADDRESS</col>
+            <col dtype="String" name="MAX_LENGTH">0</col>
+            <col dtype="Unknown" isnull="true" name="SQL_OVERRIDE"></col>
+          </row>
+          <row>
+            <col dtype="String" name="NAME">CITY</col>
+            <col dtype="String" name="OUTPUT_NAME">CITY</col>
+            <col dtype="String" name="MAX_LENGTH">0</col>
+            <col dtype="Unknown" isnull="true" name="SQL_OVERRIDE"></col>
+          </row>
+          <row>
+            <col dtype="String" name="NAME">STATE</col>
+            <col dtype="String" name="OUTPUT_NAME">STATE</col>
+            <col dtype="String" name="MAX_LENGTH">0</col>
+            <col dtype="Unknown" isnull="true" name="SQL_OVERRIDE"></col>
+          </row>
+          <row>
+            <col dtype="String" name="NAME">PHONE</col>
+            <col dtype="String" name="OUTPUT_NAME">PHONE</col>
+            <col dtype="String" name="MAX_LENGTH">0</col>
+            <col dtype="Unknown" isnull="true" name="SQL_OVERRIDE"></col>
+          </row>
+        </param>
+        <param name="SORT_FIELDS" type="matrix"/>
+        <param dtype="Unknown" isnull="true" name="CATALOG_NAME" type="single"></param>
+        <param dtype="Unknown" isnull="true" name="POOL_NAME" type="single"></param>
+      </paramset>
+    </step>
+    <step id="PARSE" iid="2">
+      <propset>
+        <prop name="color">
+          <value dtype="String">LightPurple</value>
+        </prop>
+        <prop name="default_target"/>
+        <prop name="description">
+          <value dtype="String">Parsing 1</value>
+        </prop>
+        <prop name="descriptive_text">
+          <value dtype="String">Parsing</value>
+        </prop>
+        <prop name="node_position">
+          <value dtype="String">148</value>
+          <value dtype="String">10</value>
+        </prop>
+        <prop name="notes">
+          <value dtype="String"></value>
+        </prop>
+        <prop name="owning_group_id"/>
+        <prop name="serial_target_position"/>
+      </propset>
+      <paramset>
+        <param dtype="String" name="PARSE_FIELDNAME" type="single">CONTACT</param>
+        <param dtype="String" name="PARSE_DEF" type="single">Name</param>
+        <param name="PARSE_TOKENS" type="matrix">
+          <row>
+            <col dtype="String" name="TOKEN_NAME">Family Name</col>
+            <col dtype="String" name="OUTPUTNAME">Family Name</col>
+          </row>
+        </param>
+        <param name="FIELD_MAP" type="matrix">
+          <row>
+            <col dtype="String" name="INPUTNAME">ID</col>
+            <col dtype="String" name="OUTPUTNAME">ID</col>
+          </row>
+          <row>
+            <col dtype="String" name="INPUTNAME">COMPANY</col>
+            <col dtype="String" name="OUTPUTNAME">COMPANY</col>
+          </row>
+          <row>
+            <col dtype="String" name="INPUTNAME">CONTACT</col>
+            <col dtype="String" name="OUTPUTNAME">CONTACT</col>
+          </row>
+          <row>
+            <col dtype="String" name="INPUTNAME">ADDRESS</col>
+            <col dtype="String" name="OUTPUTNAME">ADDRESS</col>
+          </row>
+          <row>
+            <col dtype="String" name="INPUTNAME">CITY</col>
+            <col dtype="String" name="OUTPUTNAME">CITY</col>
+          </row>
+          <row>
+            <col dtype="String" name="INPUTNAME">STATE</col>
+            <col dtype="String" name="OUTPUTNAME">STATE</col>
+          </row>
+          <row>
+            <col dtype="String" name="INPUTNAME">PHONE</col>
+            <col dtype="String" name="OUTPUTNAME">PHONE</col>
+          </row>
+        </param>
+        <param dtype="Unknown" isnull="true" name="BF_PATH" type="single"></param>
+        <param dtype="String" name="BF_LOCALE" type="single">ENUSA</param>
+        <param dtype="Boolean" name="PRESERVENULL" type="single">false</param>
+        <param dtype="Boolean" name="APPEND_RESULT" type="single">false</param>
+        <param dtype="Unknown" isnull="true" name="RESULT_FIELD" type="single"></param>
+        <param dtype="Unknown" isnull="true" name="LOCALE_FIELD" type="single"></param>
+        <param name="LOCALE_LIST" type="matrix"/>
+        <param dtype="Unknown" isnull="true" name="EXCEPTION_ACTION" type="single"></param>
+        <param dtype="Unknown" isnull="true" name="EXCEPTION_INFO" type="single"></param>
+        <param dtype="Unknown" isnull="true" name="SCORE_DEPTH" type="single"></param>
+        <param dtype="Unknown" isnull="true" name="RESOURCE_LEVEL" type="single"></param>
+        <param dtype="Unknown" isnull="true" name="PARSE_INPUT_LENGTH" type="single"></param>
+      </paramset>
+    </step>
+    <step id="MATCHCODE" iid="3" ver="1">
+      <propset>
+        <prop name="color">
+          <value dtype="String">LightBlue</value>
+        </prop>
+        <prop name="default_target"/>
+        <prop name="description">
+          <value dtype="String">Match Codes 1</value>
+        </prop>
+        <prop name="descriptive_text">
+          <value dtype="String">Match Codes</value>
+        </prop>
+        <prop name="node_position">
+          <value dtype="String">286</value>
+          <value dtype="String">10</value>
+        </prop>
+        <prop name="notes">
+          <value dtype="String"></value>
+        </prop>
+        <prop name="owning_group_id"/>
+        <prop name="serial_target_position"/>
+      </propset>
+      <paramset>
+        <param name="MATCHCODE_SOURCE" type="matrix">
+          <row>
+            <col dtype="String" name="INPUTNAME">ADDRESS</col>
+            <col dtype="String" name="OUTPUTNAME">ADDRESS_MatchCode</col>
+            <col dtype="String" name="MATCH_DEFINITION">Address</col>
+            <col dtype="Integer" name="MATCH_SENSITIVITY">85</col>
+          </row>
+          <row>
+            <col dtype="String" name="INPUTNAME">CITY</col>
+            <col dtype="String" name="OUTPUTNAME">CITY_MatchCode</col>
+            <col dtype="String" name="MATCH_DEFINITION">City</col>
+            <col dtype="Integer" name="MATCH_SENSITIVITY">85</col>
+          </row>
+          <row>
+            <col dtype="String" name="INPUTNAME">Family Name</col>
+            <col dtype="String" name="OUTPUTNAME">Family Name_MatchCode</col>
+            <col dtype="String" name="MATCH_DEFINITION">Name</col>
+            <col dtype="Integer" name="MATCH_SENSITIVITY">85</col>
+          </row>
+          <row>
+            <col dtype="String" name="INPUTNAME">CONTACT</col>
+            <col dtype="String" name="OUTPUTNAME">CONTACT_MatchCode</col>
+            <col dtype="String" name="MATCH_DEFINITION">Name</col>
+            <col dtype="Integer" name="MATCH_SENSITIVITY">85</col>
+          </row>
+        </param>
+        <param name="FIELD_MAP" type="matrix">
+          <row>
+            <col dtype="String" name="INPUTNAME">ID</col>
+            <col dtype="String" name="OUTPUTNAME">ID</col>
+          </row>
+          <row>
+            <col dtype="String" name="INPUTNAME">COMPANY</col>
+            <col dtype="String" name="OUTPUTNAME">COMPANY</col>
+          </row>
+          <row>
+            <col dtype="String" name="INPUTNAME">CONTACT</col>
+            <col dtype="String" name="OUTPUTNAME">CONTACT</col>
+          </row>
+          <row>
+            <col dtype="String" name="INPUTNAME">ADDRESS</col>
+            <col dtype="String" name="OUTPUTNAME">ADDRESS</col>
+          </row>
+          <row>
+            <col dtype="String" name="INPUTNAME">CITY</col>
+            <col dtype="String" name="OUTPUTNAME">CITY</col>
+          </row>
+          <row>
+            <col dtype="String" name="INPUTNAME">STATE</col>
+            <col dtype="String" name="OUTPUTNAME">STATE</col>
+          </row>
+          <row>
+            <col dtype="String" name="INPUTNAME">PHONE</col>
+            <col dtype="String" name="OUTPUTNAME">PHONE</col>
+          </row>
+          <row>
+            <col dtype="String" name="INPUTNAME">Family Name</col>
+            <col dtype="String" name="OUTPUTNAME">Family Name</col>
+          </row>
+        </param>
+        <param dtype="Unknown" isnull="true" name="BF_PATH" type="single"></param>
+        <param dtype="String" name="BF_LOCALE" type="single">ENUSA</param>
+        <param dtype="Boolean" name="PRESERVENULL" type="single">false</param>
+        <param dtype="Unknown" isnull="true" name="LOCALE_FIELD" type="single"></param>
+        <param name="LOCALE_LIST" type="matrix"/>
+        <param dtype="Unknown" isnull="true" name="EXCEPTION_ACTION" type="single"></param>
+        <param dtype="Unknown" isnull="true" name="EXCEPTION_INFO" type="single"></param>
+        <param dtype="Unknown" isnull="true" name="SCORE_DEPTH" type="single"></param>
+        <param dtype="Unknown" isnull="true" name="RESOURCE_LEVEL" type="single"></param>
+        <param dtype="Boolean" name="NULLMATCHCODES" type="single">true</param>
+        <param dtype="Unknown" isnull="true" name="OUTPUT_LOCALE_FIELD" type="single"></param>
+        <param dtype="Unknown" isnull="true" name="OUTPUT_MATCHCODE_VERSION_FIELD" type="single"></param>
+        <param dtype="Boolean" name="COMPAT_EXACT_MATCH" type="single">false</param>
+        <param dtype="Boolean" name="USETOKENRULES" type="single">false</param>
+      </paramset>
+    </step>
+    <step id="CLUSTER" iid="4" ver="1">
+      <propset>
+        <prop name="__UNKNOWN_PARAM_STATEFILEPREFIX"/>
+        <prop name="color">
+          <value dtype="String">LightBlue</value>
+        </prop>
+        <prop name="default_target"/>
+        <prop name="description">
+          <value dtype="String">Clustering 1</value>
+        </prop>
+        <prop name="descriptive_text">
+          <value dtype="String">Clustering</value>
+        </prop>
+        <prop name="node_position">
+          <value dtype="String">424</value>
+          <value dtype="String">10</value>
+        </prop>
+        <prop name="notes">
+          <value dtype="String"></value>
+        </prop>
+        <prop name="owning_group_id"/>
+        <prop name="serial_target_position"/>
+      </propset>
+      <paramset>
+        <param name="FIELD_MAP" type="matrix">
+          <row>
+            <col dtype="String" name="INPUTNAME">ID</col>
+            <col dtype="String" name="OUTPUTNAME">ID</col>
+          </row>
+          <row>
+            <col dtype="String" name="INPUTNAME">COMPANY</col>
+            <col dtype="String" name="OUTPUTNAME">COMPANY</col>
+          </row>
+          <row>
+            <col dtype="String" name="INPUTNAME">CONTACT</col>
+            <col dtype="String" name="OUTPUTNAME">CONTACT</col>
+          </row>
+          <row>
+            <col dtype="String" name="INPUTNAME">ADDRESS</col>
+            <col dtype="String" name="OUTPUTNAME">ADDRESS</col>
+          </row>
+          <row>
+            <col dtype="String" name="INPUTNAME">CITY</col>
+            <col dtype="String" name="OUTPUTNAME">CITY</col>
+          </row>
+          <row>
+            <col dtype="String" name="INPUTNAME">STATE</col>
+            <col dtype="String" name="OUTPUTNAME">STATE</col>
+          </row>
+          <row>
+            <col dtype="String" name="INPUTNAME">PHONE</col>
+            <col dtype="String" name="OUTPUTNAME">PHONE</col>
+          </row>
+        </param>
+        <param name="CONDITIONS" type="matrix">
+          <row>
+            <col dtype="Integer" name="COND_NUM">0</col>
+            <col dtype="String" name="FIELD">CONTACT_MatchCode</col>
+            <col dtype="Integer" name="RULE_NUM">0</col>
+          </row>
+          <row>
+            <col dtype="Integer" name="COND_NUM">0</col>
+            <col dtype="String" name="FIELD">ADDRESS_MatchCode</col>
+            <col dtype="Integer" name="RULE_NUM">0</col>
+          </row>
+          <row>
+            <col dtype="Integer" name="COND_NUM">0</col>
+            <col dtype="String" name="FIELD">CITY_MatchCode</col>
+            <col dtype="Integer" name="RULE_NUM">0</col>
+          </row>
+          <row>
+            <col dtype="Integer" name="COND_NUM">1</col>
+            <col dtype="String" name="FIELD">Family Name_MatchCode</col>
+            <col dtype="Integer" name="RULE_NUM">0</col>
+          </row>
+          <row>
+            <col dtype="Integer" name="COND_NUM">1</col>
+            <col dtype="String" name="FIELD">ADDRESS_MatchCode</col>
+            <col dtype="Integer" name="RULE_NUM">0</col>
+          </row>
+          <row>
+            <col dtype="Integer" name="COND_NUM">2</col>
+            <col dtype="String" name="FIELD">Family Name</col>
+            <col dtype="Integer" name="RULE_NUM">0</col>
+          </row>
+          <row>
+            <col dtype="Integer" name="COND_NUM">2</col>
+            <col dtype="String" name="FIELD">CITY</col>
+            <col dtype="Integer" name="RULE_NUM">0</col>
+          </row>
+        </param>
+        <param dtype="String" name="OUTPUTNAME" type="single">HH_ID</param>
+        <param dtype="Boolean" name="BLANKISNULL" type="single">true</param>
+        <param dtype="Boolean" name="GROUPNULLS" type="single">false</param>
+        <param dtype="String" name="DONTCLUSTFLD" type="single"></param>
+        <param dtype="Boolean" name="SKIP" type="single">true</param>
+        <param dtype="Boolean" name="SKIPMULTIROWS" type="single">false</param>
+        <param dtype="String" name="OUTMATCHCOND" type="single">Cond_</param>
+        <param dtype="Boolean" name="OUTMATCHCONDCNT" type="single">false</param>
+        <param dtype="Unknown" isnull="true" name="PKFLDNAME" type="single"></param>
+        <param dtype="Unknown" isnull="true" name="PKSEPSTRING" type="single"></param>
+        <param dtype="String" name="OUTCLUSTSIZE" type="single"></param>
+        <param dtype="Boolean" name="COMPACT" type="single">false</param>
+        <param dtype="Boolean" name="DELAYMEMALLOC" type="single">false</param>
+        <param dtype="Unknown" isnull="true" name="CLUSTER/BYTES" type="single"></param>
+        <param dtype="Unknown" isnull="true" name="HASHBUCKETS" type="single"></param>
+        <param dtype="Unknown" isnull="true" name="CLUSTER/TEMP" type="single"></param>
+        <param dtype="Integer" name="CHUNKSIZE" type="single">16777216</param>
+        <param dtype="Boolean" name="SORTED" type="single">true</param>
+        <param dtype="Unknown" isnull="true" name="BASE/SORTBYTES" type="single"></param>
+        <param dtype="Unknown" isnull="true" name="BASE/SORTTHREADS" type="single"></param>
+        <param dtype="Unknown" isnull="true" name="BASE/SORTTEMP" type="single"></param>
+        <param name="WATCHFIELDS" type="matrix"/>
+      </paramset>
+    </step>
+    <step id="EXPRESSION" iid="6">
+      <propset>
+        <prop name="color">
+          <value dtype="String">LightYellow</value>
+        </prop>
+        <prop name="default_target"/>
+        <prop name="description">
+          <value dtype="String">Expression 1</value>
+        </prop>
+        <prop name="descriptive_text">
+          <value dtype="String">Expression</value>
+        </prop>
+        <prop name="node_position">
+          <value dtype="String">562</value>
+          <value dtype="String">10</value>
+        </prop>
+        <prop name="notes">
+          <value dtype="String"></value>
+        </prop>
+        <prop name="owning_group_id"/>
+        <prop name="serial_target_position"/>
+      </propset>
+      <paramset>
+        <param dtype="Unknown" isnull="true" name="INIT_EXPRESSION" type="single"></param>
+        <param dtype="String" name="EXEC_EXPRESSION" type="single">string match_type 30&#xD;
+&#xD;
+If Cond_1  MATCH_TYPE = "All Criterion"&#xD;
+else if Cond_2 MATCH_TYPE= "Family Name &amp; Address"&#xD;
+else if Cond_3 MATCH_TYPE="Family Name &amp; City"</param>
+        <param dtype="Unknown" isnull="true" name="TERM_EXPRESSION" type="single"></param>
+        <param dtype="Boolean" name="GENERATE_ROWS" type="single">false</param>
+        <param dtype="Unknown" isnull="true" name="RETVAL_FIELDNAME" type="single"></param>
+        <param dtype="Unknown" isnull="true" name="PUSHROW_FIELDNAME" type="single"></param>
+        <param name="GROUP_FIELDS" type="matrix"/>
+        <param dtype="Unknown" isnull="true" name="GROUP_INIT_EXPRESSION" type="single"></param>
+        <param dtype="Unknown" isnull="true" name="GROUP_TERM_EXPRESSION" type="single"></param>
+        <param dtype="Boolean" name="ADD_LAST_VAL_FIELDS" type="single">false</param>
+      </paramset>
+    </step>
+    <linkage>
+      <link child="1" cslot="0" parent="0" pslot="0"/>
+      <link child="2" cslot="0" parent="1" pslot="0"/>
+      <link child="3" cslot="0" parent="2" pslot="0"/>
+      <link child="4" cslot="0" parent="3" pslot="0"/>
+    </linkage>
+  </page>
+
+</datafluxdocument>

@@ -1,0 +1,45 @@
+function udf_tranc return String
+
+	string result
+	integer seqi
+	integer seqj
+	string sFrom
+	string sTo
+	integer iStart
+	integer iLen
+	string value
+	boolean flag
+
+	value = parameter(1)
+	sFrom = parameter(2)
+	sTo = parameter(3)
+	iStart = parameter(4)
+	iLen = parameter(5)
+	result = ''
+
+	for seqi = 0 to iLen-1
+		begin
+			flag = false
+			for seqj = 1 to len(sFrom)
+				begin
+					if lower(mid(value, iStart+seqi,1)) == lower(mid(sFrom,seqj,1)) then
+						begin
+							result = result & mid(sTo,seqj,1)
+							flag = true
+						end
+				end
+			if not flag then result = result & mid(value, iStart+seqi,1)
+			end
+	
+	result = mid(value,1,iStart-1) & result & mid(value,iStart+iLen,len(value)-iLen)
+
+	return result
+
+end function
+
+function udf_tranc_intx return String
+
+	return pdp_tranc(parameter(1),'0123456789','XXXXXXXXXX',parameter(2),parameter(3))
+
+end function
+

@@ -1,0 +1,158 @@
+//////////////////////////////////////////////////////////////////////////////////
+// Computes the Jaro & Jaro Winkler distances between two strings				//
+// intrepreted from: http://en.wikipedia.org/wiki/Jaro%E2%80%93Winkler_distance	//
+// s1 is the first string to compare											//
+// s2 is the second string to compare											//
+//////////////////////////////////////////////////////////////////////////////////
+
+//////////////////////////////////////////////////////////////////////////////////
+// Function:		getcommonchars												//
+// Description:																	//
+// Inputs:		2 string parameters       										//
+// Output:       	string														//
+//////////////////////////////////////////////////////////////////////////////////
+
+function getcommonchars return string
+
+ integer str1_len
+ integer str2_len
+ string commonchars
+ integer range
+ boolean nomatch
+ integer i
+ integer j
+
+ str1_len = len(parameter(1))
+ str2_len = len(parameter(2))
+ commonchars = ''
+ range = max(str1_len, str2_len)/2-1
+
+ for i = 1 to str1_len
+ begin
+  nomatch = true
+  for j = max(1, i-range) to min(i+range,str2_len)
+  begin
+   if nomatch and mid(parameter(2),j,1) == mid(parameter(1),i,1) then 
+   begin
+    nomatch = false
+    commonchars = commonchars & mid(parameter(1),i,1)
+   end
+  end
+ end
+
+ return commonchars
+
+end function
+
+//////////////////////////////////////////////////////////////////////////////////
+// Function:     getprefixlen													//
+// Description:  																//
+// Inputs:		2 string parameters       										//
+// Output:       integer														//
+//////////////////////////////////////////////////////////////////////////////////
+
+function getprefixlen return string
+
+ integer prefixlen
+ integer minprefixlen
+ integer n
+ integer i
+ boolean exit
+
+ minprefixlen = 4
+ n = min(len(parameter(1)),len(parameter(2)),minprefixlen)
+
+ exit = false
+
+ for i = 1 to n
+ begin
+  if not exit then
+  begin
+   if mid(parameter(1),i,1) != mid(parameter(2),i,1) then 
+   begin
+    prefixlen = i-1 
+    exit = true
+   end
+   else
+    prefixlen = n
+  end
+ end
+
+ return prefixlen
+
+end function
+
+//////////////////////////////////////////////////////////////////////////////////
+// Function:     jaro_distance													//
+// Description:  Calculate jaro distance between 2 strings						//
+// Inputs:       2 string parameters											//
+// Output:       real															//
+//////////////////////////////////////////////////////////////////////////////////
+
+function jaro_distance return real
+
+ real distance
+ real str1_len
+ real str2_len
+ string commons1
+ string commons2
+ real transpos
+ integer ubound
+ integer i
+
+  if parametertype(1) != "string" or parametertype(2) != "string" then
+  begin
+    raiseerror("Input to jaro distance must be a string")
+  end
+
+ str1_len = len(parameter(1))
+ str2_len = len(parameter(2))
+ commons1 = getcommonchars(parameter(1),parameter(2))
+ commons2 = getcommonchars(parameter(2),parameter(1))
+ transpos = 0
+ ubound = min(len(commons1),len(commons2))
+
+ for i = 1 to ubound
+ begin
+  if mid(commons1,i,1) != mid(commons2,i,1) then transpos = transpos + 1
+ end
+
+ transpos = transpos/2
+ 
+ if len(commons1) != 0 then 
+  distance = round((len(commons1)/str1_len + len(commons2)/str2_len + (len(commons1) - transpos)/len(commons1))/3,3)
+ else
+  distance = 0
+ 
+ return distance
+
+end function
+
+//////////////////////////////////////////////////////////////////////////////////
+// Function:     jarow_distance													//
+// Description:  Calculate jaro winkler distance between 2 strings				//
+// Inputs:       2 string parameters	       									//
+// Output:       real															//
+//////////////////////////////////////////////////////////////////////////////////
+
+function jarow_distance return real
+
+ real distance
+ real jaro
+ real prefixscale
+ integer prefixlen
+
+  if parametertype(1) != "string" or parametertype(2) != "string" then
+  begin
+    raiseerror("Input to jaro winkler distance must be a string")
+  end
+
+ jaro = jaro_distance(parameter(1),parameter(2))
+ prefixlen = getprefixlen(parameter(1),parameter(2))
+ prefixscale = 0.1
+
+ distance = round(jaro + prefixlen * prefixscale * (1.0 - jaro),3)
+
+ return distance
+
+end function

@@ -1,0 +1,79 @@
+//////////////////////////////////////////////////////////////////////////////////
+//This function calculates ISIN check digits using the "Modulus 10 Double Add 	//
+//Double" technique used in CUSIPs												//
+// http://en.wikipedia.org/wiki/International_Securities_Identifying_Number		//
+//////////////////////////////////////////////////////////////////////////////////
+
+//////////////////////////////////////////////////////////////////////////////////
+// Function:		udfCheckIsin												//
+// Description:																	//
+// Input:			1 string		  											//
+// Output:      	1 boolean													//	
+//////////////////////////////////////////////////////////////////////////////////
+
+Function udfCheckIsin return boolean
+
+string ISINi
+string ISINc
+string ISINa
+integer ISINd
+integer ISINs
+integer i
+boolean udfCheckIsin
+
+ISINi = parameter(1)
+ISINs = 0
+udfCheckIsin = false
+
+if len(ISINi) != 12 then
+	udfCheckIsin = false
+else
+	begin
+		//Remove check digit
+		ISINc = left(ISINi,11)
+
+		//Convert any letters to numbers
+		ISINc = replace(ISINc,'A','10',0)  ISINc = replace(ISINc,'B','11',0)  ISINc = replace(ISINc,'C','12',0)
+		ISINc = replace(ISINc,'D','13',0)  ISINc = replace(ISINc,'E','14',0)  ISINc = replace(ISINc,'F','15',0)
+		ISINc = replace(ISINc,'G','16',0)  ISINc = replace(ISINc,'H','17',0)  ISINc = replace(ISINc,'I','18',0)
+  		ISINc = replace(ISINc,'J','19',0)  ISINc = replace(ISINc,'K','20',0)  ISINc = replace(ISINc,'L','21',0)
+  		ISINc = replace(ISINc,'M','22',0)  ISINc = replace(ISINc,'N','23',0)  ISINc = replace(ISINc,'O','24',0)
+  		ISINc = replace(ISINc,'P','25',0)  ISINc = replace(ISINc,'Q','26',0)  ISINc = replace(ISINc,'R','27',0)
+  		ISINc = replace(ISINc,'S','28',0)  ISINc = replace(ISINc,'T','29',0)  ISINc = replace(ISINc,'U','30',0)
+  		ISINc = replace(ISINc,'V','31',0)  ISINc = replace(ISINc,'W','32',0)  ISINc = replace(ISINc,'X','33',0)
+  		ISINc = replace(ISINc,'Y','34',0)  ISINc = replace(ISINc,'Z','35',0)
+
+/*
+		//Fill Array from right to left  
+		for i = ISINd to 1 step -1
+			begin
+				ISINa = ISINa & mid(ISINc, i, 1)
+			end
+*/
+ 
+		ISINd = len(ISINc)
+		ISINa = ISINc
+		
+		//Sum characters
+  		for i = 1 to ISINd
+			begin
+				if i % 2 then
+					begin
+						if  mid(ISINa,i) < 5 then 
+							ISINs = ISINs + mid(ISINa,i,1)*2
+						else
+							ISINs = ISINs + mid(ISINa,i,1)*2-9
+					end
+				else
+					ISINs = ISINs + mid(ISINa,i,1)
+			end
+		
+		//Check digit validation
+		if (10 - (ISINs % 10)) % 10 == right(ISINi,1)
+			udfCheckIsin = true
+
+end
+
+ return udfCheckIsin
+
+End Function

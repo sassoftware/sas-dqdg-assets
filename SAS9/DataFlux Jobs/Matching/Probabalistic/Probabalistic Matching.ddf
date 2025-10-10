@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<datafluxdocument class="architectjob" version="1.2">
+
+  <jobid id="53900E799E7210BC"/>
+
+  <propset>
+    <prop name="_DESCRIPTION">
+      <value dtype="String"></value>
+    </prop>
+    <prop name="_NOTES">
+      <value dtype="String"></value>
+    </prop>
+    <prop name="AutoLayoutRequired"/>
+    <prop name="DefaultLayout">
+      <value dtype="String">LeftToRight</value>
+    </prop>
+    <prop name="GroupNodes"/>
+    <prop name="name">
+      <value dtype="String">Probabalistic Matching</value>
+    </prop>
+    <prop name="ShowGridLines">
+      <value dtype="String">True</value>
+    </prop>
+    <prop name="SnapToGrid">
+      <value dtype="String">False</value>
+    </prop>
+    <prop name="STICKYNOTES"/>
+    <prop name="ZoomLevel">
+      <value dtype="String">26</value>
+    </prop>
+  </propset>
+
+  <paramset>
+    <param name="WFINPUTS" type="matrix"/>
+    <param name="WFOUTPUTS" type="matrix"/>
+  </paramset>
+
+  <page>
+    <propset>
+      <prop name="serial_targets"/>
+    </propset>
+    <step id="MATCHCODE" iid="2" ver="1">
+      <propset>
+        <prop name="color"/>
+        <prop name="default_target"/>
+        <prop name="description">
+          <value dtype="String">Match Codes 1</value>
+        </prop>
+        <prop name="descriptive_text">
+          <value dtype="String">Specifies the duplicate records identified with your match criteria</value>
+        </prop>
+        <prop name="node_position">
+          <value dtype="String">191</value>
+          <value dtype="String">53</value>
+        </prop>
+        <prop name="notes">
+          <value dtype="String"/>
+        </prop>
+        <prop name="owning_group_id"/>
+        <prop name="serial_target_position"/>
+      </propset>
+      <paramset>
+        <param name="MATCHCODE_SOURCE" type="matrix">
+          <row>
+            <col dtype="String" name="INPUTNAME">Name</col>
+            <col dtype="String" name="OUTPUTNAME">Name_MatchCode</col>
+            <col dtype="String" name="MATCH_DEFINITION">Name (with Suggestions)</col>
+            <col dtype="Integer" name="MATCH_SENSITIVITY">85</col>
+          </row>
+        </param>
+        <param name="FIELD_MAP" type="matrix">
+          <row>
+            <col dtype="String" name="INPUTNAME">Name</col>
+            <col dtype="String" name="OUTPUTNAME">Name</col>
+          </row>
+          <row>
+            <col dtype="String" name="INPUTNAME">ID</col>
+            <col dtype="String" name="OUTPUTNAME">ID</col>
+          </row>
+        </param>
+        <param dtype="Unknown" isnull="true" name="BF_PATH" type="single"/>
+        <param dtype="String" name="BF_LOCALE" type="single">ENUSA</param>
+        <param dtype="Boolean" name="PRESERVENULL" type="single">true</param>
+        <param dtype="Unknown" isnull="true" name="LOCALE_FIELD" type="single"/>
+        <param name="LOCALE_LIST" type="matrix"/>
+        <param dtype="Unknown" isnull="true" name="EXCEPTION_ACTION" type="single"/>
+        <param dtype="Unknown" isnull="true" name="EXCEPTION_INFO" type="single"/>
+        <param dtype="Unknown" isnull="true" name="SCORE_DEPTH" type="single"/>
+        <param dtype="Unknown" isnull="true" name="RESOURCE_LEVEL" type="single"/>
+        <param dtype="Boolean" name="NULLMATCHCODES" type="single">true</param>
+        <param dtype="Unknown" isnull="true" name="OUTPUT_LOCALE_FIELD" type="single"/>
+        <param dtype="Unknown" isnull="true" name="OUTPUT_MATCHCODE_VERSION_FIELD" type="single"/>
+        <param dtype="Boolean" name="COMPAT_EXACT_MATCH" type="single">false</param>
+        <param dtype="Boolean" name="USETOKENRULES" type="single">true</param>
+      </paramset>
+    </step>
+    <step id="CLUSTER" iid="3" ver="1">
+      <propset>
+        <prop name="color"/>
+        <prop name="default_target"/>
+        <prop name="description">
+          <value dtype="String">Clustering 1</value>
+        </prop>
+        <prop name="descriptive_text">
+          <value dtype="String">Creates a cluster ID that is appended to each input row. Many rows can share cluster IDs, which indicate that these rows match using the clustering criteria specified</value>
+        </prop>
+        <prop name="node_position">
+          <value dtype="String">329</value>
+          <value dtype="String">53</value>
+        </prop>
+        <prop name="notes">
+          <value dtype="String"/>
+        </prop>
+        <prop name="owning_group_id"/>
+        <prop name="serial_target_position"/>
+      </propset>
+      <paramset>
+        <param name="FIELD_MAP" type="matrix">
+          <row>
+            <col dtype="String" name="INPUTNAME">Name</col>
+            <col dtype="String" name="OUTPUTNAME">Name</col>
+          </row>
+          <row>
+            <col dtype="String" name="INPUTNAME">ID</col>
+            <col dtype="String" name="OUTPUTNAME">ID</col>
+          </row>
+          <row>
+            <col dtype="String" name="INPUTNAME">Name_MatchCode</col>
+            <col dtype="String" name="OUTPUTNAME">Name_MatchCode</col>
+          </row>
+          <row>
+            <col dtype="String" name="INPUTNAME">Name_MatchCode_Score</col>
+            <col dtype="String" name="OUTPUTNAME">Name_MatchCode_Score</col>
+          </row>
+        </param>
+        <param name="CONDITIONS" type="matrix">
+          <row>
+            <col dtype="Integer" name="COND_NUM">0</col>
+            <col dtype="String" name="FIELD">Name_MatchCode</col>
+          </row>
+        </param>
+        <param dtype="String" name="OUTPUTNAME" type="single">Cluster_ID</param>
+        <param dtype="Boolean" name="BLANKISNULL" type="single">true</param>
+        <param dtype="Boolean" name="SKIP" type="single">false</param>
+        <param dtype="Boolean" name="GROUPNULLS" type="single">false</param>
+        <param dtype="Boolean" name="COMPACT" type="single">false</param>
+        <param dtype="Unknown" isnull="true" name="STATEFILEPREFIX" type="single"/>
+        <param dtype="Unknown" isnull="true" name="DONTCLUSTFLD" type="single"/>
+        <param dtype="Unknown" isnull="true" name="OUTMATCHCOND" type="single"/>
+        <param dtype="Unknown" isnull="true" name="CLUSTER/TEMP" type="single"/>
+        <param dtype="Unknown" isnull="true" name="CLUSTER/BYTES" type="single"/>
+        <param dtype="Boolean" name="DELAYMEMALLOC" type="single">false</param>
+        <param dtype="Boolean" name="SKIPMULTIROWS" type="single">false</param>
+        <param dtype="Unknown" isnull="true" name="BASE/SORTBYTES" type="single"/>
+        <param dtype="Boolean" name="SORTED" type="single">true</param>
+        <param dtype="Integer" name="CHUNKSIZE" type="single">16777216</param>
+        <param dtype="Unknown" isnull="true" name="BASE/SORTTHREADS" type="single"/>
+        <param dtype="Unknown" isnull="true" name="BASE/SORTMERGES" type="single"/>
+        <param dtype="Unknown" isnull="true" name="BASE/SORTTEMP" type="single"/>
+      </paramset>
+    </step>
+    <step id="CLUSTERAGG" iid="4">
+      <propset>
+        <prop name="color"/>
+        <prop name="default_target"/>
+        <prop name="description">
+          <value dtype="String">Cluster Aggregation 1</value>
+        </prop>
+        <prop name="descriptive_text">
+          <value dtype="String">Accepts the output of a Clustering node and aggregates clusters that share the same membership (based on Primary Key). Since multiple match codes might have different scores, the Cluster Aggregation node is also able to reconcile clusters of identical membership but different scoring</value>
+        </prop>
+        <prop name="node_position">
+          <value dtype="String">467</value>
+          <value dtype="String">53</value>
+        </prop>
+        <prop name="notes">
+          <value dtype="String"/>
+        </prop>
+        <prop name="owning_group_id"/>
+        <prop name="serial_target_position"/>
+      </propset>
+      <paramset>
+        <param dtype="String" name="CID_COL" type="single">Cluster_ID</param>
+        <param dtype="String" name="PK_COL" type="single">ID</param>
+        <param dtype="String" name="SCORE_COL" type="single">Name_MatchCode_Score</param>
+        <param dtype="String" name="SCORE_ALG" type="single">Highest Mean</param>
+        <param dtype="Boolean" name="INDICATE" type="single">true</param>
+        <param dtype="String" name="INDICATE_FIELD" type="single">Aggregation_Indicator</param>
+        <param dtype="Unknown" isnull="true" name="BASE/SORTTEMP" type="single"/>
+        <param dtype="Unknown" isnull="true" name="BASE/SORTTHREADS" type="single"/>
+        <param dtype="Unknown" isnull="true" name="BASE/SORTMERGES" type="single"/>
+        <param dtype="Integer" name="CHUNKSIZE" type="single">16777216</param>
+        <param dtype="Unknown" isnull="true" name="BASE/SORTBYTES" type="single"/>
+        <param dtype="String" name="ALG_METHOD" type="single">Cluster</param>
+        <param dtype="Unknown" isnull="true" name="DEBUG_STAGE" type="single"/>
+        <param dtype="Boolean" name="REMOVE_SUBCLUSTERS" type="single">true</param>
+        <param dtype="Boolean" name="REMOVE_SUBCLUSTERS_USEMEMORY" type="single">false</param>
+      </paramset>
+    </step>
+    <step id="JOBDATA" iid="6">
+      <propset>
+        <prop name="color"/>
+        <prop name="default_target"/>
+        <prop name="description">
+          <value dtype="String">Job Specific Data 1</value>
+        </prop>
+        <prop name="descriptive_text">
+          <value dtype="String">Sends sample data to the External Data Provider node for the purpose of testing and debugging</value>
+        </prop>
+        <prop name="node_position">
+          <value dtype="String">56</value>
+          <value dtype="String">50</value>
+        </prop>
+        <prop name="notes">
+          <value dtype="String"/>
+        </prop>
+        <prop name="serial_target_position"/>
+      </propset>
+      <paramset>
+        <param name="COLUMNS" type="matrix">
+          <row>
+            <col dtype="String" name="NAME">ID</col>
+            <col dtype="String" name="TYPE">INTEGER</col>
+            <col dtype="String" name="LENGTH">255</col>
+          </row>
+          <row>
+            <col dtype="String" name="NAME">Name</col>
+            <col dtype="String" name="TYPE">STRING</col>
+            <col dtype="String" name="LENGTH">255</col>
+          </row>
+        </param>
+        <param name="DATA" type="matrix">
+          <row>
+            <col dtype="String" name="VALUE">1</col>
+          </row>
+          <row>
+            <col dtype="String" name="VALUE">Robert J. Smith</col>
+          </row>
+          <row>
+            <col dtype="String" name="VALUE">2</col>
+          </row>
+          <row>
+            <col dtype="String" name="VALUE">Rovert Sjith</col>
+          </row>
+          <row>
+            <col dtype="String" name="VALUE">3</col>
+          </row>
+          <row>
+            <col dtype="String" name="VALUE">Kathy Newton</col>
+          </row>
+          <row>
+            <col dtype="String" name="VALUE">4</col>
+          </row>
+          <row>
+            <col dtype="String" name="VALUE">Latherine Newqton</col>
+          </row>
+          <row>
+            <col dtype="String" name="VALUE">5</col>
+          </row>
+          <row>
+            <col dtype="String" name="VALUE">Andrew Jones</col>
+          </row>
+          <row>
+            <col dtype="String" name="VALUE">6</col>
+          </row>
+          <row>
+            <col dtype="String" name="VALUE">Andew Jons</col>
+          </row>
+          <row>
+            <col dtype="String" name="VALUE">7</col>
+          </row>
+          <row>
+            <col dtype="String" name="VALUE">David Richardson</col>
+          </row>
+          <row>
+            <col dtype="String" name="VALUE">8</col>
+          </row>
+          <row>
+            <col dtype="String" name="VALUE">Dave Rihcardson</col>
+          </row>
+          <row>
+            <col dtype="String" name="VALUE">9</col>
+          </row>
+          <row>
+            <col dtype="String" name="VALUE">Davie Richardsen</col>
+          </row>
+          <row>
+            <col dtype="String" name="VALUE">10</col>
+          </row>
+          <row>
+            <col dtype="String" name="VALUE">Michael John Smith</col>
+          </row>
+          <row>
+            <col dtype="String" name="VALUE">11</col>
+          </row>
+          <row>
+            <col dtype="String" name="VALUE">Mike Jon Sjith</col>
+          </row>
+        </param>
+        <param dtype="Integer" name="STRING_BYTESPERCHAR" type="single">4</param>
+      </paramset>
+    </step>
+    <linkage>
+      <link child="1" cslot="0" parent="0" pslot="0"/>
+      <link child="2" cslot="0" parent="1" pslot="0"/>
+      <link child="0" cslot="0" parent="3" pslot="0"/>
+    </linkage>
+  </page>
+
+</datafluxdocument>

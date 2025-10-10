@@ -29,17 +29,17 @@ This repository's goal is not just to put a job in a folder, but to put the samp
 
 ## List of Contributions
 
-[List of assets in this repository](https://gitlab.sas.com/dmpm/sas-dqdg-assets/-/blob/main/Assets_List.md?ref_type=heads)
+[List of assets in this repository](https://github.com/sassoftware/sas-dqdg-assets/blob/main/DQDG_assets_list.md)
 
 ## Contributing
 
 We welcome contributions! We are hoping we can get everyone to look through their demo assets, projects, etc. and if you have something that you have been asked for in the past please consider contributing it to this project.  
 
-Please read  [CONTRIBUTING.md](https://gitlab.sas.com/dmpm/sas-dqdg-assets/-/blob/main/CONTRIBUTING.md?ref_type=heads)  for details on how to submit contributions to this project.
+Please read  [CONTRIBUTING.md](https://github.com/sassoftware/sas-dqdg-assets/blob/main/CONTRIBUTING.md)  for details on how to submit contributions to this project.
 
 ## License
 
-This project is licensed under the  [Apache 2.0 License](https://gitlab.sas.com/dmpm/sas-dqdg-assets/-/blob/main/LICENSE?ref_type=heads).
+This project is licensed under the  [Apache 2.0 License](https://github.com/sassoftware/sas-dqdg-assets/blob/main/LICENSE).
 
 ## Additional Resources
 

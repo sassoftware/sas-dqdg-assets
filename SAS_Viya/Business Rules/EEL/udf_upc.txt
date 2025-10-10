@@ -1,0 +1,51 @@
+//////////////////////////////////////////////////////////////////////////////////
+//This function calculates UPC check digits using the "Modulus 10 Double Add 	//
+//Double" technique used in CUSIPs												//
+//http://en.wikipedia.org/wiki/Universal_Product_Code							//
+//////////////////////////////////////////////////////////////////////////////////
+
+//////////////////////////////////////////////////////////////////////////////////
+// Function:		udf_upc12_check												//
+// Description:																	//
+// Input:			1 string		  											//
+// Output:      	1 boolean													//	
+//////////////////////////////////////////////////////////////////////////////////
+
+Function udf_upc12_check return boolean
+
+string UPCi
+string UPCc
+integer UPCd
+integer UPCs
+integer i
+boolean udf_upc12_check
+
+UPCi = parameter(1)
+UPCs = 0
+udf_upc12_check = false
+  
+if len(UPCi) != 12 or (parametertype(1) != "string" and parametertype(1) != "integer") then
+	return udf_upc12_check
+else
+	begin
+		//Remove check digit
+		UPCc = left(UPCi,11)
+		UPCd = len(UPCc)
+		
+		//Sum characters
+  		for i = 1 to UPCd
+			begin
+				if i % 2 then
+					UPCs = UPCs + mid(UPCc,i,1)*3
+				else
+					UPCs = UPCs + mid(UPCc,i,1)
+			end
+		
+		//Check digit validation
+		if (10 - UPCs % 10)  == right(UPCi,1) or (UPCs % 10 == 0 and right(UPCi,1) == 0) then udf_upc12_check = true
+
+end
+
+return udf_upc12_check
+
+End Function

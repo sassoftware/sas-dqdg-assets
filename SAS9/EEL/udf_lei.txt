@@ -1,0 +1,60 @@
+//////////////////////////////////////////////////////////////////////////////////
+// Function:		udf_lei_check												//
+// Description:																	//
+// Input:			1 string		  											//
+// Output:      	1 boolean													//	
+//////////////////////////////////////////////////////////////////////////////////
+
+Function udf_lei_check return boolean
+
+boolean udf_lei_check
+string LEIkey
+string LEI18
+real LEInum
+
+udf_lei_check = false
+  
+if len(trim(parameter(1))) != 20 or (parametertype(1) != "string") then
+	return udf_lei_check
+else
+	begin
+		LEI18 = left(trim(parameter(1)),18)
+		LEI18 = replace(LEI18,"A","10")
+		LEI18 = replace(LEI18,"B","11")
+		LEI18 = replace(LEI18,"C","12")
+		LEI18 = replace(LEI18,"D","13")
+		LEI18 = replace(LEI18,"E","14")
+		LEI18 = replace(LEI18,"F","15")
+		LEI18 = replace(LEI18,"G","16")
+		LEI18 = replace(LEI18,"H","17")
+		LEI18 = replace(LEI18,"I","18")
+		LEI18 = replace(LEI18,"J","19")
+		LEI18 = replace(LEI18,"K","20")
+		LEI18 = replace(LEI18,"L","21")
+		LEI18 = replace(LEI18,"M","22")
+		LEI18 = replace(LEI18,"N","23")
+		LEI18 = replace(LEI18,"O","24")
+		LEI18 = replace(LEI18,"P","25")
+		LEI18 = replace(LEI18,"Q","26")
+		LEI18 = replace(LEI18,"R","27")
+		LEI18 = replace(LEI18,"S","28")
+		LEI18 = replace(LEI18,"T","29")
+		LEI18 = replace(LEI18,"U","30")
+		LEI18 = replace(LEI18,"V","31")
+		LEI18 = replace(LEI18,"W","32")
+		LEI18 = replace(LEI18,"X","33")
+		LEI18 = replace(LEI18,"Y","34")
+		LEI18 = replace(LEI18,"Z","35")
+
+		LEInum = toreal(LEI18) * 100
+		LEInum = (98 - (LEInum - floor(LEInum/97) * 97)) % 97
+		LEIkey = right("0" & tostring(LEInum),2)
+	
+		//Check digit validation
+		if right(trim(parameter(1)),2) == LEIkey then udf_lei_check = true
+		
+	end
+
+	return udf_lei_check
+
+End Function

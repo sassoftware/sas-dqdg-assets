@@ -1,0 +1,48 @@
+// Function:        nvl
+// Description:   Replace null in parameter1 with value in parameter2
+// Inputs:             Field to test
+                                replacement value if null
+// Output:           Field with value replacing null
+function nvl return String
+String nvlString
+if isnull(parameter(1)) then nvlString=parameter(2) else nvlString=parameter(1)
+return nvlString
+end function
+
+// Function:        rtrim
+// Description:   Trim trailing characters in parameter2 from parameter1
+// Inputs:             Field to trim
+//                            character to remove
+// Output:           Trimmed Field
+function rtrim return String
+String rString
+String cString
+if isnull(parameter(1)) or isnull(parameter(2)) then rString=null
+else
+begin
+  rString=parameter(1)
+  cString=parameter(2)
+  while right(rString,len(cstring))==cString
+   rString=left(rString,len(rString)-len(cString))
+end
+return rString
+end function
+
+// Function:        ltrim
+// Description:   Trim leading characters in parameter2 from parameter1
+// Inputs:             Field to trim
+//                            character to remove
+// Output:           Trimmed Field
+function ltrim return String
+String rString
+String cString
+if isnull(parameter(1)) or isnull(parameter(2)) then rString=null
+else
+begin
+  rString=parameter(1)
+  cString=parameter(2)
+  while left(rString,len(cstring))==cString
+   rString=right(rString,len(rString)-len(cString))
+end
+return rString
+end function

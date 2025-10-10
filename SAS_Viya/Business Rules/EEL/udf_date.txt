@@ -1,0 +1,307 @@
+//////////////////////////////////////////////////////////////////////////////////
+// 																				//
+//////////////////////////////////////////////////////////////////////////////////
+
+//////////////////////////////////////////////////////////////////////////////////
+// Function:		udf_juliandate												//
+// Description:     Returns a date in julian format YYYYDDD                     //
+//                  from a calendar date                        			    //
+// Input(s):		date - Calendar date      									//
+// Output:       	integer - Julian date, -1 if input is not a date			//
+//////////////////////////////////////////////////////////////////////////////////
+
+function udf_julianDate return integer
+
+date cdate
+integer jdate
+integer year
+integer month
+integer day
+boolean leap
+integer i
+integer d
+
+if not inlist(parametertype(1),"date","string") then return -1
+
+cdate=todate(parameter(1))
+year=formatdate(cdate,"YYYY")
+month=formatdate(cdate,"MM")
+day=formatdate(cdate,"DD")
+leap=false
+
+if year%4 == 0 and month > 2 then leap=true
+
+jdate=year*1000+day
+if leap then jdate=jdate+1
+
+if month > 1 then
+ begin
+   for i=1 to month-1
+    begin
+     if i==1 or i==3 or i==5 or i==7 or i==8 or i==10 or i==12 then d=31
+     else if i==4 or i==6 or i==9 or i==11 then d=30
+     else if i==2 then d=28
+     jdate=jdate+d
+    end
+ end
+
+return jdate
+
+end function
+
+//////////////////////////////////////////////////////////////////////////////////
+// Function:		udf_caldate     											//
+// Description:     Returns a date from a julian date                           //
+// Input(s):		integer or string - Julian date								//
+// Output:       	date - Calendar date                            			//
+//////////////////////////////////////////////////////////////////////////////////
+
+function udf_calDate return date
+
+string calDate
+string jdatestr
+integer jdate
+integer year
+integer days
+integer month
+integer day
+integer d
+boolean leap
+leap=false
+
+if isnull(parameter(1)) then return null
+
+jdatestr=parameter(1)
+jdate=tointeger(jdatestr)
+year=tointeger(jdate/1000)
+
+if year%4 == 0 then leap = true 
+
+days=jdate-(year*1000)
+month=1
+
+while days > 0
+ begin
+  if month==1 or month==3 or month==5 or month==7 or month==8 or month==10 or month==12 then d=31
+  else if month == 4 or month==6 or month==9 or month==11 then d=30
+  else if month == 2 and leap then d=29
+  else if month == 2 and not leap then d=28
+  if days <= d then
+   begin
+    day=days
+    days=0
+   end
+  else
+   begin
+    days=days-d
+    month=month+1
+   end
+ end
+
+calDate=toDate(month&"/"&day&"/"&year)
+
+return caldate
+
+end function
+
+//////////////////////////////////////////////////////////////////////////////////
+// Function:		udf_year													//
+// Description:		Extract the year from a given date							//
+// Input(s):			1 date			       									//
+// Output:       	1 integer													//
+//////////////////////////////////////////////////////////////////////////////////
+
+
+function udf_year return integer
+
+	return formatdate(parameter(1),"YYYY")
+
+end function
+
+
+//////////////////////////////////////////////////////////////////////////////////
+// Function:		udf_month													//
+// Description:		Extract the month from a given date							//
+// Input(s):		1 date			       										//
+// Output:       	1 integer													//
+//////////////////////////////////////////////////////////////////////////////////
+
+function udf_month return integer
+
+	return formatdate(parameter(1),"MM")
+
+end function
+
+
+//////////////////////////////////////////////////////////////////////////////////
+// Function:		udf_day															//
+// Description:		Extract the day from a given date							//
+// Input(s):		1 date			       										//
+// Output:       	1 integer													//
+//////////////////////////////////////////////////////////////////////////////////
+
+function udf_day return integer
+
+	return formatdate(parameter(1),"DD")
+
+end function
+
+
+//////////////////////////////////////////////////////////////////////////////////
+// Function:		udf_hour													//
+// Description:		Extract the hour from a given datetime						//
+// Input(s):		1 date			       										//
+// Output:       	1 integer													//
+//////////////////////////////////////////////////////////////////////////////////
+
+function udf_hour return integer
+
+	return formatdate(parameter(1),"HH")
+
+end function
+
+
+//////////////////////////////////////////////////////////////////////////////////
+// Function:		udf_minute													//
+// Description:		Extract the hour from a given datetime						//
+// Input(s):		1 date			       										//
+// Output:       	1 integer													//
+//////////////////////////////////////////////////////////////////////////////////
+
+
+function udf_minute return integer
+
+	return formatdate(parameter(1),"mm")
+
+end function
+
+
+//////////////////////////////////////////////////////////////////////////////////
+// Function:		udf_second													//
+// Description:		Extract the seconds from a given datetime					//
+// Input(s):		1 date			       										//
+// Output:       	1 integer													//
+//////////////////////////////////////////////////////////////////////////////////
+
+function udf_second return integer
+
+	return formatdate(parameter(1),"ss")
+
+end function
+
+
+//////////////////////////////////////////////////////////////////////////////////
+// Function:		udf_time													//
+// Description:		Extract time from a given datetime							//
+// Input(s):		1 date			       										//
+// Output:       	1 string													//
+//////////////////////////////////////////////////////////////////////////////////
+
+function udf_time return string
+
+	return formatdate(parameter(1),"hh:mm:ss")
+
+end function
+
+
+//////////////////////////////////////////////////////////////////////////////////
+// Function:		udf_isodate													//
+// Description:		Convert a date into a string ISO data						//
+// Input(s):		1 date			       										//
+// Output:       	1 string													//
+//////////////////////////////////////////////////////////////////////////////////
+
+function udf_isodate return string
+
+	return formatdate(parameter(1),"YYYY-MM-DD")
+
+end function
+
+//////////////////////////////////////////////////////////////////////////////////
+// Function:		udf_dayofWeek												//
+// Description:		Returns the day of the week (0=Sunday...6=Saturday) 		//
+// Input(s):		date - Calendar date   										//
+// Output:       	integer - Day of Week (-1 if input is not a date)			//
+//////////////////////////////////////////////////////////////////////////////////
+
+function udf_dayofWeek return integer
+
+date cdate
+integer dow
+integer year
+integer month
+integer day
+integer c
+integer y
+integer m
+integer d
+
+if not inlist(parametertype(1),"date","string") then return -1
+
+cdate=todate(parameter(1))
+year=formatdate(cdate,"YYYY")
+month=formatdate(cdate,"MM")
+day=formatdate(cdate,"DD")
+m=month-2
+y=year%100
+
+if m < 1 then  m=month+12
+
+c=tointeger(year/100)
+d=day
+dow=(d+floor(2.6*m-0.2)+y+floor(y/4)+floor(c/4)-(2*c))%7
+
+if dow < 0 then dow=dow+7
+
+if month < 3 and y%4 <> 0 then dow=dow+1
+
+return dow
+
+end function
+
+///////////////////////////////////////////////////////////////////////////////////////////
+// Function:		udf_firstDay														 //
+// Description:		Returns the date of the first day specified in a month		         //
+// Input(s):		date - Calendar date												 //
+//                  string - day of week  as ("sun","mon","tue","wed","thu","fri","sat") //
+// Output:       	date - Date of the first day specified (null if input is not a date) //
+///////////////////////////////////////////////////////////////////////////////////////////
+
+function firstDay return date
+
+date cdate
+date sdate
+date firstDay
+integer wdow
+string sdow
+integer dow
+
+if not inlist(parametertype(1),"date","string")  then return null
+if not inlist(left(lower(parameter(2)),3),"sun","mon","tue","wed","thu","fri","sat") then return null
+
+cdate=todate(parameter(1))
+sdow=left(lower(parameter(2)),3)
+wdow=floor(instr("sunmontuewedthufrisat",sdow)/3)
+sdate=todate(formatdate(cdate,"MM")&"/01/"&formatdate(cdate,"YYYY"))
+dow=dayofweek(sdate)
+
+if dow == wdow then firstDay=sdate
+else if dow < wdow then firstDay=sdate+(wdow-dow)
+else firstDay=sdate+(7-(dow-wdow))
+
+return firstDay
+
+end function
+
+//////////////////////////////////////////////////////////////////////////////////
+// Function:		udf_endofMonth												//
+// Description:		Return the last day of the month for a particular date		//
+// Input(s):		1 date			       										//
+// Output:       	1 integer													//
+//////////////////////////////////////////////////////////////////////////////////
+
+function udf_endmonth return string
+
+	return todate(year(parameter(1) + 30) &"-"& month(parameter(1) + 30) &"-"& "01") - 1
+
+end function

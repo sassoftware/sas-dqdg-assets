@@ -1,0 +1,873 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<datafluxdocument class="architectjob" version="1.2">
+
+  <jobid id="68E7807BDCB64333"/>
+
+  <propset>
+    <prop name="_DESCRIPTION">
+      <value dtype="String"></value>
+    </prop>
+    <prop name="_NOTES">
+      <value dtype="String"></value>
+    </prop>
+    <prop name="AutoLayoutRequired"/>
+    <prop name="DefaultLayout">
+      <value dtype="String">LeftToRight</value>
+    </prop>
+    <prop name="GroupNodes"/>
+    <prop name="name">
+      <value dtype="String">QKB Floating Data Job (Right Fielding)</value>
+    </prop>
+    <prop name="ShowGridLines">
+      <value dtype="String">True</value>
+    </prop>
+    <prop name="SnapToGrid">
+      <value dtype="String">False</value>
+    </prop>
+    <prop name="STICKYNOTES">
+      <value dtype="String">&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;StickyNote Text="This Expression or &amp;quot;code&amp;quot; node extracts Date information from floating fields and posts the information into a date field.  Affected input fields are then nulled out so that the Right Fielding node will be able to extract the remaining information appropriately." ExpandedWidth="180" ExpandedHeight="138.181818181818" IsExpanded="True" ID="4E9D39B48AB6AE85" UUID="" BackGroundColor="Yellow" XPosition="105.909090909091" YPosition="143" OwningGroupId="" OwningContainerId="" Model="" PropertyContainer="DataFlux.Unity.WorkFlowModel.Objects.SerializablePropertyContainer" Note="" Name="" Description="" SERIALIZED_OBJECT_INSTANCE_ID="ID:138368" classtype="DataFlux.Unity.WorkFlowModel.Objects.StickyNote, Unity.WorkFlowModel, Version=9.6.0.0, Culture=neutral, PublicKeyToken=null" /&gt;</value>
+      <value dtype="String">&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;StickyNote Text="This &amp;quot;Right Fielding&amp;quot; node will automatically look at the information in the remaining fields and extract contact information and post it appropriately into named fields for further downstream processing." ExpandedWidth="180" ExpandedHeight="138" IsExpanded="True" ID="4E9D626D4C9EFA58" UUID="" BackGroundColor="Blue" XPosition="303.363636363635" YPosition="144.727272727273" OwningGroupId="" OwningContainerId="" Model="" PropertyContainer="DataFlux.Unity.WorkFlowModel.Objects.SerializablePropertyContainer" Note="" Name="" Description="" SERIALIZED_OBJECT_INSTANCE_ID="ID:307724" classtype="DataFlux.Unity.WorkFlowModel.Objects.StickyNote, Unity.WorkFlowModel, Version=9.6.0.0, Culture=neutral, PublicKeyToken=null" /&gt;</value>
+      <value dtype="String">&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;StickyNote Text="This &amp;quot;Standardize&amp;quot; node uses prebuilt definitions and schemes in the DataFlux Quality Knowledge Base &amp;quot;QKB&amp;quot; to standardize specified fields based on the language and locale selected." ExpandedWidth="180" ExpandedHeight="121" IsExpanded="True" ID="4FFD2E0B92A15A59" UUID="d47bdb5b-c1ac-4ca7-94f4-f31d703be5df" BackGroundColor="Blue" XPosition="806.181818181818" YPosition="237.727272727273" OwningGroupId="" OwningContainerId="" Model="" PropertyContainer="DataFlux.Unity.WorkFlowModel.Objects.SerializablePropertyContainer" Note="" Name="" Description="" SERIALIZED_OBJECT_INSTANCE_ID="ID:261159" classtype="DataFlux.Unity.WorkFlowModel.Objects.StickyNote, Unity.WorkFlowModel, Version=9.6.0.0, Culture=neutral, PublicKeyToken=null" /&gt;</value>
+    </prop>
+    <prop name="ZoomLevel">
+      <value dtype="String">27</value>
+    </prop>
+  </propset>
+
+  <paramset>
+    <param name="WFINPUTS" type="matrix"/>
+    <param name="WFOUTPUTS" type="matrix"/>
+  </paramset>
+
+  <page>
+    <propset>
+      <prop name="serial_targets"/>
+    </propset>
+    <step id="SOURCE_FIXEDTEXT" iid="1">
+      <propset>
+        <prop name="color">
+          <value dtype="String">LightGreen</value>
+        </prop>
+        <prop name="default_target"/>
+        <prop name="description">
+          <value dtype="String">Floating Data Input</value>
+        </prop>
+        <prop name="descriptive_text">
+          <value dtype="String">Fixed Width File Input</value>
+        </prop>
+        <prop name="node_position">
+          <value dtype="String">29.9999999999998</value>
+          <value dtype="String">30</value>
+        </prop>
+        <prop name="notes">
+          <value dtype="String"></value>
+        </prop>
+        <prop name="owning_group_id"/>
+        <prop name="serial_target_position"/>
+      </propset>
+      <paramset>
+        <param dtype="String" name="FILENAME" type="single">C:\SampleData\mess.txt</param>
+        <param name="FIELDS" type="matrix">
+          <row>
+            <col dtype="String" name="NAME">Field1</col>
+            <col dtype="String" name="TYPE">STRING</col>
+            <col dtype="Integer" name="START_POS">1</col>
+            <col dtype="Integer" name="LENGTH">50</col>
+          </row>
+          <row>
+            <col dtype="String" name="NAME">Field2</col>
+            <col dtype="String" name="TYPE">STRING</col>
+            <col dtype="Integer" name="START_POS">51</col>
+            <col dtype="Integer" name="LENGTH">50</col>
+          </row>
+          <row>
+            <col dtype="String" name="NAME">Field3</col>
+            <col dtype="String" name="TYPE">STRING</col>
+            <col dtype="Integer" name="START_POS">101</col>
+            <col dtype="Integer" name="LENGTH">50</col>
+          </row>
+          <row>
+            <col dtype="String" name="NAME">Field4</col>
+            <col dtype="String" name="TYPE">STRING</col>
+            <col dtype="Integer" name="START_POS">151</col>
+            <col dtype="Integer" name="LENGTH">50</col>
+          </row>
+          <row>
+            <col dtype="String" name="NAME">Field5</col>
+            <col dtype="String" name="TYPE">STRING</col>
+            <col dtype="Integer" name="START_POS">201</col>
+            <col dtype="Integer" name="LENGTH">50</col>
+          </row>
+        </param>
+        <param dtype="Integer" name="RECORDWIDTH" type="single">252</param>
+        <param dtype="Integer" name="SKIPROWS" type="single">0</param>
+        <param dtype="Integer" name="MAX_OUTPUT_ROWS" type="single">0</param>
+        <param dtype="Boolean" name="CRLF_TERMINATE" type="single">false</param>
+        <param dtype="Boolean" name="BYTE_ORDER_MARK" type="single">true</param>
+        <param dtype="Integer" name="ENCODING" type="single">-1</param>
+        <param dtype="Unknown" isnull="true" name="FILENAME_FIELD" type="single"></param>
+        <param dtype="Unknown" isnull="true" name="REPLACE_NULLS" type="single"></param>
+      </paramset>
+    </step>
+    <step id="DEST_DELIMTEXT" iid="7">
+      <propset>
+        <prop name="color">
+          <value dtype="String">LightGreen</value>
+        </prop>
+        <prop name="default_target"/>
+        <prop name="description">
+          <value dtype="String">Fielded Output</value>
+        </prop>
+        <prop name="descriptive_text">
+          <value dtype="String">Text File Output</value>
+        </prop>
+        <prop name="display_file">
+          <value dtype="String">false</value>
+        </prop>
+        <prop name="node_position">
+          <value dtype="String">1094.63636363636</value>
+          <value dtype="String">123.090909090909</value>
+        </prop>
+        <prop name="notes">
+          <value dtype="String"></value>
+        </prop>
+        <prop name="owning_group_id"/>
+        <prop name="serial_target_position"/>
+      </propset>
+      <paramset>
+        <param dtype="String" name="FILENAME" type="single">c:\SampleData\FieldedOutput.txt</param>
+        <param name="FIELDS" type="matrix">
+          <row>
+            <col dtype="String" name="FIELDNAME">Name</col>
+            <col dtype="String" name="OUTPUTNAME">Name</col>
+          </row>
+          <row>
+            <col dtype="String" name="FIELDNAME">Name_Stnd</col>
+            <col dtype="String" name="OUTPUTNAME">Name_Stnd</col>
+          </row>
+          <row>
+            <col dtype="String" name="FIELDNAME">Address</col>
+            <col dtype="String" name="OUTPUTNAME">Address</col>
+          </row>
+          <row>
+            <col dtype="String" name="FIELDNAME">Address_Stnd</col>
+            <col dtype="String" name="OUTPUTNAME">Address_Stnd</col>
+          </row>
+          <row>
+            <col dtype="String" name="FIELDNAME">LastLine</col>
+            <col dtype="String" name="OUTPUTNAME">LastLine</col>
+          </row>
+          <row>
+            <col dtype="String" name="FIELDNAME">LastLine_Stnd</col>
+            <col dtype="String" name="OUTPUTNAME">LastLine_Stnd</col>
+          </row>
+          <row>
+            <col dtype="String" name="FIELDNAME">Country</col>
+            <col dtype="String" name="OUTPUTNAME">Country</col>
+          </row>
+          <row>
+            <col dtype="String" name="FIELDNAME">Email</col>
+            <col dtype="String" name="OUTPUTNAME">Email</col>
+          </row>
+          <row>
+            <col dtype="String" name="FIELDNAME">Email_Stnd</col>
+            <col dtype="String" name="OUTPUTNAME">Email_Stnd</col>
+          </row>
+          <row>
+            <col dtype="String" name="FIELDNAME">Phone</col>
+            <col dtype="String" name="OUTPUTNAME">Phone</col>
+          </row>
+          <row>
+            <col dtype="String" name="FIELDNAME">Phone_Stnd</col>
+            <col dtype="String" name="OUTPUTNAME">Phone_Stnd</col>
+          </row>
+          <row>
+            <col dtype="String" name="FIELDNAME">Date</col>
+            <col dtype="String" name="OUTPUTNAME">Date</col>
+          </row>
+          <row>
+            <col dtype="String" name="FIELDNAME">Date_Stnd</col>
+            <col dtype="String" name="OUTPUTNAME">Date_Stnd</col>
+          </row>
+        </param>
+        <param dtype="String" name="DELIMITER" type="single">|</param>
+        <param dtype="String" name="QUALIFIER" type="single"></param>
+        <param dtype="Boolean" name="INCLUDE_HEADER" type="single">true</param>
+        <param dtype="Boolean" name="PRESERVE_WHITESPACE" type="single">false</param>
+        <param dtype="Unknown" isnull="true" name="MAX_OUTPUT_ROWS" type="single"></param>
+        <param dtype="Boolean" name="UNESCAPE_BACKSLASH" type="single">false</param>
+        <param dtype="Boolean" name="BYTE_ORDER_MARK" type="single">true</param>
+        <param dtype="Integer" name="ENCODING" type="single">-1</param>
+        <param dtype="Boolean" name="APPEND" type="single">false</param>
+        <param dtype="Integer" name="END_OF_LINE" type="single">3</param>
+      </paramset>
+    </step>
+    <step id="EXPRESSION" iid="9">
+      <propset>
+        <prop name="color">
+          <value dtype="String">LightRed</value>
+        </prop>
+        <prop name="default_target"/>
+        <prop name="description">
+          <value dtype="String">Right Fielding Cleanup</value>
+        </prop>
+        <prop name="descriptive_text">
+          <value dtype="String">Expression</value>
+        </prop>
+        <prop name="node_position">
+          <value dtype="String">418.727272727273</value>
+          <value dtype="String">42.5454545454546</value>
+        </prop>
+        <prop name="notes">
+          <value dtype="String"></value>
+        </prop>
+        <prop name="owning_group_id"/>
+        <prop name="serial_target_position"/>
+      </propset>
+      <paramset>
+        <param dtype="Unknown" isnull="true" name="INIT_EXPRESSION" type="single"></param>
+        <param dtype="String" name="EXEC_EXPRESSION" type="single">if inlist(`Field1`,`Name`,`Address`,`Phone`,`Email`,`LastLine`) then `Field1` = NULL&#xD;
+if inlist(`Field2`,`Name`,`Address`,`Phone`,`Email`,`LastLine`) then `Field2` = NULL&#xD;
+if inlist(`Field3`,`Name`,`Address`,`Phone`,`Email`,`LastLine`) then `Field3` = NULL&#xD;
+if inlist(`Field4`,`Name`,`Address`,`Phone`,`Email`,`LastLine`) then `Field4` = NULL&#xD;
+if inlist(`Field5`,`Name`,`Address`,`Phone`,`Email`,`LastLine`) then `Field5` = NULL&#xD;
+&#xD;
+</param>
+        <param dtype="Unknown" isnull="true" name="TERM_EXPRESSION" type="single"></param>
+        <param dtype="Boolean" name="GENERATE_ROWS" type="single">false</param>
+        <param dtype="Unknown" isnull="true" name="RETVAL_FIELDNAME" type="single"></param>
+        <param dtype="Unknown" isnull="true" name="PUSHROW_FIELDNAME" type="single"></param>
+        <param name="GROUP_FIELDS" type="matrix"/>
+        <param dtype="Unknown" isnull="true" name="GROUP_INIT_EXPRESSION" type="single"></param>
+        <param dtype="Unknown" isnull="true" name="GROUP_TERM_EXPRESSION" type="single"></param>
+        <param dtype="Boolean" name="ADD_LAST_VAL_FIELDS" type="single">false</param>
+      </paramset>
+    </step>
+    <step id="RIGHTFIELD" iid="10">
+      <propset>
+        <prop name="color"/>
+        <prop name="default_target"/>
+        <prop name="description">
+          <value dtype="String">Name Address Phone Email</value>
+        </prop>
+        <prop name="descriptive_text">
+          <value dtype="String">Right Fielding</value>
+        </prop>
+        <prop name="node_position">
+          <value dtype="String">291.545454545454</value>
+          <value dtype="String">36.2727272727273</value>
+        </prop>
+        <prop name="notes">
+          <value dtype="String"></value>
+        </prop>
+        <prop name="owning_group_id"/>
+        <prop name="serial_target_position"/>
+      </propset>
+      <paramset>
+        <param dtype="String" name="IDENT_DEFN" type="single">Field Content</param>
+        <param dtype="Boolean" name="PRESERVENULLS" type="single">false</param>
+        <param name="INPUT_FIELDS" type="matrix">
+          <row>
+            <col dtype="String" name="FIELD_NAME">Field1</col>
+          </row>
+          <row>
+            <col dtype="String" name="FIELD_NAME">Field2</col>
+          </row>
+          <row>
+            <col dtype="String" name="FIELD_NAME">Field3</col>
+          </row>
+          <row>
+            <col dtype="String" name="FIELD_NAME">Field4</col>
+          </row>
+          <row>
+            <col dtype="String" name="FIELD_NAME">Field5</col>
+          </row>
+        </param>
+        <param name="OUTPUT_FIELDS" type="matrix">
+          <row>
+            <col dtype="String" name="IDENTITY">INDIVIDUAL</col>
+            <col dtype="String" name="OUTPUT_NAME">Name</col>
+          </row>
+          <row>
+            <col dtype="String" name="IDENTITY">DELIVERY ADDRESS</col>
+            <col dtype="String" name="OUTPUT_NAME">Address</col>
+          </row>
+          <row>
+            <col dtype="String" name="IDENTITY">CITY-STATE/PROVINCE-POSTAL CODE</col>
+            <col dtype="String" name="OUTPUT_NAME">LastLine</col>
+          </row>
+          <row>
+            <col dtype="String" name="IDENTITY">PHONE</col>
+            <col dtype="String" name="OUTPUT_NAME">Phone</col>
+          </row>
+          <row>
+            <col dtype="String" name="IDENTITY">E-MAIL</col>
+            <col dtype="String" name="OUTPUT_NAME">Email</col>
+          </row>
+          <row>
+            <col dtype="String" name="IDENTITY">UNKNOWN</col>
+            <col dtype="String" name="OUTPUT_NAME">Unknown</col>
+          </row>
+          <row>
+            <col dtype="String" name="IDENTITY">COUNTRY</col>
+            <col dtype="String" name="OUTPUT_NAME">Country</col>
+          </row>
+        </param>
+        <param name="FIELD_MAP" type="matrix">
+          <row>
+            <col dtype="String" name="INPUTNAME">Field1</col>
+            <col dtype="String" name="OUTPUTNAME">Field1</col>
+          </row>
+          <row>
+            <col dtype="String" name="INPUTNAME">Field2</col>
+            <col dtype="String" name="OUTPUTNAME">Field2</col>
+          </row>
+          <row>
+            <col dtype="String" name="INPUTNAME">Field3</col>
+            <col dtype="String" name="OUTPUTNAME">Field3</col>
+          </row>
+          <row>
+            <col dtype="String" name="INPUTNAME">Field4</col>
+            <col dtype="String" name="OUTPUTNAME">Field4</col>
+          </row>
+          <row>
+            <col dtype="String" name="INPUTNAME">Field5</col>
+            <col dtype="String" name="OUTPUTNAME">Field5</col>
+          </row>
+          <row>
+            <col dtype="String" name="INPUTNAME">DTE</col>
+            <col dtype="String" name="OUTPUTNAME">DTE</col>
+          </row>
+        </param>
+        <param dtype="Unknown" isnull="true" name="BF_PATH" type="single"></param>
+        <param dtype="String" name="BF_LOCALE" type="single">ENUSA</param>
+        <param dtype="Unknown" isnull="true" name="LOCALE_FIELD" type="single"></param>
+        <param name="LOCALE_LIST" type="matrix"/>
+        <param dtype="Unknown" isnull="true" name="EXCEPTION_ACTION" type="single"></param>
+        <param dtype="Unknown" isnull="true" name="EXCEPTION_INFO" type="single"></param>
+      </paramset>
+    </step>
+    <step id="EXPRESSION" iid="13">
+      <propset>
+        <prop name="color">
+          <value dtype="String">Yellow</value>
+        </prop>
+        <prop name="default_target"/>
+        <prop name="description">
+          <value dtype="String">Date</value>
+        </prop>
+        <prop name="descriptive_text">
+          <value dtype="String">Expression</value>
+        </prop>
+        <prop name="node_position">
+          <value dtype="String">161.727272727272</value>
+          <value dtype="String">32.0909090909092</value>
+        </prop>
+        <prop name="notes">
+          <value dtype="String"></value>
+        </prop>
+        <prop name="owning_group_id"/>
+        <prop name="serial_target_position"/>
+      </propset>
+      <paramset>
+        <param dtype="Unknown" isnull="true" name="INIT_EXPRESSION" type="single"></param>
+        <param dtype="String" name="EXEC_EXPRESSION" type="single">hidden string match1&#xD;
+hidden string match2&#xD;
+hidden string match3&#xD;
+hidden string match4&#xD;
+hidden string match5&#xD;
+&#xD;
+string DTE&#xD;
+&#xD;
+match1 = match_string(`Field1`, "JAN.*") OR &#xD;
+                match_string(`Field1`, "FEB.*") OR&#xD;
+                match_string(`Field1`, "MAR.*") OR&#xD;
+                match_string(`Field1`, "APR.*") OR&#xD;
+                match_string(`Field1`, "MAY *") OR&#xD;
+                match_string(`Field1`, "JUN.*") OR&#xD;
+                match_string(`Field1`, "JULY *") OR&#xD;
+                match_string(`Field1`, "AUG.*") OR&#xD;
+                match_string(`Field1`, "SEPT.*") OR&#xD;
+                match_string(`Field1`, "OCT.*") OR&#xD;
+                match_string(`Field1`, "NOV.*") OR&#xD;
+                match_string(`Field1`, "DEC.*") OR&#xD;
+&#xD;
+                match_string(`Field1`, "JANUARY *") OR&#xD;
+                match_string(`Field1`, "FEBRUARY *") OR&#xD;
+                match_string(`Field1`, "MARCH *") OR&#xD;
+                match_string(`Field1`, "APRIL *") OR&#xD;
+                match_string(`Field1`, "MAY *") OR&#xD;
+                match_string(`Field1`, "JUNE *") OR&#xD;
+                match_string(`Field1`, "JULY *") OR&#xD;
+                match_string(`Field1`, "AUGUST *") OR&#xD;
+                match_string(`Field1`, "SEPTEMBER *") OR&#xD;
+                match_string(`Field1`, "OCTOBER *") OR&#xD;
+                match_string(`Field1`, "NOVEMBER *") OR&#xD;
+                match_string(`Field1`, "DECEMBER *") OR&#xD;
+                &#xD;
+                match_string(`Field1`, "*/?/*") OR&#xD;
+                match_string(`Field1`, "*/??/*") OR&#xD;
+                match_string(`Field1`, "*-?-*") OR&#xD;
+                match_string(`Field1`, "*-??-*")&#xD;
+&#xD;
+match2 = match_string(`Field2`, "JAN.*") OR &#xD;
+                match_string(`Field2`, "FEB.*") OR&#xD;
+                match_string(`Field2`, "MAR.*") OR&#xD;
+                match_string(`Field2`, "APR.*") OR&#xD;
+                match_string(`Field2`, "MAY *") OR&#xD;
+                match_string(`Field2`, "JUN.*") OR&#xD;
+                match_string(`Field2`, "JULY *") OR&#xD;
+                match_string(`Field2`, "AUG.*") OR&#xD;
+                match_string(`Field2`, "SEPT.*") OR&#xD;
+                match_string(`Field2`, "OCT.*") OR&#xD;
+                match_string(`Field2`, "NOV.*") OR&#xD;
+                match_string(`Field2`, "DEC.*") OR&#xD;
+                &#xD;
+                match_string(`Field2`, "JANUARY *") OR&#xD;
+                match_string(`Field2`, "FEBRUARY *") OR&#xD;
+                match_string(`Field2`, "MARCH *") OR&#xD;
+                match_string(`Field2`, "APRIL *") OR&#xD;
+                match_string(`Field2`, "MAY *") OR&#xD;
+                match_string(`Field2`, "JUNE *") OR&#xD;
+                match_string(`Field2`, "JULY *") OR&#xD;
+                match_string(`Field2`, "AUGUST *") OR&#xD;
+                match_string(`Field2`, "SEPTEMBER *") OR&#xD;
+                match_string(`Field2`, "OCTOBER *") OR&#xD;
+                match_string(`Field2`, "NOVEMBER *") OR&#xD;
+                match_string(`Field2`, "DECEMBER *") OR&#xD;
+                &#xD;
+                match_string(`Field2`, "*/?/*") OR&#xD;
+                match_string(`Field2`, "*/??/*") OR&#xD;
+                match_string(`Field2`, "*-?-*") OR&#xD;
+                match_string(`Field2`, "*-??-*")&#xD;
+&#xD;
+match3 = match_string(`Field3`, "JAN.*") OR &#xD;
+                match_string(`Field3`, "FEB.*") OR&#xD;
+                match_string(`Field3`, "MAR.*") OR&#xD;
+                match_string(`Field3`, "APR.*") OR&#xD;
+                match_string(`Field3`, "MAY *") OR&#xD;
+                match_string(`Field3`, "JUN.*") OR&#xD;
+                match_string(`Field3`, "JULY *") OR&#xD;
+                match_string(`Field3`, "AUG.*") OR&#xD;
+                match_string(`Field3`, "SEPT.*") OR&#xD;
+                match_string(`Field3`, "OCT.*") OR&#xD;
+                match_string(`Field3`, "NOV.*") OR&#xD;
+                match_string(`Field3`, "DEC.*") OR&#xD;
+&#xD;
+                match_string(`Field3`, "JANUARY *") OR&#xD;
+                match_string(`Field3`, "FEBRUARY *") OR&#xD;
+                match_string(`Field3`, "MARCH *") OR&#xD;
+                match_string(`Field3`, "APRIL *") OR&#xD;
+                match_string(`Field3`, "MAY *") OR&#xD;
+                match_string(`Field3`, "JUNE *") OR&#xD;
+                match_string(`Field3`, "JULY *") OR&#xD;
+                match_string(`Field3`, "AUGUST *") OR&#xD;
+                match_string(`Field3`, "SEPTEMBER *") OR&#xD;
+                match_string(`Field3`, "OCTOBER *") OR&#xD;
+                match_string(`Field3`, "NOVEMBER *") OR&#xD;
+                match_string(`Field3`, "DECEMBER *") OR&#xD;
+                &#xD;
+                match_string(`Field3`, "*/?/*") OR&#xD;
+                match_string(`Field3`, "*/??/*") OR&#xD;
+                match_string(`Field3`, "*-?-*") OR&#xD;
+                match_string(`Field3`, "*-??-*")&#xD;
+&#xD;
+match4 = match_string(`Field4`, "JAN.*") OR &#xD;
+                match_string(`Field4`, "FEB.*") OR&#xD;
+                match_string(`Field4`, "MAR.*") OR&#xD;
+                match_string(`Field4`, "APR.*") OR&#xD;
+                match_string(`Field4`, "MAY *") OR&#xD;
+                match_string(`Field4`, "JUN.*") OR&#xD;
+                match_string(`Field4`, "JULY *") OR&#xD;
+                match_string(`Field4`, "AUG.*") OR&#xD;
+                match_string(`Field4`, "SEPT.*") OR&#xD;
+                match_string(`Field4`, "OCT.*") OR&#xD;
+                match_string(`Field4`, "NOV.*") OR&#xD;
+                match_string(`Field4`, "DEC.*") OR&#xD;
+&#xD;
+                match_string(`Field4`, "JANUARY *") OR&#xD;
+                match_string(`Field4`, "FEBRUARY *") OR&#xD;
+                match_string(`Field4`, "MARCH *") OR&#xD;
+                match_string(`Field4`, "APRIL *") OR&#xD;
+                match_string(`Field4`, "MAY *") OR&#xD;
+                match_string(`Field4`, "JUNE *") OR&#xD;
+                match_string(`Field4`, "JULY *") OR&#xD;
+                match_string(`Field4`, "AUGUST *") OR&#xD;
+                match_string(`Field4`, "SEPTEMBER *") OR&#xD;
+                match_string(`Field4`, "OCTOBER *") OR&#xD;
+                match_string(`Field4`, "NOVEMBER *") OR&#xD;
+                match_string(`Field4`, "DECEMBER *") OR&#xD;
+                &#xD;
+                match_string(`Field4`, "*/?/*") OR&#xD;
+                match_string(`Field4`, "*/??/*") OR&#xD;
+                match_string(`Field4`, "*-?-*") OR&#xD;
+                match_string(`Field4`, "*-??-*")&#xD;
+&#xD;
+match5 = match_string(`Field5`, "JAN.*") OR &#xD;
+                match_string(`Field5`, "FEB.*") OR&#xD;
+                match_string(`Field5`, "MAR.*") OR&#xD;
+                match_string(`Field5`, "APR.*") OR&#xD;
+                match_string(`Field5`, "MAY *") OR&#xD;
+                match_string(`Field5`, "JUN.*") OR&#xD;
+                match_string(`Field5`, "JULY *") OR&#xD;
+                match_string(`Field5`, "AUG.*") OR&#xD;
+                match_string(`Field5`, "SEPT.*") OR&#xD;
+                match_string(`Field5`, "OCT.*") OR&#xD;
+                match_string(`Field5`, "NOV.*") OR&#xD;
+                match_string(`Field5`, "DEC.*") OR&#xD;
+&#xD;
+                match_string(`Field5`, "JANUARY *") OR&#xD;
+                match_string(`Field5`, "FEBRUARY *") OR&#xD;
+                match_string(`Field5`, "MARCH *") OR&#xD;
+                match_string(`Field5`, "APRIL *") OR&#xD;
+                match_string(`Field5`, "MAY *") OR&#xD;
+                match_string(`Field5`, "JUNE *") OR&#xD;
+                match_string(`Field5`, "JULY *") OR&#xD;
+                match_string(`Field5`, "AUGUST *") OR&#xD;
+                match_string(`Field5`, "SEPTEMBER *") OR&#xD;
+                match_string(`Field5`, "OCTOBER *") OR&#xD;
+                match_string(`Field5`, "NOVEMBER *") OR&#xD;
+                match_string(`Field5`, "DECEMBER *") OR&#xD;
+                &#xD;
+                match_string(`Field5`, "*/?/*") OR&#xD;
+                match_string(`Field5`, "*/??/*") OR&#xD;
+                match_string(`Field5`, "*-?-*") OR&#xD;
+                match_string(`Field5`, "*-??-*")&#xD;
+&#xD;
+if match1 == 'true' then DTE = `Field1`&#xD;
+if match2 == 'true' then DTE = `Field2`&#xD;
+if match3 == 'true' then DTE = `Field3`&#xD;
+if match4 == 'true' then DTE = `Field4`&#xD;
+if match5 == 'true' then DTE = `Field5`&#xD;
+&#xD;
+&#xD;
+if inlist(`Field1`,`DTE`) then `Field1` = NULL&#xD;
+if inlist(`Field2`,`DTE`) then `Field2` = NULL&#xD;
+if inlist(`Field3`,`DTE`) then `Field3` = NULL&#xD;
+if inlist(`Field4`,`DTE`) then `Field4` = NULL&#xD;
+if inlist(`Field5`,`DTE`) then `Field5` = NULL&#xD;
+&#xD;
+</param>
+        <param dtype="Unknown" isnull="true" name="TERM_EXPRESSION" type="single"></param>
+        <param dtype="Boolean" name="GENERATE_ROWS" type="single">false</param>
+        <param dtype="Unknown" isnull="true" name="RETVAL_FIELDNAME" type="single"></param>
+        <param dtype="Unknown" isnull="true" name="PUSHROW_FIELDNAME" type="single"></param>
+        <param name="GROUP_FIELDS" type="matrix"/>
+        <param dtype="Unknown" isnull="true" name="GROUP_INIT_EXPRESSION" type="single"></param>
+        <param dtype="Unknown" isnull="true" name="GROUP_TERM_EXPRESSION" type="single"></param>
+        <param dtype="Boolean" name="ADD_LAST_VAL_FIELDS" type="single">false</param>
+      </paramset>
+    </step>
+    <step id="PASSTHRU" iid="17">
+      <propset>
+        <prop name="color">
+          <value dtype="String">LightRed</value>
+        </prop>
+        <prop name="default_target"/>
+        <prop name="description">
+          <value dtype="String">Realign Columns with Standards</value>
+        </prop>
+        <prop name="descriptive_text">
+          <value dtype="String">Field Layout</value>
+        </prop>
+        <prop name="node_position">
+          <value dtype="String">961.636363636365</value>
+          <value dtype="String">124</value>
+        </prop>
+        <prop name="notes">
+          <value dtype="String"></value>
+        </prop>
+        <prop name="owning_group_id"/>
+        <prop name="serial_target_position"/>
+      </propset>
+      <paramset>
+        <param name="FIELD_MAP" type="matrix">
+          <row>
+            <col dtype="String" name="INPUTNAME">Name</col>
+            <col dtype="String" name="OUTPUTNAME">Name</col>
+            <col dtype="Unknown" isnull="true" name="TYPE_OVERRIDE"></col>
+            <col dtype="Unknown" isnull="true" name="LENGTH_OVERRIDE"></col>
+          </row>
+          <row>
+            <col dtype="String" name="INPUTNAME">Name_Stnd</col>
+            <col dtype="String" name="OUTPUTNAME">Name_Stnd</col>
+            <col dtype="Unknown" isnull="true" name="TYPE_OVERRIDE"></col>
+            <col dtype="Unknown" isnull="true" name="LENGTH_OVERRIDE"></col>
+          </row>
+          <row>
+            <col dtype="String" name="INPUTNAME">Address</col>
+            <col dtype="String" name="OUTPUTNAME">Address</col>
+            <col dtype="Unknown" isnull="true" name="TYPE_OVERRIDE"></col>
+            <col dtype="Unknown" isnull="true" name="LENGTH_OVERRIDE"></col>
+          </row>
+          <row>
+            <col dtype="String" name="INPUTNAME">Address_Stnd</col>
+            <col dtype="String" name="OUTPUTNAME">Address_Stnd</col>
+            <col dtype="Unknown" isnull="true" name="TYPE_OVERRIDE"></col>
+            <col dtype="Unknown" isnull="true" name="LENGTH_OVERRIDE"></col>
+          </row>
+          <row>
+            <col dtype="String" name="INPUTNAME">LastLine</col>
+            <col dtype="String" name="OUTPUTNAME">LastLine</col>
+            <col dtype="Unknown" isnull="true" name="TYPE_OVERRIDE"></col>
+            <col dtype="Unknown" isnull="true" name="LENGTH_OVERRIDE"></col>
+          </row>
+          <row>
+            <col dtype="String" name="INPUTNAME">LastLine_Stnd</col>
+            <col dtype="String" name="OUTPUTNAME">LastLine_Stnd</col>
+            <col dtype="Unknown" isnull="true" name="TYPE_OVERRIDE"></col>
+            <col dtype="Unknown" isnull="true" name="LENGTH_OVERRIDE"></col>
+          </row>
+          <row>
+            <col dtype="String" name="INPUTNAME">Country</col>
+            <col dtype="String" name="OUTPUTNAME">Country</col>
+            <col dtype="Unknown" isnull="true" name="TYPE_OVERRIDE"></col>
+            <col dtype="Unknown" isnull="true" name="LENGTH_OVERRIDE"></col>
+          </row>
+          <row>
+            <col dtype="String" name="INPUTNAME">Email</col>
+            <col dtype="String" name="OUTPUTNAME">Email</col>
+            <col dtype="Unknown" isnull="true" name="TYPE_OVERRIDE"></col>
+            <col dtype="Unknown" isnull="true" name="LENGTH_OVERRIDE"></col>
+          </row>
+          <row>
+            <col dtype="String" name="INPUTNAME">Email_Stnd</col>
+            <col dtype="String" name="OUTPUTNAME">Email_Stnd</col>
+            <col dtype="Unknown" isnull="true" name="TYPE_OVERRIDE"></col>
+            <col dtype="Unknown" isnull="true" name="LENGTH_OVERRIDE"></col>
+          </row>
+          <row>
+            <col dtype="String" name="INPUTNAME">Phone</col>
+            <col dtype="String" name="OUTPUTNAME">Phone</col>
+            <col dtype="Unknown" isnull="true" name="TYPE_OVERRIDE"></col>
+            <col dtype="Unknown" isnull="true" name="LENGTH_OVERRIDE"></col>
+          </row>
+          <row>
+            <col dtype="String" name="INPUTNAME">Phone_Stnd</col>
+            <col dtype="String" name="OUTPUTNAME">Phone_Stnd</col>
+            <col dtype="Unknown" isnull="true" name="TYPE_OVERRIDE"></col>
+            <col dtype="Unknown" isnull="true" name="LENGTH_OVERRIDE"></col>
+          </row>
+          <row>
+            <col dtype="String" name="INPUTNAME">Date</col>
+            <col dtype="String" name="OUTPUTNAME">Date</col>
+            <col dtype="Unknown" isnull="true" name="TYPE_OVERRIDE"></col>
+            <col dtype="Unknown" isnull="true" name="LENGTH_OVERRIDE"></col>
+          </row>
+          <row>
+            <col dtype="String" name="INPUTNAME">Date_Stnd</col>
+            <col dtype="String" name="OUTPUTNAME">Date_Stnd</col>
+            <col dtype="Unknown" isnull="true" name="TYPE_OVERRIDE"></col>
+            <col dtype="Unknown" isnull="true" name="LENGTH_OVERRIDE"></col>
+          </row>
+        </param>
+      </paramset>
+    </step>
+    <step id="STANDARDIZE" iid="19" ver="1">
+      <propset>
+        <prop name="color"/>
+        <prop name="default_target"/>
+        <prop name="description">
+          <value dtype="String">Standardize</value>
+        </prop>
+        <prop name="descriptive_text">
+          <value dtype="String">Makes similar items the same. Examples of standardization are correcting misspellings (Mary instead of Mmary), using full company names instead of initials (International Business Machines instead of IBM), and using consistent naming conventions for states (North Dakota instead of ND)</value>
+        </prop>
+        <prop name="node_position">
+          <value dtype="String">839.181818181818</value>
+          <value dtype="String">123.727272727273</value>
+        </prop>
+        <prop name="notes">
+          <value dtype="String"></value>
+        </prop>
+        <prop name="owning_group_id"/>
+        <prop name="serial_target_position"/>
+      </propset>
+      <paramset>
+        <param name="STANDARDIZE_SOURCE" type="matrix">
+          <row>
+            <col dtype="String" name="INPUTNAME">Email</col>
+            <col dtype="String" name="OUTPUTNAME">Email_Stnd</col>
+            <col dtype="String" name="STANDARDIZE_DEFINITION">E-mail</col>
+            <col dtype="String" name="STANDARDIZE_SCHEME"></col>
+            <col dtype="Integer" name="STANDARDIZE_SCHEMEOPTS">0</col>
+            <col dtype="String" name="STANDARDIZE_MATCHDEFN"></col>
+            <col dtype="Integer" name="STANDARDIZE_MATCHSENS">0</col>
+          </row>
+          <row>
+            <col dtype="String" name="INPUTNAME">Phone</col>
+            <col dtype="String" name="OUTPUTNAME">Phone_Stnd</col>
+            <col dtype="String" name="STANDARDIZE_DEFINITION">Phone</col>
+            <col dtype="String" name="STANDARDIZE_SCHEME"></col>
+            <col dtype="Integer" name="STANDARDIZE_SCHEMEOPTS">0</col>
+            <col dtype="String" name="STANDARDIZE_MATCHDEFN"></col>
+            <col dtype="Integer" name="STANDARDIZE_MATCHSENS">0</col>
+          </row>
+          <row>
+            <col dtype="String" name="INPUTNAME">Date</col>
+            <col dtype="String" name="OUTPUTNAME">Date_Stnd</col>
+            <col dtype="String" name="STANDARDIZE_DEFINITION">Date (MDY)</col>
+            <col dtype="String" name="STANDARDIZE_SCHEME"></col>
+            <col dtype="Integer" name="STANDARDIZE_SCHEMEOPTS">0</col>
+            <col dtype="String" name="STANDARDIZE_MATCHDEFN"></col>
+            <col dtype="Integer" name="STANDARDIZE_MATCHSENS">0</col>
+          </row>
+          <row>
+            <col dtype="String" name="INPUTNAME">Address</col>
+            <col dtype="String" name="OUTPUTNAME">Address_Stnd</col>
+            <col dtype="String" name="STANDARDIZE_DEFINITION">Address</col>
+            <col dtype="String" name="STANDARDIZE_SCHEME"></col>
+            <col dtype="Integer" name="STANDARDIZE_SCHEMEOPTS">0</col>
+            <col dtype="String" name="STANDARDIZE_MATCHDEFN"></col>
+            <col dtype="Integer" name="STANDARDIZE_MATCHSENS">0</col>
+          </row>
+          <row>
+            <col dtype="String" name="INPUTNAME">LastLine</col>
+            <col dtype="String" name="OUTPUTNAME">LastLine_Stnd</col>
+            <col dtype="String" name="STANDARDIZE_DEFINITION">City - State/Province - Postal Code</col>
+            <col dtype="String" name="STANDARDIZE_SCHEME"></col>
+            <col dtype="Integer" name="STANDARDIZE_SCHEMEOPTS">0</col>
+            <col dtype="String" name="STANDARDIZE_MATCHDEFN"></col>
+            <col dtype="Integer" name="STANDARDIZE_MATCHSENS">0</col>
+          </row>
+          <row>
+            <col dtype="String" name="INPUTNAME">Name</col>
+            <col dtype="String" name="OUTPUTNAME">Name_Stnd</col>
+            <col dtype="String" name="STANDARDIZE_DEFINITION">Name</col>
+            <col dtype="String" name="STANDARDIZE_SCHEME"></col>
+            <col dtype="Integer" name="STANDARDIZE_SCHEMEOPTS">0</col>
+            <col dtype="String" name="STANDARDIZE_MATCHDEFN"></col>
+            <col dtype="Integer" name="STANDARDIZE_MATCHSENS">0</col>
+          </row>
+        </param>
+        <param name="FIELD_MAP" type="matrix">
+          <row>
+            <col dtype="String" name="INPUTNAME">Name</col>
+            <col dtype="String" name="OUTPUTNAME">Name</col>
+          </row>
+          <row>
+            <col dtype="String" name="INPUTNAME">Address</col>
+            <col dtype="String" name="OUTPUTNAME">Address</col>
+          </row>
+          <row>
+            <col dtype="String" name="INPUTNAME">Email</col>
+            <col dtype="String" name="OUTPUTNAME">Email</col>
+          </row>
+          <row>
+            <col dtype="String" name="INPUTNAME">Phone</col>
+            <col dtype="String" name="OUTPUTNAME">Phone</col>
+          </row>
+          <row>
+            <col dtype="String" name="INPUTNAME">Date</col>
+            <col dtype="String" name="OUTPUTNAME">Date</col>
+          </row>
+          <row>
+            <col dtype="String" name="INPUTNAME">LastLine</col>
+            <col dtype="String" name="OUTPUTNAME">LastLine</col>
+          </row>
+          <row>
+            <col dtype="String" name="INPUTNAME">Country</col>
+            <col dtype="String" name="OUTPUTNAME">Country</col>
+          </row>
+          <row>
+            <col dtype="String" name="INPUTNAME">Unknown</col>
+            <col dtype="String" name="OUTPUTNAME">Unknown</col>
+          </row>
+        </param>
+        <param dtype="Unknown" isnull="true" name="BF_PATH" type="single"></param>
+        <param dtype="String" name="BF_LOCALE" type="single">ENUSA</param>
+        <param dtype="Boolean" name="PRESERVENULL" type="single">false</param>
+        <param dtype="Unknown" isnull="true" name="LOCALE_FIELD" type="single"></param>
+        <param name="LOCALE_LIST" type="matrix"/>
+        <param dtype="Unknown" isnull="true" name="EXCEPTION_ACTION" type="single"></param>
+        <param dtype="Unknown" isnull="true" name="EXCEPTION_INFO" type="single"></param>
+        <param dtype="Unknown" isnull="true" name="SCORE_DEPTH" type="single"></param>
+        <param dtype="Unknown" isnull="true" name="RESOURCE_LEVEL" type="single"></param>
+        <param dtype="Boolean" name="STDZ_FLAG" type="single">false</param>
+      </paramset>
+    </step>
+    <step id="PASSTHRU" iid="21">
+      <propset>
+        <prop name="color"/>
+        <prop name="default_target"/>
+        <prop name="description">
+          <value dtype="String">Drop NULL Fields</value>
+        </prop>
+        <prop name="descriptive_text">
+          <value dtype="String">Renames and reorders field names as they pass out of this node</value>
+        </prop>
+        <prop name="node_position">
+          <value dtype="String">556.856957325331</value>
+          <value dtype="String">42.0050701728073</value>
+        </prop>
+        <prop name="notes">
+          <value dtype="String"></value>
+        </prop>
+        <prop name="owning_group_id"/>
+        <prop name="serial_target_position"/>
+      </propset>
+      <paramset>
+        <param name="FIELD_MAP" type="matrix">
+          <row>
+            <col dtype="String" name="INPUTNAME">Name</col>
+            <col dtype="String" name="OUTPUTNAME">Name</col>
+            <col dtype="Unknown" isnull="true" name="TYPE_OVERRIDE"></col>
+            <col dtype="Unknown" isnull="true" name="LENGTH_OVERRIDE"></col>
+          </row>
+          <row>
+            <col dtype="String" name="INPUTNAME">Address</col>
+            <col dtype="String" name="OUTPUTNAME">Address</col>
+            <col dtype="Unknown" isnull="true" name="TYPE_OVERRIDE"></col>
+            <col dtype="Unknown" isnull="true" name="LENGTH_OVERRIDE"></col>
+          </row>
+          <row>
+            <col dtype="String" name="INPUTNAME">LastLine</col>
+            <col dtype="String" name="OUTPUTNAME">LastLine</col>
+            <col dtype="Unknown" isnull="true" name="TYPE_OVERRIDE"></col>
+            <col dtype="Unknown" isnull="true" name="LENGTH_OVERRIDE"></col>
+          </row>
+          <row>
+            <col dtype="String" name="INPUTNAME">Country</col>
+            <col dtype="String" name="OUTPUTNAME">Country</col>
+            <col dtype="Unknown" isnull="true" name="TYPE_OVERRIDE"></col>
+            <col dtype="Unknown" isnull="true" name="LENGTH_OVERRIDE"></col>
+          </row>
+          <row>
+            <col dtype="String" name="INPUTNAME">Phone</col>
+            <col dtype="String" name="OUTPUTNAME">Phone</col>
+            <col dtype="Unknown" isnull="true" name="TYPE_OVERRIDE"></col>
+            <col dtype="Unknown" isnull="true" name="LENGTH_OVERRIDE"></col>
+          </row>
+          <row>
+            <col dtype="String" name="INPUTNAME">Email</col>
+            <col dtype="String" name="OUTPUTNAME">Email</col>
+            <col dtype="Unknown" isnull="true" name="TYPE_OVERRIDE"></col>
+            <col dtype="Unknown" isnull="true" name="LENGTH_OVERRIDE"></col>
+          </row>
+          <row>
+            <col dtype="String" name="INPUTNAME">DTE</col>
+            <col dtype="String" name="OUTPUTNAME">Date</col>
+            <col dtype="Unknown" isnull="true" name="TYPE_OVERRIDE"></col>
+            <col dtype="Unknown" isnull="true" name="LENGTH_OVERRIDE"></col>
+          </row>
+          <row>
+            <col dtype="String" name="INPUTNAME">Unknown</col>
+            <col dtype="String" name="OUTPUTNAME">Unknown</col>
+            <col dtype="Unknown" isnull="true" name="TYPE_OVERRIDE"></col>
+            <col dtype="Unknown" isnull="true" name="LENGTH_OVERRIDE"></col>
+          </row>
+        </param>
+      </paramset>
+    </step>
+    <linkage>
+      <link child="4" cslot="0" parent="0" pslot="0"/>
+      <link child="7" cslot="0" parent="2" pslot="0"/>
+      <link child="2" cslot="0" parent="3" pslot="0"/>
+      <link child="3" cslot="0" parent="4" pslot="0"/>
+      <link child="1" cslot="0" parent="5" pslot="0"/>
+      <link child="5" cslot="0" parent="6" pslot="0"/>
+      <link child="6" cslot="0" parent="7" pslot="0"/>
+    </linkage>
+  </page>
+
+</datafluxdocument>

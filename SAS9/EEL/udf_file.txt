@@ -1,0 +1,65 @@
+// File udfs
+///////////////////////////////////////////////////////////////////////////////////
+// Jim Brousseau - SAS Inc.
+// Created:  12/15/16
+//////////////////////////////////////////////////////////////////////////////////
+//
+// Function:     cleanCSV
+// Description:  Removes embedded line breaks in text file records.  
+//               These are line breaks within quoted fields that cause records to break prematurely 
+// Inputs:       filename - Full path to text file.
+// Output:       integer - Return code
+// 				0  - Conversion successful
+//         		-1 - Unable to open input file
+//         		-2 - Unable to open temporary file
+
+function cleanCSV return integer
+// Usage: cleanCSV(<path to file>)
+// parameter 1 string  Full path to input file
+//
+string filename
+file inp
+file outp
+boolean f
+boolean inquote
+boolean iscr
+boolean islf
+string b
+integer n
+
+filename=parameter(1)
+inquote=false
+iscr=false
+islf=false
+
+f=inp.open(filename,"r")
+if f then
+	begin
+		f=outp.open(filename&".tmp","w")
+		if f then
+			begin
+				n=inp.readbytes(1,b)
+				while n > 0
+					begin
+						if b == '"' then 
+							if inquote then inquote=false
+							else inquote=true
+						if b==chr(10) or b==chr(13) then
+							begin
+								if inquote==false then outp.writebytes(1,b)
+								else outp.writebytes(1," ")
+							end
+						else
+							outp.writebytes(1,b)
+						n=inp.readbytes(1,b)
+					end
+				outp.close()
+			end
+			else return -2
+			inp.close()
+	end
+	else return -1
+    copyfile(filename&".tmp",filename)
+    deletefile(filename&".tmp")
+	return 0						
+END FUNCTION

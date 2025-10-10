@@ -1,0 +1,23 @@
+ID,Name,Address,City,Prov,PostCode,Country,Amount,Phone,Email
+101,Ben Linus,600 Westover Hills,Cary,NC,27513,USA,1000,799-1239,ben.linus@lost.com
+102,Ben Linuss,600 Westover Hills Dr.,Cary,NC,,USA,2000,(919)-757-3208,blinus@gmail.com
+201,Mr. Jacques Plante,14 Denis Road,Cantley,QC,J8V 3J5,CAN,50,(819)-555-2334,
+202,Tony Sarducci,2125 31 Ave,Calgary,Alberta,T2T 1T5,CAN,100,,
+203,Anthony Sarducci, ,,,,CAN,400,tony.duke@telus.ca,
+204,Amar Singh,5264 Joel Avenue,"Burlington,ON",L7L3Y7,,CAN,300,,
+205,Jack Plant,,,,,CAN,50,555-2334,JPlante@gmail.com
+206,Mr. Arnold Toporowski,"38 Metropol, Unit 1605",Ottawa ON K1Z 1E9,,613 755-2313,CAN,90,,ArnoldT@sas.com
+207,Ms MJ Belanger,4500 Sherbrooke St W,Montreal,QC,H3Z 1E6,CAN,950,514 799 9239,
+208,Mr. Anthony Sarducci,2125 31 Ave SW,Calgary AB T2T1T5,,,CAN,10,403.265.5177,tony.sarducci@bell.ca
+209,"Plant, Jack",201-14 Denis Rd,Gatineau,,J8V3J5,CAN,150,555-2334,
+210,Mme Marie-Josée Bélanger,"4500, rue Sherbrook Ouest",Westmount,PQ,,CAN,900,,MJBelanger@bell.ca
+211,Ms. M.-J. Bélanger,4500 Sherbrooke O,Mtl,QC,H3Z 1E6,CAN,100,799-9239,
+212,Jacques Plante,"14, Chemin Denis, app 201",Cantley,Quebec,,CAN,40,,
+213,Amar Singh,5264 Joel Av,Burlington,ON,,CAN,100,(905) 637 5119,amar.singh@lost.com
+214,Arnie Toperowski,"38, privé Metropole, app 1605",Otawa  ,Ont,K1Z1E9,CAN,400,,
+215,Jacques Plante,14 Denise Unit 201,"Cantley, QC, J8V 3J5",,,CAN,10,,
+216,JF Tremblay,P.O. Box 123,St-Marc-du-Lac-Long,QC,,CAN,200,819-555-4545,
+217,Jean-Francois Tremblay,CP 123,Saint Marc QC,G0L 1TO,,CAN,90,,JFTremblay@bell.ca
+218,"Tremblay, JF",CP 123,St-Marc,Quebec,GOL 1T0,CAN,50,555-4545,
+219,A. Toporowski,"38 Metropole Private, Unit 1605",Ottawa,Ontario,K1Z 1E9,CAN,100,7552313,ArnoldT@sas.com
+220,Tony Sarducci,2125 31 Av,Calgary,AB,,CAN,400,,tony.duke@telus.ca

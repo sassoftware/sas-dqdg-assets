@@ -1,0 +1,144 @@
+//////////////////////////////////////////////////////////////////////////////////
+// Translate the Loqate result code into proper english							//
+//////////////////////////////////////////////////////////////////////////////////
+
+//////////////////////////////////////////////////////////////////////////////////
+// Function:		getMatchLevel												//
+// Description:																	//
+// Input:		1 string parameter       										//
+// Output:      1 string														//	
+//////////////////////////////////////////////////////////////////////////////////
+
+function getMatchLevel return string
+ 
+ string getMatchLevel
+ 
+ if parameter(1) == '5' then getMatchLevel = 'Delivery Point' //PostBox or SubBuilding
+ if parameter(1) == '4' then getMatchLevel = 'Premise' //Premise or Building
+ if parameter(1) == '3' then getMatchLevel = 'Thoroughfare'
+ if parameter(1) == '2' then getMatchLevel = 'Locality'
+ if parameter(1) == '1' then getMatchLevel = 'AdministrativeArea'
+ if parameter(1) == '0' then getMatchLevel = 'None'
+
+ return getMatchLevel
+
+end function
+
+//////////////////////////////////////////////////////////////////////////////////
+// Function:     avcLoqate														//
+// Description: 								 								//
+// Input:		1 string parameter			       								//
+// Outputs:     8 strings concatenated											//
+//////////////////////////////////////////////////////////////////////////////////
+
+function avcLoqate return string
+ 
+ string avcLoqate
+ string acw1
+ string acw2
+ string acw3
+ string acw4
+ string(1) acw1c1
+ string(1) acw1c2
+ string(1) acw1c3
+ string(1) acw2c1
+ string(1) acw2c2
+ string(1) acw2c3
+
+ string VerificationStatus
+ string PostProcessedVerificationMatchLevel
+ string PreProcessedVerificationMatchLevel
+ string ParsingStatus
+ string LexiconIdentificationMatchLevel
+ string ContextIdentificationMatchLevel
+ string PostcodeStatus
+ integer Matchscore
+
+ parse(parameter(1),'-',acw1,acw2,acw3,acw4)
+ acw1c1 = left(acw1,1)
+ acw1c2 = mid(acw1,2,1)
+ acw1c3 = right(acw1,1)
+ acw2c1 = left(acw2,1)
+ acw2c2 = mid(acw2,2,1)
+ acw2c3 = right(acw2,1)
+
+ //Verification Status
+ if acw1c1 == 'V' then VerificationStatus = 'Verified'
+ if acw1c1 == 'P' then VerificationStatus = 'Partially Verified'
+ if acw1c1 == 'U' then VerificationStatus = 'Unverified'
+ if acw1c1 == 'A' then VerificationStatus = 'Ambiguous'
+ if acw1c1 == 'C' then VerificationStatus = 'Conflict'
+ if acw1c1 == 'R' then VerificationStatus = 'Reverted'
+
+ //Post-Processed Verification Match Level
+ PostProcessedVerificationMatchLevel = getMatchLevel(acw1c2)
+	
+ //Pre-Processed Verification Match Level
+ PreProcessedVerificationMatchLevel = getMatchLevel(acw1c3)
+	
+ //Parsing Status
+ if acw2c1 == 'I' then ParsingStatus = 'Identified and Parsed'
+ if acw2c1 == 'U' then ParsingStatus = 'Unable to parse'
+	
+ //Lexicon Identification Match Level
+ LexiconIdentificationMatchLevel = getMatchLevel(acw2c2)
+
+ //Context Identification Match Level
+ ContextIdentificationMatchLevel = getMatchLevel(acw2c3)
+
+ //Postcode Status
+ if acw3 == 'P8' then PostcodeStatus = 'PostalCodePrimary and PostalCodeSecondary verified'
+ if acw3 == 'P7' then PostcodeStatus = 'PostalCodePrimary verified, PostalCodeSecondary added or changed'
+ if acw3 == 'P6' then PostcodeStatus = 'PostalCodePrimary verified'
+ if acw3 == 'P5' then PostcodeStatus = 'PostalCodePrimary verified with small change'
+ if acw3 == 'P4' then PostcodeStatus = 'PostalCodePrimary verified with large change'
+ if acw3 == 'P3' then PostcodeStatus = 'PostalCodePrimary added'
+ if acw3 == 'P2' then PostcodeStatus = 'PostalCodePrimary identified by lexicon'
+ if acw3 == 'P1' then PostcodeStatus = 'PostalCodePrimary identified by context'
+ if acw3 == 'P0' then PostcodeStatus = 'PostalCodePrimary empty'
+
+ //Matchscore
+ Matchscore = acw4
+ 
+ //Generate return string
+ avcLoqate = VerificationStatus & '-' & PostProcessedVerificationMatchLevel & '-' & PreProcessedVerificationMatchLevel & '-' & ParsingStatus 
+	& '-' & LexiconIdentificationMatchLevel & '-' & ContextIdentificationMatchLevel & '-' & PostcodeStatus & '-' & Matchscore
+ 
+ return avcLoqate
+ 
+end function
+
+//////////////////////////////////////////////////////////////////////////////////
+// Function:     geoLoqate														//
+// Description: 								 								//
+// Input:		1 string parameter			       								//
+// Outputs:     2 strings concatenated											//
+//////////////////////////////////////////////////////////////////////////////////
+
+function geoLoqate return string
+ 
+ string geoLoqate
+ string(1) acw1c1
+ string(1) acw1c2
+ 
+ string GeocodingStatus
+ string GeocodingLevel
+
+ acw1c1 = left(parameter(1),1)
+ acw1c2 = right(parameter(1),1)
+
+ //Geocoding Status
+ if acw1c1 == 'P' then GeocodingStatus = 'Point'
+ if acw1c1 == 'I' then GeocodingStatus = 'Interpolated'
+ if acw1c1 == 'A' then GeocodingStatus = 'Average'
+ if acw1c1 == 'U' then GeocodingStatus = 'Unable to geocode'
+
+ //Geocoding Level
+ GeocodingLevel = getMatchLevel(acw1c2)
+
+ //Generate return string
+ geoLoqate = GeocodingStatus & '-' & GeocodingLevel
+ 
+ return geoLoqate
+ 
+end function
