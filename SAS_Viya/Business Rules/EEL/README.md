@@ -14,6 +14,10 @@
 - How to use your own functions in Data Management Studio:  https://communities.sas.com/t5/SAS-Communities-Library/How-to-use-your-own-functions-in-Data-Management-Studio/ta-p/368392?search-action-id=246136363861&search-result-uid=368392
 - ESP Pattern Windows:  https://communities.sas.com/t5/SAS-Communities-Library/ESP-Pattern-Windows/ta-p/343467?search-action-id=246136363861&search-result-uid=343467
 
+### Documentation:
+- Overview of Expression Engine Language:  https://go.documentation.sas.com/doc/en/espcdc/v_064/engelref/n1w06w1wjvul9en1xuyuuh5bn3u7.htm
+- EEL Procedure:  https://go.documentation.sas.com/doc/en/vwbdqclref/v_001/n11g1bmg2dnj7sn1lot39az3b7ou.htm
+
 #### Assets:
 
 - User Defined Functions (UDF) allow you to extend the functionality of the DataFlux Expression Engine Language by creating reusable custom logic.  These functions can be used in data flows, process flows, business rules, and other components of the DataFlux platform.
