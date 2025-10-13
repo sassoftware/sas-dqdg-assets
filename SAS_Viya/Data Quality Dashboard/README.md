@@ -4,4 +4,5 @@ This demo showcases how SAS Viya can be used to build a comprehensive data quali
 ![](./images/dq-dashboard.png)
 
 ## Artifacts
-### All necessary files are here:  [Global Technology Practice / Fingertips workshops / DQ-Dashboard · GitLab](https://gitlab.sas.com/gtp/fingertips/dq-dashboard)
+Artifacts are being zipped and will be posted soon
+<!-- This text is hidden  ### All necessary files are here:  [Global Technology Practice / Fingertips workshops / DQ-Dashboard · GitLab](https://gitlab.sas.com/gtp/fingertips/dq-dashboard) -->
